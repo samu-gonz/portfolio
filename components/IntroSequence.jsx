@@ -3,18 +3,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const ArrowIcon = () => (
-  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path
-      d="M5 12H19M19 12L12 5M19 12L12 19"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
 export default function IntroSequence({ onComplete }) {
   const [isZooming, setIsZooming] = useState(false);
 
@@ -62,6 +50,16 @@ export default function IntroSequence({ onComplete }) {
                   <stop offset="0%" stopColor="#0d162d" />
                   <stop offset="100%" stopColor="#0f1b36" />
                 </linearGradient>
+                <linearGradient id="hairFadeLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#2a201b" />
+                  <stop offset="55%" stopColor="#4a362d" />
+                  <stop offset="100%" stopColor="#bd8a66" />
+                </linearGradient>
+                <linearGradient id="hairFadeRight" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#2a201b" />
+                  <stop offset="55%" stopColor="#4a362d" />
+                  <stop offset="100%" stopColor="#bd8a66" />
+                </linearGradient>
               </defs>
 
               <rect width="1200" height="700" fill="url(#wallGrad)" />
@@ -70,10 +68,11 @@ export default function IntroSequence({ onComplete }) {
               {/* Poster abstracto texturizado en pared */}
               <rect x="875" y="85" width="210" height="250" rx="6" fill="#f3f6fb" stroke="#c7ccd5" strokeWidth="4" />
               <rect x="892" y="102" width="176" height="216" rx="4" fill="#e3e7f0" />
-              <path d="M904 284L948 220L986 252L1032 186L1060 228" stroke="#4f46e5" strokeWidth="7" fill="none" />
-              <path d="M902 162L975 138L1058 176" stroke="#06b6d4" strokeWidth="6" fill="none" />
+              <path d="M900 280L948 214L989 246L1032 183L1064 226" stroke="#4f46e5" strokeWidth="7" fill="none" />
+              <path d="M902 162L972 136L1058 176" stroke="#06b6d4" strokeWidth="6" fill="none" />
               <circle cx="950" cy="256" r="20" fill="#10b981" fillOpacity="0.35" />
               <circle cx="1028" cy="140" r="14" fill="#6366f1" fillOpacity="0.4" />
+              <rect x="912" y="110" width="148" height="18" rx="4" fill="#c7d0de" fillOpacity="0.9" />
               <path d="M900 306H1062" stroke="#c8d1de" strokeWidth="4" />
               <path d="M900 126H1062" stroke="#c8d1de" strokeWidth="3" strokeDasharray="4 6" />
 
@@ -81,14 +80,14 @@ export default function IntroSequence({ onComplete }) {
               <rect x="70" y="465" width="1060" height="34" rx="10" fill="url(#deskGrad)" />
               <rect x="85" y="499" width="16" height="201" fill="#6e7077" />
               <rect x="1098" y="499" width="16" height="201" fill="#6e7077" />
-              <ellipse cx="600" cy="507" rx="190" ry="10" fill="#2d3340" fillOpacity="0.16" />
+              <ellipse cx="600" cy="507" rx="190" ry="10" fill="black" fillOpacity="0.1" />
               <rect x="486" y="486" width="230" height="16" rx="6" fill="#252a35" />
-              <ellipse cx="600" cy="503" rx="130" ry="6" fill="#1c2230" fillOpacity="0.2" />
+              <ellipse cx="600" cy="503" rx="130" ry="6" fill="black" fillOpacity="0.1" />
               <rect x="740" y="492" width="42" height="8" rx="4" fill="#fafafa" />
-              <ellipse cx="761" cy="503" rx="28" ry="4" fill="#2d3340" fillOpacity="0.14" />
+              <ellipse cx="761" cy="503" rx="28" ry="4" fill="black" fillOpacity="0.1" />
 
               {/* Taza y humo */}
-              <ellipse cx="882" cy="489" rx="30" ry="6" fill="#2d3340" fillOpacity="0.18" />
+              <ellipse cx="882" cy="489" rx="30" ry="6" fill="black" fillOpacity="0.1" />
               <path d="M860 451H905V486H860Z" fill="#2f3f53" />
               <ellipse cx="882" cy="451" rx="22" ry="4.5" fill="#3d5169" />
               <ellipse cx="882" cy="451.5" rx="14" ry="2.8" fill="#6f8092" />
@@ -97,7 +96,7 @@ export default function IntroSequence({ onComplete }) {
               <path d="M891 447C891 437 896 429 902 423" stroke="#d5d9e2" strokeWidth="3" fill="none" className="steam steam--delay" />
 
               {/* Planta */}
-              <ellipse cx="163" cy="490" rx="34" ry="7" fill="#2d3340" fillOpacity="0.16" />
+              <ellipse cx="163" cy="490" rx="34" ry="7" fill="black" fillOpacity="0.1" />
               <rect x="135" y="444" width="56" height="45" rx="8" fill="#8d6b4f" />
               <path d="M163 444C154 424 155 406 169 393C176 410 177 427 163 444Z" fill="#3f7038" />
               <path d="M150 445C142 429 145 414 158 403C164 419 162 432 150 445Z" fill="#4a8340" />
@@ -111,15 +110,23 @@ export default function IntroSequence({ onComplete }) {
               <ellipse cx="600" cy="505" rx="95" ry="12" fill="#1f2533" />
 
               {/* Persona realista de espaldas */}
+              <ellipse cx="600" cy="646" rx="130" ry="18" fill="black" fillOpacity="0.1" />
+              {/* Silla ergonomica negra */}
+              <path d="M500 640C500 560 538 518 600 518C662 518 700 560 700 640V700H500V640Z" fill="#1f232c" />
+              <path d="M520 628C520 565 551 535 600 535C649 535 680 565 680 628V700H520V628Z" fill="#2a2f3a" />
+              <rect x="580" y="640" width="40" height="38" rx="8" fill="#191d26" />
               <path d="M515 664C515 644 533 629 555 629H646C668 629 686 644 686 664V700H515V664Z" fill="#cfd4dc" />
-              <path d="M478 481C478 430 531 387 600 387C669 387 722 430 722 481V635H478V481Z" fill="#2c4b75" />
-              <path d="M503 468C530 430 569 412 600 412C631 412 670 430 697 468L677 501C655 480 628 466 600 466C572 466 545 480 523 501L503 468Z" fill="#365a89" />
+              <path d="M478 481C478 430 531 387 600 387C669 387 722 430 722 481V635H478V481Z" fill="#274a72" />
+              <path d="M500 474C530 433 567 413 600 413C633 413 670 433 700 474L679 511C656 488 628 474 600 474C572 474 544 488 521 511L500 474Z" fill="#335f8f" />
+              {/* Cuello integrado de manera fluida con hombros */}
+              <path d="M563 402C563 379 578 364 600 364C622 364 637 379 637 402V418H563V402Z" fill="#bd8a66" />
               <path d="M454 496C462 452 492 425 530 419L536 456C513 462 495 479 487 504L476 548H450L454 496Z" fill="#294769" />
               <path d="M746 496C738 452 708 425 670 419L664 456C687 462 705 479 713 504L724 548H750L746 496Z" fill="#294769" />
-              <path d="M566 384C566 362 579 347 600 347C621 347 634 362 634 384V407H566V384Z" fill="#bd8a66" />
               <ellipse cx="600" cy="323" rx="58" ry="60" fill="#bd8a66" />
-              <path d="M545 324C545 282 573 251 612 251C648 251 677 279 680 317C662 306 642 300 622 300C593 300 565 311 545 324Z" fill="#3f3027" />
-              <path d="M546 330C559 304 582 289 612 289C640 289 664 301 678 322C669 345 647 360 620 360H585C566 360 551 349 546 330Z" fill="#4c392f" />
+              {/* Corte de pelo low fade con degradado a piel */}
+              <path d="M543 321C543 286 567 256 603 256C638 256 663 285 666 318C644 304 622 296 600 296C579 296 560 302 543 321Z" fill="#2b211d" />
+              <path d="M548 328C555 306 573 291 596 288V352C574 350 556 342 548 328Z" fill="url(#hairFadeLeft)" />
+              <path d="M652 328C645 306 627 291 604 288V352C626 350 644 342 652 328Z" fill="url(#hairFadeRight)" />
             </svg>
 
             <motion.div
@@ -143,23 +150,12 @@ export default function IntroSequence({ onComplete }) {
                 <p className="pl-6"><span className="text-purple-400">await</span> <span className="text-blue-400">compile</span>(schema);</p>
                 <p className="pl-6"><span className="text-purple-400">const</span> <span className="text-blue-400">javaTx</span> = <span className="text-blue-400">backend</span>.beginTransaction();</p>
                 <p className="pl-6"><span className="text-blue-400">javaTx</span>.commit();</p>
-                <p className="pl-3">{"}"} <span className="text-yellow-400">catch</span> (e) {"{"}</p>
-                <p className="pl-6"><span className="text-blue-400">javaTx</span>?.rollback?.();</p>
-                <p className="pl-6"><span className="text-blue-400">logger</span>.error(e);</p>
+                <p className="pl-3">{"}"} <span className="text-yellow-400">catch</span> (error) {"{"}</p>
+                <p className="pl-6"><span className="text-blue-400">console</span>.error(error);</p>
                 <p className="pl-3">{"}"}</p>
                 <p>{"}"}<span className="ml-1 inline-block h-2.5 w-1 animate-pulse bg-cyan-300 align-middle" /></p>
               </div>
             </motion.div>
-
-            {/* Mascara opaca para que el codigo nunca atraviese la cabeza/silueta. */}
-            <div className="pointer-events-none absolute inset-0 z-30">
-              <svg viewBox="0 0 1200 700" className="h-full w-full" aria-hidden="true">
-                <ellipse cx="600" cy="323" rx="58" ry="60" fill="#bd8a66" />
-                <path d="M545 324C545 282 573 251 612 251C648 251 677 279 680 317C662 306 642 300 622 300C593 300 565 311 545 324Z" fill="#3f3027" />
-                <path d="M546 330C559 304 582 289 612 289C640 289 664 301 678 322C669 345 647 360 620 360H585C566 360 551 349 546 330Z" fill="#4c392f" />
-                <path d="M566 384C566 362 579 347 600 347C621 347 634 362 634 384V407H566V384Z" fill="#bd8a66" />
-              </svg>
-            </div>
           </div>
 
           <motion.div
@@ -175,7 +171,7 @@ export default function IntroSequence({ onComplete }) {
           whileTap={{ scale: 0.98 }}
           className="glass-card absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-cyan-300/45"
         >
-          Compilar y Entrar al Sistema <ArrowIcon />
+          Compilar y Entrar al Sistema ➔
         </motion.button>
 
         {isZooming ? (

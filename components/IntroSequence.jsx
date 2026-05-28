@@ -31,7 +31,7 @@ export default function IntroSequence({ onComplete }) {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center overflow-hidden bg-[#0b0f19] p-4"
+        className="fixed inset-0 z-50 flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-[#0b0f19] p-4"
       >
         <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-indigo-500/20 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-3xl" />
@@ -40,111 +40,100 @@ export default function IntroSequence({ onComplete }) {
           initial={{ scale: 1, rotateX: 0, rotateY: 0, opacity: 1 }}
           animate={
             isZooming
-              ? { scale: 10, x: 0, y: -130, rotateX: -4, rotateY: 2, opacity: 0 }
+              ? { scale: 14, x: 0, y: -185, rotateX: -5, rotateY: 2.5, opacity: 0 }
               : { scale: 1, x: 0, y: 0, rotateX: 0, rotateY: 0, opacity: 1 }
           }
-          transition={{ duration: 1.4, ease: [0.2, 0.8, 0.2, 1] }}
-          className="relative w-full max-w-6xl rounded-3xl border border-white/10 bg-slate-900/40 p-6 shadow-[0_20px_70px_rgba(2,6,23,0.55)] backdrop-blur-md md:p-10"
+          transition={{ duration: 1.55, ease: [0.2, 0.82, 0.2, 1] }}
+          className="relative w-full max-w-6xl rounded-3xl border border-white/10 bg-slate-900/45 p-4 shadow-[0_20px_70px_rgba(2,6,23,0.55)] backdrop-blur-md md:p-8"
           style={{ transformStyle: "preserve-3d", perspective: 1200 }}
         >
-          <div className="relative z-10 overflow-hidden rounded-2xl border border-white/10 bg-[#d7dbe1]">
-            <div className="absolute right-14 top-8 h-44 w-44 border border-slate-300/80 bg-[#e9edf2]">
-              <div className="absolute left-0 right-0 top-1/2 h-px bg-slate-300/80" />
-              <div className="absolute bottom-0 left-1/2 top-0 w-px bg-slate-300/80" />
-            </div>
+          <div className="relative z-10 overflow-hidden rounded-2xl border border-white/10 bg-[#d9dde4]">
+            <svg viewBox="0 0 1200 700" className="h-full w-full" aria-hidden="true">
+              <defs>
+                <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#e6e9ef" />
+                  <stop offset="100%" stopColor="#c9ced8" />
+                </linearGradient>
+                <linearGradient id="deskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#d7b896" />
+                  <stop offset="100%" stopColor="#bf9b78" />
+                </linearGradient>
+                <linearGradient id="monitorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0d162d" />
+                  <stop offset="100%" stopColor="#0f1b36" />
+                </linearGradient>
+              </defs>
 
-            <div className="absolute bottom-16 right-20 h-14 w-4 rounded-full bg-slate-700">
-              <div className="absolute -left-24 top-2 h-1.5 w-24 rotate-[20deg] rounded-full bg-slate-700" />
-              <div className="absolute -left-[9.5rem] -top-4 h-10 w-24 rounded-full bg-slate-800" />
-              <div className="absolute -left-4 top-12 h-2 w-10 rounded-full bg-slate-800" />
-            </div>
+              <rect width="1200" height="700" fill="url(#wallGrad)" />
+              <rect x="0" y="510" width="1200" height="190" fill="#b9bec8" />
 
-            <div className="absolute bottom-16 left-1/2 h-14 w-14 rounded-full bg-slate-300 shadow-inner" />
-            <div className="absolute bottom-14 right-48 h-10 w-12 rounded-b-2xl rounded-t-xl bg-slate-600/85" />
-            <div className="absolute bottom-[3.75rem] left-14 h-8 w-16 rounded-t-xl bg-[#806044]" />
-            <div className="absolute bottom-[5.75rem] left-16 h-14 w-12 rounded-t-full bg-[#3f612f]" />
-            <div className="absolute bottom-[5.75rem] left-24 h-10 w-9 rounded-t-full bg-[#4d7338]" />
+              {/* Cuadro moderno en pared */}
+              <rect x="875" y="85" width="210" height="250" rx="6" fill="#f3f6fb" stroke="#c7ccd5" strokeWidth="4" />
+              <path d="M905 300L960 215L1010 270L1055 175" stroke="#5b79ff" strokeWidth="8" fill="none" />
+              <rect x="920" y="110" width="125" height="24" rx="4" fill="#dbe2ef" />
 
-            <div className="relative min-h-[420px] p-6 md:min-h-[510px] md:p-8">
-              <div className="absolute bottom-10 left-0 right-0 h-5 bg-[#b6bcc4]" />
+              {/* Escritorio y accesorios */}
+              <rect x="70" y="465" width="1060" height="34" rx="10" fill="url(#deskGrad)" />
+              <rect x="85" y="499" width="16" height="190" fill="#6e7077" />
+              <rect x="1098" y="499" width="16" height="190" fill="#6e7077" />
+              <rect x="486" y="486" width="230" height="16" rx="6" fill="#252a35" />
+              <rect x="740" y="492" width="42" height="8" rx="4" fill="#fafafa" />
 
-              <motion.div
-                animate={isZooming ? { scale: 1.08, opacity: 0 } : { scale: 1, opacity: 1 }}
-                transition={{ duration: 0.9, ease: "easeInOut" }}
-                className="absolute bottom-[110px] left-1/2 z-10 h-52 w-72 -translate-x-1/2 rounded-2xl border-[8px] border-slate-900 bg-[#0f172a] md:h-56 md:w-80"
-              >
-                <div className="border-b border-white/10 px-3 py-2 text-[10px] text-slate-400">
-                  coding-session.tsx - VS Code
-                </div>
+              {/* Taza y humo */}
+              <path d="M860 451H905V486H860Z" fill="#2f3f53" />
+              <path d="M905 457C917 457 921 463 921 470C921 477 917 482 905 482" stroke="#2f3f53" strokeWidth="5" fill="none" />
+              <path d="M875 444C875 434 880 426 886 420" stroke="#d5d9e2" strokeWidth="3" fill="none" className="steam" />
+              <path d="M891 447C891 437 896 429 902 423" stroke="#d5d9e2" strokeWidth="3" fill="none" className="steam steam--delay" />
 
-                {/* El codigo se ve solo en las esquinas para un look mas cinematografico. */}
-                <div className="relative h-[calc(100%-1.75rem)] overflow-hidden">
-                  <div className="absolute left-0 top-0 h-24 w-40 bg-gradient-to-br from-[#0b1733] via-[#0e1b39] to-transparent p-2 font-mono text-[9px] leading-relaxed md:text-[10px]">
-                    <p className="text-indigo-300">
-                      <span className="text-fuchsia-300">const</span> init ={" "}
-                      <span className="text-cyan-300">async</span>
-                    </p>
-                    <p className="text-slate-300">
-                      <span className="text-cyan-300">await</span>{" "}
-                      secure(<span className="text-emerald-300">json</span>)
-                    </p>
-                  </div>
+              {/* Planta */}
+              <rect x="135" y="444" width="56" height="45" rx="8" fill="#8d6b4f" />
+              <path d="M163 444C154 424 155 406 169 393C176 410 177 427 163 444Z" fill="#3f7038" />
+              <path d="M150 445C142 429 145 414 158 403C164 419 162 432 150 445Z" fill="#4a8340" />
+              <path d="M176 447C171 431 175 417 188 409C192 425 188 438 176 447Z" fill="#5a944d" />
 
-                  <div className="absolute right-0 top-0 h-24 w-40 bg-gradient-to-bl from-[#0b1733] via-[#0e1b39] to-transparent p-2 font-mono text-right text-[9px] leading-relaxed md:text-[10px]">
-                    <p className="text-slate-300">
-                      <span className="text-amber-300">java</span>.tx()
-                    </p>
-                    <p className="text-sky-300">
-                      render(<span className="text-cyan-300">state</span>)
-                      <span className="ml-1 inline-block h-2.5 w-1 animate-pulse bg-cyan-300 align-middle" />
-                    </p>
-                  </div>
+              {/* Monitor panoramico */}
+              <rect x="390" y="220" width="420" height="255" rx="18" fill="#0b111f" />
+              <rect x="405" y="235" width="390" height="220" rx="10" fill="url(#monitorGrad)" />
+              <rect x="565" y="475" width="70" height="18" rx="6" fill="#495065" />
+              <ellipse cx="600" cy="505" rx="95" ry="12" fill="#1f2533" />
 
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0f172a]/96 to-[#0f172a]/98" />
-                </div>
-              </motion.div>
+              {/* Persona realista de espaldas */}
+              <path d="M515 664C515 644 533 629 555 629H646C668 629 686 644 686 664V700H515V664Z" fill="#cfd4dc" />
+              <path d="M478 481C478 430 531 387 600 387C669 387 722 430 722 481V635H478V481Z" fill="#2c4b75" />
+              <path d="M503 468C530 430 569 412 600 412C631 412 670 430 697 468L677 501C655 480 628 466 600 466C572 466 545 480 523 501L503 468Z" fill="#365a89" />
+              <path d="M454 496C462 452 492 425 530 419L536 456C513 462 495 479 487 504L476 548H450L454 496Z" fill="#294769" />
+              <path d="M746 496C738 452 708 425 670 419L664 456C687 462 705 479 713 504L724 548H750L746 496Z" fill="#294769" />
+              <path d="M566 384C566 362 579 347 600 347C621 347 634 362 634 384V407H566V384Z" fill="#bd8a66" />
+              <ellipse cx="600" cy="323" rx="58" ry="60" fill="#bd8a66" />
+              <path d="M545 324C545 282 573 251 612 251C648 251 677 279 680 317C662 306 642 300 622 300C593 300 565 311 545 324Z" fill="#3f3027" />
+              <path d="M546 330C559 304 582 289 612 289C640 289 664 301 678 322C669 345 647 360 620 360H585C566 360 551 349 546 330Z" fill="#4c392f" />
+            </svg>
 
-              {/* Silueta humana mas realista, vista de espaldas. */}
-              <div className="absolute bottom-0 left-1/2 z-20 h-[345px] w-[255px] -translate-x-1/2 md:h-[385px] md:w-[280px]">
-                <svg viewBox="0 0 280 385" className="h-full w-full" aria-hidden="true">
-                  <path
-                    d="M86 367C86 348 102 334 122 334H158C178 334 194 348 194 367V385H86V367Z"
-                    fill="#CFD5DD"
-                  />
-                  <path
-                    d="M84 246C84 214 109 191 140 191C171 191 196 214 196 246V340H84V246Z"
-                    fill="#2F76C0"
-                  />
-                  <path
-                    d="M98 232C108 218 122 210 140 210C158 210 172 218 182 232L170 252C162 243 151 238 140 238C129 238 118 243 110 252L98 232Z"
-                    fill="#3D84CC"
-                  />
-                  <path
-                    d="M58 258C61 233 79 215 102 212L108 240C95 244 85 254 82 268L76 300H56L58 258Z"
-                    fill="#2B6DB2"
-                  />
-                  <path
-                    d="M222 258C219 233 201 215 178 212L172 240C185 244 195 254 198 268L204 300H224L222 258Z"
-                    fill="#2B6DB2"
-                  />
-                  <path
-                    d="M120 192C120 177 128 168 140 168C152 168 160 177 160 192V208H120V192Z"
-                    fill="#B88463"
-                  />
-                  <ellipse cx="140" cy="149" rx="42" ry="44" fill="#B88463" />
-                  <path
-                    d="M98 150C98 121 117 99 143 99C163 99 180 113 183 133C176 131 169 131 162 132C155 120 141 114 127 117C115 120 106 129 102 141L98 150Z"
-                    fill="#4A352C"
-                  />
-                  <path
-                    d="M100 142C104 115 125 98 150 101C168 103 182 116 186 134C178 138 171 143 165 149C157 140 147 135 136 135C124 135 112 141 104 151L100 142Z"
-                    fill="#5B4135"
-                  />
-                </svg>
+            <motion.div
+              animate={isZooming ? { scale: 1.25, opacity: 0 } : { scale: 1, opacity: 1 }}
+              transition={{ duration: 0.95, ease: "easeInOut" }}
+              className="absolute left-1/2 top-[34%] z-20 h-[31%] w-[34%] -translate-x-1/2 rounded-xl border border-cyan-300/20 bg-[#0f1b36]/95 shadow-[0_0_30px_rgba(14,165,233,0.15)]"
+            >
+              <div className="border-b border-white/10 px-3 py-2 font-mono text-[10px] text-slate-400">
+                workspace/core-engine.ts
               </div>
-              <div className="absolute bottom-[92px] left-1/2 h-6 w-24 -translate-x-1/2 rounded-b-xl bg-slate-700" />
-              <div className="absolute bottom-[74px] left-1/2 h-3 w-40 -translate-x-1/2 rounded-full bg-slate-800/90" />
-            </div>
+              <div className="h-[calc(100%-1.8rem)] overflow-hidden px-3 py-2 font-mono text-[8.5px] leading-relaxed text-slate-300 md:text-[9.5px]">
+                <p><span className="text-purple-400">const</span> <span className="text-blue-400">pipeline</span> = <span className="text-emerald-400">async</span> () =&gt; {"{"}</p>
+                <p className="pl-3"><span className="text-yellow-400">try</span> {"{"}</p>
+                <p className="pl-6"><span className="text-blue-400">state</span>.view = <span className="text-emerald-400">"proyectos"</span>;</p>
+                <p className="pl-6"><span className="text-purple-400">const</span> schema = {"{"}</p>
+                <p className="pl-9"><span className="text-blue-400">model</span>: <span className="text-emerald-400">"gpt-4.1"</span>,</p>
+                <p className="pl-9"><span className="text-blue-400">temperature</span>: <span className="text-yellow-400">0.2</span>,</p>
+                <p className="pl-9"><span className="text-blue-400">stream</span>: <span className="text-yellow-400">true</span>,</p>
+                <p className="pl-9"><span className="text-blue-400">guards</span>: [<span className="text-emerald-400">"rate_limit"</span>, <span className="text-emerald-400">"sanitizer"</span>],</p>
+                <p className="pl-6">{"};"}</p>
+                <p className="pl-6"><span className="text-purple-400">await</span> <span className="text-blue-400">compile</span>(schema);</p>
+                <p className="pl-6"><span className="text-purple-400">const</span> <span className="text-blue-400">javaTx</span> = <span className="text-blue-400">backend</span>.beginTransaction();</p>
+                <p className="pl-6"><span className="text-blue-400">javaTx</span>.commit();</p>
+                <p className="pl-3">{"}"} <span className="text-yellow-400">catch</span>(e) {"{"} <span className="text-blue-400">logger</span>.error(e); {"}"}</p>
+                <p>{"}"}<span className="ml-1 inline-block h-2.5 w-1 animate-pulse bg-cyan-300 align-middle" /></p>
+              </div>
+            </motion.div>
           </div>
 
           <motion.div
@@ -160,7 +149,7 @@ export default function IntroSequence({ onComplete }) {
           whileTap={{ scale: 0.98 }}
           className="glass-card absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-cyan-300/45"
         >
-          Compilar y Entrar <ArrowIcon />
+          Compilar y Entrar al Sistema <ArrowIcon />
         </motion.button>
 
         {isZooming ? (

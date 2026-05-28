@@ -62,47 +62,86 @@ export default function IntroSequence({ onComplete }) {
             <div className="absolute bottom-16 left-1/2 h-14 w-14 rounded-full bg-slate-300 shadow-inner" />
             <div className="absolute bottom-14 right-48 h-10 w-12 rounded-b-2xl rounded-t-xl bg-slate-600/85" />
             <div className="absolute bottom-[3.75rem] left-14 h-8 w-16 rounded-t-xl bg-[#806044]" />
-            <div className="absolute bottom-23 left-16 h-14 w-12 rounded-t-full bg-[#3f612f]" />
-            <div className="absolute bottom-23 left-24 h-10 w-9 rounded-t-full bg-[#4d7338]" />
+            <div className="absolute bottom-[5.75rem] left-16 h-14 w-12 rounded-t-full bg-[#3f612f]" />
+            <div className="absolute bottom-[5.75rem] left-24 h-10 w-9 rounded-t-full bg-[#4d7338]" />
 
             <div className="relative min-h-[420px] p-6 md:min-h-[510px] md:p-8">
               <div className="absolute bottom-10 left-0 right-0 h-5 bg-[#b6bcc4]" />
 
-              <div className="absolute bottom-14 left-1/2 h-[11.5rem] w-52 -translate-x-1/2 rounded-[44%] bg-[#2f76c0] md:h-[13.5rem] md:w-[15.5rem]" />
-              <div className="absolute bottom-[248px] left-1/2 h-20 w-20 -translate-x-1/2 rounded-full bg-[#b88665] md:bottom-[292px]" />
-              <div className="absolute bottom-[228px] left-1/2 h-10 w-24 -translate-x-1/2 rounded-full bg-[#377ec6] md:bottom-[272px]" />
-              <div className="absolute bottom-0 left-1/2 h-36 w-44 -translate-x-1/2 rounded-t-[44%] bg-slate-200 shadow-[0_-8px_20px_rgba(0,0,0,0.1)]" />
-
-              {/* Monitor con codigo miniatura sintactico para reforzar narrativa tecnica. */}
               <motion.div
                 animate={isZooming ? { scale: 1.08, opacity: 0 } : { scale: 1, opacity: 1 }}
                 transition={{ duration: 0.9, ease: "easeInOut" }}
-                className="absolute bottom-[110px] left-1/2 h-52 w-72 -translate-x-1/2 rounded-2xl border-[8px] border-slate-900 bg-[#0f172a] md:h-56 md:w-80"
+                className="absolute bottom-[110px] left-1/2 z-10 h-52 w-72 -translate-x-1/2 rounded-2xl border-[8px] border-slate-900 bg-[#0f172a] md:h-56 md:w-80"
               >
                 <div className="border-b border-white/10 px-3 py-2 text-[10px] text-slate-400">
-                  portfolio.tsx - VS Code
+                  coding-session.tsx - VS Code
                 </div>
-                <div className="space-y-1.5 px-3 py-2 font-mono text-[10px] leading-relaxed md:text-[11px]">
-                  <p className="text-indigo-300">
-                    <span className="text-fuchsia-300">const</span> buildPipeline
-                    <span className="text-slate-300"> = </span>
-                    <span className="text-cyan-300">async</span>
-                    <span className="text-slate-300"> () =&gt; {"{"}</span>
-                  </p>
-                  <p className="pl-3 text-slate-300">
-                    <span className="text-cyan-300">await</span> deploy(
-                    <span className="text-emerald-300">jsonSchema</span>);
-                  </p>
-                  <p className="pl-3 text-slate-300">
-                    secureTx(<span className="text-amber-300">javaService</span>);
-                  </p>
-                  <p className="pl-3 text-slate-300">
-                    setState(<span className="text-sky-300">nextView</span>);
-                    <span className="ml-1 inline-block h-3 w-1 animate-pulse bg-cyan-300 align-middle" />
-                  </p>
-                  <p className="text-slate-300">{"}"}</p>
+
+                {/* El codigo se ve solo en las esquinas para un look mas cinematografico. */}
+                <div className="relative h-[calc(100%-1.75rem)] overflow-hidden">
+                  <div className="absolute left-0 top-0 h-24 w-40 bg-gradient-to-br from-[#0b1733] via-[#0e1b39] to-transparent p-2 font-mono text-[9px] leading-relaxed md:text-[10px]">
+                    <p className="text-indigo-300">
+                      <span className="text-fuchsia-300">const</span> init ={" "}
+                      <span className="text-cyan-300">async</span>
+                    </p>
+                    <p className="text-slate-300">
+                      <span className="text-cyan-300">await</span>{" "}
+                      secure(<span className="text-emerald-300">json</span>)
+                    </p>
+                  </div>
+
+                  <div className="absolute right-0 top-0 h-24 w-40 bg-gradient-to-bl from-[#0b1733] via-[#0e1b39] to-transparent p-2 font-mono text-right text-[9px] leading-relaxed md:text-[10px]">
+                    <p className="text-slate-300">
+                      <span className="text-amber-300">java</span>.tx()
+                    </p>
+                    <p className="text-sky-300">
+                      render(<span className="text-cyan-300">state</span>)
+                      <span className="ml-1 inline-block h-2.5 w-1 animate-pulse bg-cyan-300 align-middle" />
+                    </p>
+                  </div>
+
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0f172a]/96 to-[#0f172a]/98" />
                 </div>
               </motion.div>
+
+              {/* Silueta humana mas realista, vista de espaldas. */}
+              <div className="absolute bottom-0 left-1/2 z-20 h-[345px] w-[255px] -translate-x-1/2 md:h-[385px] md:w-[280px]">
+                <svg viewBox="0 0 280 385" className="h-full w-full" aria-hidden="true">
+                  <path
+                    d="M86 367C86 348 102 334 122 334H158C178 334 194 348 194 367V385H86V367Z"
+                    fill="#CFD5DD"
+                  />
+                  <path
+                    d="M84 246C84 214 109 191 140 191C171 191 196 214 196 246V340H84V246Z"
+                    fill="#2F76C0"
+                  />
+                  <path
+                    d="M98 232C108 218 122 210 140 210C158 210 172 218 182 232L170 252C162 243 151 238 140 238C129 238 118 243 110 252L98 232Z"
+                    fill="#3D84CC"
+                  />
+                  <path
+                    d="M58 258C61 233 79 215 102 212L108 240C95 244 85 254 82 268L76 300H56L58 258Z"
+                    fill="#2B6DB2"
+                  />
+                  <path
+                    d="M222 258C219 233 201 215 178 212L172 240C185 244 195 254 198 268L204 300H224L222 258Z"
+                    fill="#2B6DB2"
+                  />
+                  <path
+                    d="M120 192C120 177 128 168 140 168C152 168 160 177 160 192V208H120V192Z"
+                    fill="#B88463"
+                  />
+                  <ellipse cx="140" cy="149" rx="42" ry="44" fill="#B88463" />
+                  <path
+                    d="M98 150C98 121 117 99 143 99C163 99 180 113 183 133C176 131 169 131 162 132C155 120 141 114 127 117C115 120 106 129 102 141L98 150Z"
+                    fill="#4A352C"
+                  />
+                  <path
+                    d="M100 142C104 115 125 98 150 101C168 103 182 116 186 134C178 138 171 143 165 149C157 140 147 135 136 135C124 135 112 141 104 151L100 142Z"
+                    fill="#5B4135"
+                  />
+                </svg>
+              </div>
               <div className="absolute bottom-[92px] left-1/2 h-6 w-24 -translate-x-1/2 rounded-b-xl bg-slate-700" />
               <div className="absolute bottom-[74px] left-1/2 h-3 w-40 -translate-x-1/2 rounded-full bg-slate-800/90" />
             </div>

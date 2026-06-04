@@ -33,11 +33,36 @@ const PROJECTS = [
 const PROFILE_TEXT =
   "Desarrollador Full-Stack enfocado en el diseño, construcción y despliegue de aplicaciones web modernas, eficientes y escalables. Especializado en arquitecturas robustas en el backend y en la creación de interfaces de usuario reactivas, intuitivas y optimizadas a nivel de rendimiento. Con capacidad para gestionar proyectos desde la base de datos hasta producción, priorizando la limpieza del código, la experiencia de usuario (UX) y la resolución ágil de problemas técnicos.";
 
+function ArrowIcon() {
+  return (
+    <svg
+      className="h-3.5 w-3.5 shrink-0 text-zinc-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-zinc-300"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+    >
+      <path
+        d="M5 12h14M13 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function Sidebar() {
   const { links } = PROFILE;
 
+  const socialLinks = [
+    { href: links.linkedin, label: "LinkedIn", external: true },
+    { href: links.github, label: "GitHub", external: true },
+    { href: links.email, label: "Correo electrónico", external: false },
+  ];
+
   return (
-    <aside className="flex w-full flex-col justify-between border-b border-zinc-800/80 bg-zinc-900/30 p-6 lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:border-b-0 lg:border-r lg:p-8">
+    <aside className="flex w-full flex-col justify-between border-b border-zinc-800/50 bg-zinc-900 p-6 lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:border-b-0 lg:border-r lg:p-8">
       <div className="space-y-8">
         <div>
           <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">Frontend</h2>
@@ -45,7 +70,7 @@ function Sidebar() {
             {TECH_STACK.frontend.map((tech) => (
               <li
                 key={tech}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/50 px-3 py-1.5 text-xs font-medium text-zinc-300"
+                className="cursor-default rounded-lg border border-zinc-800 bg-zinc-950/60 px-3 py-1.5 text-xs font-medium text-zinc-50 transition duration-300 hover:border-zinc-600"
               >
                 {tech}
               </li>
@@ -61,7 +86,7 @@ function Sidebar() {
             {TECH_STACK.backend.map((tech) => (
               <li
                 key={tech}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/50 px-3 py-1.5 text-xs font-medium text-zinc-300"
+                className="cursor-default rounded-lg border border-zinc-800 bg-zinc-950/60 px-3 py-1.5 text-xs font-medium text-zinc-50 transition duration-300 hover:border-zinc-600"
               >
                 {tech}
               </li>
@@ -69,7 +94,7 @@ function Sidebar() {
           </ul>
         </div>
 
-        <div className="border-t border-zinc-800/60 pt-4">
+        <div className="border-t border-zinc-800/50 pt-4">
           <h2 className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
             Contacto Directo
           </h2>
@@ -77,36 +102,26 @@ function Sidebar() {
             href="/cv"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center rounded-xl border border-zinc-700/60 bg-zinc-900 px-4 py-3 text-sm font-semibold text-zinc-100 shadow-sm transition hover:border-zinc-500"
+            className="flex w-full items-center justify-center rounded-xl border border-zinc-800 bg-zinc-950/40 px-4 py-3.5 text-sm font-semibold text-zinc-50 transition duration-300 hover:bg-zinc-800"
           >
             Ver CV / Imprimir PDF
           </a>
         </div>
       </div>
 
-      <div className="mt-8 space-y-3 border-t border-zinc-800/60 pt-6 lg:mt-0">
-        <a
-          href={links.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-4 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-700"
-        >
-          <span>LinkedIn</span>
-        </a>
-        <a
-          href={links.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-4 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-700"
-        >
-          <span>GitHub</span>
-        </a>
-        <a
-          href={links.email}
-          className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-4 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-700"
-        >
-          <span>Correo electrónico</span>
-        </a>
+      <div className="mt-8 space-y-3 border-t border-zinc-800/50 pt-6 lg:mt-0">
+        {socialLinks.map(({ href, label, external }) => (
+          <a
+            key={label}
+            href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            className="group flex items-center justify-between gap-3 rounded-xl border border-zinc-800 bg-zinc-950/40 px-4 py-2.5 text-sm font-medium text-zinc-50 transition duration-300 hover:bg-zinc-800"
+          >
+            <span>{label}</span>
+            <ArrowIcon />
+          </a>
+        ))}
       </div>
     </aside>
   );

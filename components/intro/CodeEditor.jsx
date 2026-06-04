@@ -1,6 +1,6 @@
 export default function CodeEditor({ colors }) {
   return (
-    <div className="absolute left-[24.15%] top-[22.9%] h-[42.2%] w-[51.8%] overflow-hidden rounded-[10px] border border-white/5 bg-[#0b1020]/92 p-4 font-mono text-[10px] text-slate-300 shadow-[0_12px_28px_rgba(2,6,23,0.35)] backdrop-blur-[10px] md:text-[11px]">
+    <div className="pointer-events-none absolute left-[24.15%] top-[22.9%] z-[1] h-[42.2%] w-[51.8%] overflow-hidden rounded-[10px] border border-white/5 bg-[#0b1020] p-4 font-mono text-[10px] text-slate-300 shadow-[0_12px_28px_rgba(2,6,23,0.35)] md:text-[11px]">
       <div className="mb-2 text-slate-500">workspace/core-engine.ts</div>
       <p style={{ color: colors.purple }}>
         const <span style={{ color: colors.cyan }}>pipeline</span> = <span style={{ color: colors.purple }}>async</span> () =&gt; &#123;

@@ -38,7 +38,7 @@ export default function ProjectSolutionCard({ project }) {
 
       <div className="mt-5 flex flex-col gap-2 border-t border-slate-800/60 pt-4 sm:flex-row sm:gap-6">
         <ArrowLink href={project.github} label="Ver Código en GitHub" />
-        <ArrowLink href={project.live} label="Ver Aplicación En Vivo" />
+        <ArrowLink href={project.demo} label="Ver Aplicación En Vivo" />
       </div>
     </article>
   );

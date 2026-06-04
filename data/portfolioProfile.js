@@ -17,30 +17,30 @@ export const TECH_STACK = {
 
 export const SOLUTIONS = [
   {
-    id: "linkedin",
+    id: "ghostwrite-ai",
     title: "Generador de Contenido B2B con IA",
     description:
-      "SaaS que automatiza la creación de contenido para LinkedIn, reduciendo el bloqueo creativo y acelerando la publicación con calidad de marca.",
-    stack: ["Next.js", "JavaScript", "OpenAI API", "JSON"],
-    github: "https://github.com/",
-    live: "https://",
+      "Aplicación web de asistencia de escritura inteligente mediante IA, con una interfaz de usuario fluida y reactiva.",
+    stack: ["React", "Vite", "Tailwind CSS", "AI Integration"],
+    github: "https://github.com/samu-gonz/ghostwrite-ai",
+    demo: "https://ghostwrite-ai-lime.vercel.app/",
   },
   {
     id: "casa-cueva",
     title: "Plataforma Premium de Reservas",
     description:
-      "Motor de reservas directas con pagos seguros y UX optimizada para eliminar intermediarios y maximizar conversión del negocio.",
-    stack: ["Next.js", "Stripe", "Clerk", "Java"],
-    github: "https://github.com/",
-    live: "https://",
+      "Plataforma web para alojamiento rural con interfaz responsive optimizada y chatbot de asistencia integrado.",
+    stack: ["React", "Vite", "Tailwind CSS", "Frontend"],
+    github: "https://github.com/samu-gonz/casa-cueva-las-palomas",
+    demo: "https://casa-cueva-las-palomas.vercel.app/",
   },
   {
     id: "hosteleria",
     title: "Sistema de Gestión de Hostelería",
     description:
-      "Plataforma integral para comandas, cocina y stock en tiempo real, con trazabilidad operativa y sincronización entre sala y administración.",
-    stack: ["React", "Node.js", "Express", "MySQL", "SQL"],
-    github: "https://github.com/",
-    live: "https://",
+      "Aplicación Full-Stack para gestión de restaurante. Menú digital dinámico y backend de reservas automatizado con notificaciones por email.",
+    stack: ["Node.js", "Express", "React", "Nodemailer", "Full-Stack"],
+    github: "https://github.com/samu-gonz/restaurantePrueba",
+    demo: "https://restaurante-prueba-chi.vercel.app/",
   },
 ];

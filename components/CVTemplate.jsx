@@ -3,8 +3,8 @@
 import { PROFILE } from "../data/portfolioProfile";
 
 const CONTACT = {
-  location: "Tenerife, España",
-  phone: "+34 600 000 000",
+  location: PROFILE.location,
+  phone: PROFILE.phone,
   email: PROFILE.links.email.replace("mailto:", ""),
   github: "github.com/samu-gonz",
 };

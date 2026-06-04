@@ -2,11 +2,13 @@ export const PROFILE = {
   name: "Samuel G. R.",
   role: "Full-Stack Developer",
   availability: "Disponible para incorporación inmediata",
+  location: "Tenerife, España",
+  phone: "+34 634473640",
   cvUrl: "/cv-samuel-gr.pdf",
   links: {
     linkedin: "https://linkedin.com/in/",
-    github: "https://github.com/",
-    email: "mailto:contacto@ejemplo.com",
+    github: "https://github.com/samu-gonz",
+    email: "mailto:samuelgonz2006@gmail.com",
   },
 };
 

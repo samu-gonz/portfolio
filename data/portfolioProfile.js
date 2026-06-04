@@ -35,8 +35,8 @@ export const SOLUTIONS = [
     demo: "https://casa-cueva-las-palomas.vercel.app/",
   },
   {
-    id: "hosteleria",
-    title: "Sistema de Gestión de Hostelería",
+    id: "guachinche-el-realejo",
+    title: "Guachinche El Realejo",
     description:
       "Aplicación Full-Stack para gestión de restaurante. Menú digital dinámico y backend de reservas automatizado con notificaciones por email.",
     stack: ["Node.js", "Express", "React", "Nodemailer", "Full-Stack"],

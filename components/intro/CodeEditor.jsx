@@ -1,21 +1,174 @@
-export default function CodeEditor({ colors }) {
+const SYNTAX = {
+  keyword: "text-violet-400",
+  string: "text-emerald-400",
+  number: "text-amber-400",
+  fn: "text-sky-400",
+  plain: "text-slate-300",
+  muted: "text-slate-500",
+  punct: "text-slate-400",
+};
+
+const FILE_NAME = "components/IntroSequence.jsx";
+
+const CODE_LINES = [
+  [
+    { t: "import", c: "keyword" },
+    { t: " { useState } ", c: "plain" },
+    { t: "from", c: "keyword" },
+    { t: ' "react";', c: "string" },
+  ],
+  [
+    { t: "import", c: "keyword" },
+    { t: " Image ", c: "plain" },
+    { t: "from", c: "keyword" },
+    { t: ' "next/image";', c: "string" },
+  ],
+  [
+    { t: "import", c: "keyword" },
+    { t: " { AnimatePresence, motion, useAnimation } ", c: "plain" },
+    { t: "from", c: "keyword" },
+    { t: ' "framer-motion";', c: "string" },
+  ],
+  [],
+  [
+    { t: "const", c: "keyword" },
+    { t: " SCENE ", c: "plain" },
+    { t: "=", c: "punct" },
+    { t: ' "/intro-scene.png";', c: "string" },
+  ],
+  [
+    { t: "const", c: "keyword" },
+    { t: " HAND ", c: "plain" },
+    { t: "=", c: "punct" },
+    { t: ' "/intro-hand.png";', c: "string" },
+  ],
+  [],
+  [
+    { t: "const", c: "keyword" },
+    { t: " HAND_HOVER_Y ", c: "plain" },
+    { t: "= ", c: "punct" },
+    { t: "-22", c: "number" },
+    { t: ";", c: "punct" },
+  ],
+  [],
+  [
+    { t: "export default function", c: "keyword" },
+    { t: " IntroSequence", c: "fn" },
+    { t: "({ onComplete, onEnter }) {", c: "plain" },
+  ],
+  [
+    { t: "  const", c: "keyword" },
+    { t: " [isZooming, setIsZooming] ", c: "plain" },
+    { t: "=", c: "punct" },
+    { t: " useState", c: "fn" },
+    { t: "(false);", c: "plain" },
+  ],
+  [
+    { t: "  const", c: "keyword" },
+    { t: " handControls ", c: "plain" },
+    { t: "=", c: "punct" },
+    { t: " useAnimation", c: "fn" },
+    { t: "();", c: "plain" },
+  ],
+  [
+    { t: "  const", c: "keyword" },
+    { t: " handleEnter ", c: "plain" },
+    { t: "=", c: "punct" },
+    { t: " onEnter ?? onComplete;", c: "plain" },
+  ],
+  [],
+  [
+    { t: "  const", c: "keyword" },
+    { t: " ejecutarEntrada ", c: "plain" },
+    { t: "=", c: "punct" },
+    { t: " async", c: "keyword" },
+    { t: " () => {", c: "plain" },
+  ],
+  [
+    { t: "    if", c: "keyword" },
+    { t: " (isZooming || !handleEnter) ", c: "plain" },
+    { t: "return", c: "keyword" },
+    { t: ";", c: "punct" },
+  ],
+  [],
+  [
+    { t: "    await", c: "keyword" },
+    { t: " handControls.start", c: "fn" },
+    { t: "({", c: "plain" },
+  ],
+  [
+    { t: "      y: [", c: "plain" },
+    { t: "-28", c: "number" },
+    { t: ", ", c: "punct" },
+    { t: "34", c: "number" },
+    { t: ", ", c: "punct" },
+    { t: "-20", c: "number" },
+    { t: "],", c: "plain" },
+  ],
+  [
+    { t: "      transition: { duration: ", c: "plain" },
+    { t: "0.58", c: "number" },
+    { t: " },", c: "plain" },
+  ],
+  [{ t: "    });", c: "plain" }],
+  [],
+  [
+    { t: "    setIsZooming", c: "fn" },
+    { t: "(true);", c: "plain" },
+  ],
+  [
+    { t: "    setTimeout", c: "fn" },
+    { t: "(() => handleEnter(), ", c: "plain" },
+    { t: "900", c: "number" },
+    { t: ");", c: "plain" },
+  ],
+  [{ t: "  };", c: "plain" }],
+  [],
+  [
+    { t: "  return", c: "keyword" },
+    { t: " (", c: "plain" },
+  ],
+  [
+    { t: "    <", c: "punct" },
+    { t: "AnimatePresence", c: "fn" },
+    { t: ">", c: "punct" },
+  ],
+  [
+    { t: "      <", c: "punct" },
+    { t: "motion.section", c: "fn" },
+    { t: " key=", c: "plain" },
+    { t: '"intro"', c: "string" },
+    { t: ">", c: "punct" },
+  ],
+];
+
+function CodeLine({ tokens }) {
+  if (!tokens.length) return <div className="h-[0.55em]" aria-hidden />;
+
   return (
-    <div className="pointer-events-none absolute left-[24.15%] top-[22.9%] z-[1] h-[42.2%] w-[51.8%] overflow-hidden rounded-[10px] border border-white/5 bg-[#0b1020] p-4 font-mono text-[10px] text-slate-300 shadow-[0_12px_28px_rgba(2,6,23,0.35)] md:text-[11px]">
-      <div className="mb-2 text-slate-500">workspace/core-engine.ts</div>
-      <p style={{ color: colors.purple }}>
-        const <span style={{ color: colors.cyan }}>pipeline</span> = <span style={{ color: colors.purple }}>async</span> () =&gt; &#123;
-      </p>
-      <p className="pl-4" style={{ color: colors.yellow }}>try &#123;</p>
-      <p className="pl-8"><span style={{ color: colors.cyan }}>state.view</span> = <span style={{ color: colors.green }}>&quot;proyectos&quot;</span>;</p>
-      <p className="pl-8" style={{ color: colors.purple }}>const schema = &#123;</p>
-      <p className="pl-12" style={{ color: colors.cyan }}>model: <span style={{ color: colors.green }}>&quot;gpt-4.1&quot;</span>,</p>
-      <p className="pl-12" style={{ color: colors.cyan }}>temperature: <span style={{ color: colors.yellow }}>0.2</span>,</p>
-      <p className="pl-8">&#125;;</p>
-      <p className="pl-8"><span style={{ color: colors.purple }}>await</span> <span style={{ color: colors.cyan }}>compile</span>(schema);</p>
-      <p className="pl-4" style={{ color: colors.yellow }}>&#125; catch &#123;</p>
-      <p className="pl-8"><span style={{ color: colors.cyan }}>console.log</span>(<span style={{ color: colors.green }}>&quot;Done&quot;</span>);</p>
-      <p className="pl-4" style={{ color: colors.yellow }}>&#125;</p>
-      <p>&#125;</p>
+    <p className="whitespace-pre leading-[1.45]">
+      {tokens.map((token, index) => (
+        <span key={`${token.t}-${index}`} className={SYNTAX[token.c] ?? SYNTAX.plain}>
+          {token.t}
+        </span>
+      ))}
+    </p>
+  );
+}
+
+export default function CodeEditor() {
+  return (
+    <div className="flex h-full w-full flex-col overflow-hidden bg-[#0b1020] p-2.5 font-mono text-[7px] leading-none sm:p-3 sm:text-[8px] md:text-[9px] lg:text-[10px]">
+      <header className="mb-1.5 shrink-0 border-b border-white/5 pb-1.5">
+        <span className={SYNTAX.muted}>{FILE_NAME}</span>
+      </header>
+      <pre className="min-h-0 flex-1 overflow-hidden" aria-hidden>
+        <code>
+          {CODE_LINES.map((tokens, index) => (
+            <CodeLine key={index} tokens={tokens} />
+          ))}
+        </code>
+      </pre>
     </div>
   );
 }

@@ -3,19 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import CodeEditor from "./intro/CodeEditor";
 
 const SCENE = "/intro-scene.png";
-const BG = "/intro-bg.png";
 const HAND = "/intro-hand.png";
 
 const HAND_HOVER_Y = -22;
 const HAND_CLIP = "polygon(74% 58%, 100% 58%, 100% 100%, 76% 100%)";
-const HAND_MASK = "0.74,0.58 1,0.58 1,1 0.76,1";
 
 export default function IntroSequence({ onComplete, onEnter }) {
   const [isZooming, setIsZooming] = useState(false);
   const [useHandPng, setUseHandPng] = useState(true);
-  const [useBgPng, setUseBgPng] = useState(true);
   const handControls = useAnimation();
   const handleEnter = onEnter ?? onComplete;
 
@@ -45,40 +43,18 @@ export default function IntroSequence({ onComplete, onEnter }) {
           transition={{ duration: 1.45, ease: [0.2, 0.82, 0.2, 1] }}
           className="relative aspect-[16/9] w-full max-w-[1400px] overflow-hidden rounded-2xl shadow-[0_28px_56px_rgba(0,0,0,0.6)] ring-1 ring-white/[0.06]"
         >
-          {useBgPng ? (
-            <Image
-              src={BG}
-              alt=""
-              fill
-              priority
-              quality={100}
-              sizes="(max-width: 1400px) 100vw, 1400px"
-              className="object-cover object-center"
-              onError={() => setUseBgPng(false)}
-            />
-          ) : (
-            <>
-              <svg className="absolute h-0 w-0" aria-hidden>
-                <defs>
-                  <mask id="intro-scene-mask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
-                    <rect width="1" height="1" fill="white" />
-                    <polygon points={HAND_MASK} fill="black" />
-                  </mask>
-                </defs>
-              </svg>
-              <div
-                className="absolute inset-0 bg-cover bg-no-repeat"
-                style={{ backgroundImage: `url(${SCENE})`, backgroundPosition: "54% 80%" }}
-                aria-hidden
-              />
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat [mask:url(#intro-scene-mask)] [-webkit-mask:url(#intro-scene-mask)]"
-                style={{ backgroundImage: `url(${SCENE})` }}
-                role="img"
-                aria-label="Espacio de trabajo con monitor y teclado"
-              />
-            </>
-          )}
+          <Image
+            src={SCENE}
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            className="object-cover object-center"
+          />
+
+          <div className="absolute left-[24.15%] top-[22.9%] z-[2] h-[42.2%] w-[51.8%] overflow-hidden rounded-[10px] border border-black/30 bg-[#0b1020] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
+            <CodeEditor />
+          </div>
 
           {useHandPng ? (
             <motion.img
@@ -87,7 +63,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
               animate={handControls}
               initial={{ y: HAND_HOVER_Y }}
               onError={() => setUseHandPng(false)}
-              className="pointer-events-none absolute bottom-[1%] right-[12%] z-[6] w-[36%] max-w-[480px] h-auto drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)]"
+              className="pointer-events-none absolute bottom-[1%] right-[12%] z-[6] h-auto w-[36%] max-w-[480px] drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)]"
               style={{ transformOrigin: "70% 85%" }}
             />
           ) : (

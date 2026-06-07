@@ -1,3 +1,4 @@
+import EmailContactLink from "../EmailContactLink";
 import { PROFILE, TECH_STACK } from "../../data/portfolioProfile";
 
 function StackGroup({ title, items }) {
@@ -22,7 +23,7 @@ function ContactLink({ href, label, icon }) {
   return (
     <a
       href={href}
-      target={href.startsWith("mailto") ? undefined : "_blank"}
+      target="_blank"
       rel="noopener noreferrer"
       className="flex items-center gap-2 rounded-lg border border-slate-800/80 bg-[#151926] px-3 py-2.5 text-sm text-slate-300 transition-colors hover:border-slate-700 hover:text-cyan-400"
     >
@@ -72,16 +73,9 @@ export default function TechContactPanel({ onLogout }) {
               </svg>
             }
           />
-          <ContactLink
-            href={links.email}
-            label="Correo electrónico"
-            icon={
-              <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-                <path strokeWidth="1.6" d="M4 6h16v12H4z" />
-                <path strokeWidth="1.6" strokeLinecap="round" d="M4 7l8 6 8-6" />
-              </svg>
-            }
-          />
+          <EmailContactLink className="flex w-full items-center gap-2 rounded-lg border border-slate-800/80 bg-[#151926] px-3 py-2.5 text-sm text-slate-300 transition-colors hover:border-slate-700 hover:text-cyan-400">
+            <span>Correo electrónico</span>
+          </EmailContactLink>
         </div>
       </div>
 

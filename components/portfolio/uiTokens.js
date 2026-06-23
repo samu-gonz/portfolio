@@ -6,12 +6,19 @@ export const UI = {
   sidebar:
     "flex w-full flex-col justify-between border-b border-zinc-800/50 bg-zinc-900 p-6 pb-8 lg:sticky lg:top-0 lg:h-screen lg:min-h-0 lg:w-80 lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-8 lg:pt-8 lg:pb-12",
   sectionEyebrow: "text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:text-sm",
+  sidebarBrandTitle: "text-sm font-semibold tracking-tight text-zinc-100 sm:text-base",
+  sidebarBrandSubtitle: "mt-2 text-xs leading-relaxed text-zinc-400 sm:text-sm",
+  techDescription: "mt-1.5 text-xs leading-relaxed text-zinc-500 sm:text-sm",
+  techBadgeList:
+    "flex gap-2 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden",
   techBadge:
-    "cursor-default rounded-lg border border-zinc-800 bg-zinc-950/60 px-3 py-1.5 text-xs font-medium text-zinc-50 transition duration-300 hover:border-zinc-600",
-  contactPrimary:
-    "flex w-full items-center justify-center rounded-xl border border-zinc-800 bg-zinc-950/40 px-4 py-3.5 text-sm font-semibold text-zinc-50 transition duration-300 hover:bg-zinc-800",
+    "shrink-0 cursor-default rounded-lg border border-zinc-800/80 bg-zinc-950/70 px-3 py-1.5 text-xs font-medium text-zinc-100 transition duration-300 hover:border-zinc-600 hover:bg-zinc-900/80",
+  contactPanel:
+    "mt-8 rounded-2xl border border-zinc-700/50 bg-zinc-950/40 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-5 lg:mt-0 lg:pb-6",
+  contactCvPrimary:
+    "flex w-full items-center justify-center rounded-xl border border-zinc-500/40 bg-zinc-900/90 px-4 py-3.5 text-sm font-semibold text-zinc-50 shadow-sm transition duration-300 hover:border-zinc-400/60 hover:bg-zinc-800",
   contactLink:
-    "group flex items-center justify-between gap-3 rounded-xl border border-zinc-800 bg-zinc-950/40 px-4 py-2.5 text-sm font-medium text-zinc-50 transition duration-300 hover:bg-zinc-800",
+    "group flex items-center justify-between gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/50 px-4 py-2.5 text-sm font-medium text-zinc-300 transition duration-300 hover:border-zinc-600 hover:bg-zinc-800/80 hover:text-zinc-50",
   main: "mx-auto w-full max-w-5xl flex-1 space-y-12 px-6 py-10 sm:space-y-16 sm:px-10 sm:py-12 lg:px-16 lg:py-20",
   projectCard:
     "group grid grid-cols-1 items-stretch overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/20 transition duration-300 hover:border-zinc-700/80 hover:bg-zinc-900/40 lg:grid-cols-2",

@@ -22,9 +22,25 @@ export const TECH_STACK = {
   backend: ["Java", "Node.js", "Express", "SQL", "MySQL"],
 };
 
+export const SIDEBAR_BRAND = {
+  title: "Desarrollo de Alto Rendimiento",
+  subtitle:
+    "Estructuras optimizadas, carga ultrarrápida y código limpio para garantizar la mejor experiencia de usuario y posicionamiento.",
+};
+
 export const TECH_SECTIONS = [
-  { id: "frontend", label: "Frontend", items: TECH_STACK.frontend },
-  { id: "backend", label: "Backend & Bases de Datos", items: TECH_STACK.backend },
+  {
+    id: "frontend",
+    label: "Frontend",
+    description: "Interfaces rápidas, reactivas y 100% responsive.",
+    items: TECH_STACK.frontend,
+  },
+  {
+    id: "backend",
+    label: "Backend & Bases de Datos",
+    description: "Arquitecturas robustas, seguras y gestión de datos eficiente.",
+    items: TECH_STACK.backend,
+  },
 ];
 
 export const SIDEBAR_CONTACT = {

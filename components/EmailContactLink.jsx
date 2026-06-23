@@ -1,9 +1,10 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { PROFILE } from "../data/portfolioProfile";
 
-const EMAIL = "samuelgonz2006@gmail.com";
-const MAILTO = `mailto:${EMAIL}`;
+const EMAIL = PROFILE.email;
+const MAILTO = PROFILE.links.email;
 
 async function copyEmailToClipboard() {
   if (navigator.clipboard?.writeText) {
@@ -31,6 +32,12 @@ function openMailClient() {
   window.location.href = MAILTO;
 }
 
+const FEEDBACK_MESSAGES = {
+  copying: "Copiando…",
+  copied: "¡Correo copiado al portapapeles!",
+  error: "No se pudo copiar. Abriendo correo…",
+};
+
 export default function EmailContactLink({ className, children }) {
   const [status, setStatus] = useState("idle");
 
@@ -45,6 +52,7 @@ export default function EmailContactLink({ className, children }) {
     } catch (error) {
       console.error("Error al copiar el correo:", error);
       setStatus("error");
+
       try {
         openMailClient();
       } catch (fallbackError) {
@@ -55,14 +63,7 @@ export default function EmailContactLink({ className, children }) {
     }
   }, []);
 
-  const feedback =
-    status === "copied"
-      ? "¡Correo copiado al portapapeles!"
-      : status === "error"
-        ? "No se pudo copiar. Abriendo correo…"
-        : status === "copying"
-          ? "Copiando…"
-          : null;
+  const feedback = FEEDBACK_MESSAGES[status] ?? null;
 
   return (
     <div className="relative">

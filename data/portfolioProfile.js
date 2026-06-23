@@ -42,11 +42,74 @@ export const PAGE_SECTIONS = {
     eyebrow: "Perfil Profesional",
     title: PROFILE.fullName,
   },
+  services: {
+    id: "servicios",
+    eyebrow: "Soluciones B2B",
+    title: "Servicios",
+  },
   projects: {
     id: "proyectos",
     eyebrow: "Portfolio",
     title: "Proyectos Destacados",
   },
+  guarantees: {
+    id: "garantias",
+    eyebrow: "Cómo trabajo",
+    title: "Garantías y Metodología",
+  },
+};
+
+export const SERVICES = [
+  {
+    id: "custom-web",
+    title: "Desarrollo Web a Medida",
+    description:
+      "Creación de aplicaciones y webs corporativas ultra rápidas con React y Next.js. Código limpio sin plantillas lentas, optimizado para conversión.",
+  },
+  {
+    id: "ui-ux-mobile",
+    title: "Optimización UI/UX & Mobile-First",
+    description:
+      "Interfaces modernas, limpias e intuitivas diseñadas específicamente para garantizar una experiencia impecable en teléfonos móviles y tablets.",
+  },
+  {
+    id: "dynamic-systems",
+    title: "Sistemas Dinámicos e Integraciones",
+    description:
+      "Desarrollo de lógica backend y bases de datos a medida (motores de reserva en tiempo real, automatizaciones y asistentes de IA integrados).",
+  },
+];
+
+export const GUARANTEES = [
+  {
+    id: "remote-phases",
+    title: "Gestión 100% Remota por Fases",
+    description:
+      "Comunicación ágil por videollamada y despliegues semanales en entornos de prueba (Vercel) para un seguimiento transparente del avance.",
+  },
+  {
+    id: "ongoing-support",
+    title: "Soporte & Mantenimiento Continuo",
+    description:
+      "Al finalizar el desarrollo, ofrezco un servicio mensual de mantenimiento técnico para que no tengas que preocuparte por nada. Incluye la optimización constante del sitio, actualizaciones de seguridad, monitorización del servidor y soporte directo para cambios de contenido o nuevas funciones. Tu web siempre online, rápida y protegida.",
+  },
+  {
+    id: "performance-seo",
+    title: "Rendimiento y SEO Nativo",
+    description:
+      "Estructura de código orientada desde el primer día a la velocidad de carga y al posicionamiento en buscadores para maximizar el retorno de inversión.",
+  },
+];
+
+export const PROJECT_ACTIONS = [
+  { id: "code", label: "Ver Código", hrefKey: "github", style: "secondary" },
+  { id: "demo", label: "Ver Demo", hrefKey: "demo", style: "primary" },
+];
+
+export const PORTFOLIO_UI = {
+  contactDirect: "Contacto Directo",
+  contactNav: "Enlaces de contacto",
+  restartIntro: "Reiniciar intro",
 };
 
 export const PORTFOLIO_PROJECTS = [
@@ -65,6 +128,8 @@ export const PORTFOLIO_PROJECTS = [
     title: "Casa Cueva las Palomas",
     description:
       "Plataforma web profesional para alojamiento rural turístico con interfaz responsive avanzada, optimización de recursos y un chatbot conversacional con IA integrada para la atención al cliente.",
+    businessHighlight:
+      "Optimizada con un chatbot inteligente que automatiza la atención al usuario, reduciendo los tiempos de respuesta y fomentando la reserva directa.",
     technologies: ["React", "Vite", "Tailwind CSS", "AI Integration", "Frontend"],
     github: "https://github.com/samu-gonz/casa-cueva-las-palomas",
     demo: "https://casa-cueva-las-palomas.vercel.app/",
@@ -75,6 +140,8 @@ export const PORTFOLIO_PROJECTS = [
     title: "Guachinche El Realejo",
     description:
       "Aplicación Full-Stack para gestión de restaurante. Cuenta con un menú digital dinámico, motor de reservas automatizado con notificaciones por email y un asistente virtual con IA integrada para gestionar comandas y consultas.",
+    businessHighlight:
+      "Diseñada para centralizar y automatizar los flujos de reserva en tiempo real, aliviando la carga administrativa del negocio.",
     technologies: ["Node.js", "Express", "React", "Nodemailer", "AI Integration", "Full-Stack"],
     github: "https://github.com/samu-gonz/restaurantePrueba",
     demo: "https://restaurante-prueba-chi.vercel.app/",

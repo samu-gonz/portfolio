@@ -4,9 +4,9 @@ export const SCENE_SIZE = { width: 1024, height: 575 };
 /** Monitor LCD area aligned to intro-scene.png bezel (CodeEditor overlay). */
 export const MONITOR_RECT = {
   left: 254 / 1024,
-  top: 138 / 575,
+  top: 110 / 575,
   width: 526 / 1024,
-  height: 241 / 575,
+  height: 262 / 575,
   rotate: 0.35,
 };
 

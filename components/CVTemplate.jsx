@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { PROFILE } from "../data/portfolioProfile";
 
 const CONTACT = {
@@ -16,6 +17,13 @@ export default function CVTemplate() {
 
   return (
     <div className="flex min-h-screen flex-col items-center bg-zinc-950 p-4 antialiased sm:p-8 print:bg-white print:p-0">
+      <Link
+        href="/"
+        className="mb-6 inline-flex w-full max-w-[800px] items-center gap-2 rounded-lg border border-zinc-700 px-4 py-2 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:bg-zinc-800 hover:text-zinc-100 print:hidden"
+      >
+        ← Volver al portfolio
+      </Link>
+
       <button
         type="button"
         onClick={handlePrint}

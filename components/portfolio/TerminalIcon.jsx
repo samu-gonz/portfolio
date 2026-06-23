@@ -22,7 +22,7 @@ export default function TerminalIcon({ className = "h-10 w-10" }) {
       <rect x="10" y="10" width="44" height="13" fill="currentColor" />
       <path
         d="M21 38 L29 32 L21 26"
-        stroke="#22d3ee"
+        stroke="currentColor"
         strokeWidth="3.5"
         strokeLinecap="round"
         strokeLinejoin="round"

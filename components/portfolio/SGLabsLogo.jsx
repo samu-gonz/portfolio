@@ -20,12 +20,12 @@ export default function SGLabsLogo({
   const content = (
     <>
       <TerminalIcon className={iconClassName} />
-      <span className={cn(logoFont.className, textClassName)}>SG LABS</span>
+      <span className={cn(logoFont.className, "text-center", textClassName)}>SG LABS</span>
     </>
   );
 
   const rootClass = cn(
-    "group inline-flex items-center gap-3 transition duration-300 hover:brightness-110",
+    "group inline-flex flex-col items-center gap-2 transition duration-300 hover:brightness-110",
     className,
   );
 

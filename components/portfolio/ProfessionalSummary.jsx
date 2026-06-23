@@ -22,8 +22,8 @@ export default function ProfessionalSummary() {
           </div>
           <SGLabsLogo
             className="shrink-0 self-start sm:self-center"
-            iconClassName="h-9 w-9 shrink-0 text-white sm:h-10 sm:w-10"
-            textClassName="text-xl font-bold tracking-wide text-white sm:text-2xl"
+            iconClassName="h-10 w-10 shrink-0 text-white"
+            textClassName="text-lg font-bold tracking-wide text-white sm:text-xl"
           />
         </div>
       </header>

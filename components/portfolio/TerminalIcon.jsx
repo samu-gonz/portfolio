@@ -17,18 +17,18 @@ export default function TerminalIcon({ className = "h-10 w-10" }) {
         height="52"
         rx="7"
         stroke="currentColor"
-        strokeWidth="4.5"
+        strokeWidth="4"
       />
-      <path d="M6 20 H58" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+      <rect x="10" y="10" width="44" height="13" fill="currentColor" />
       <path
-        d="M20 40 L30 32 L20 24"
+        d="M21 38 L29 32 L21 26"
         stroke="#22d3ee"
         strokeWidth="3.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M34 40 H46"
+        d="M32 38 H43"
         stroke="currentColor"
         strokeWidth="3.5"
         strokeLinecap="round"

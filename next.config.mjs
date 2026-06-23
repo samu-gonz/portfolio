@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  devIndicators: {
-    position: "bottom-right",
-  },
+  devIndicators: false,
   async rewrites() {
     return [
       { source: "/proyectos", destination: "/" },

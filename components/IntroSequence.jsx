@@ -150,6 +150,10 @@ export default function IntroSequence({ onComplete, onEnter }) {
                   width: layout.monitor.width,
                   height: layout.monitor.height,
                   borderRadius: Math.max(6, layout.monitor.width * 0.022),
+                  transform: layout.monitor.rotate
+                    ? `rotate(${layout.monitor.rotate}deg)`
+                    : undefined,
+                  transformOrigin: "center center",
                 }}
               >
                 <CodeEditor />

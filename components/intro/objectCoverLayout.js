@@ -3,10 +3,11 @@ export const SCENE_SIZE = { width: 1024, height: 575 };
 
 /** Monitor LCD area aligned to intro-scene.png bezel (CodeEditor overlay). */
 export const MONITOR_RECT = {
-  left: 247 / 1024,
-  top: 132 / 575,
-  width: 530 / 1024,
-  height: 243 / 575,
+  left: 254 / 1024,
+  top: 138 / 575,
+  width: 526 / 1024,
+  height: 241 / 575,
+  rotate: 0.35,
 };
 
 /**
@@ -34,5 +35,6 @@ export function monitorRectToPixels(rect, sceneW, sceneH) {
     top: rect.top * sceneH,
     width: rect.width * sceneW,
     height: rect.height * sceneH,
+    rotate: rect.rotate ?? 0,
   };
 }

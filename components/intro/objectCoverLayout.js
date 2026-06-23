@@ -1,15 +1,12 @@
 /** Source dimensions of intro-scene.png */
 export const SCENE_SIZE = { width: 1024, height: 575 };
 
-/**
- * Monitor LCD (full-width rows y=82→390, x=225→802) with 18px inset
- * so the terminal respects a visible bezel inside the screen.
- */
+/** Monitor LCD area aligned to intro-scene.png bezel (CodeEditor overlay). */
 export const MONITOR_RECT = {
-  left: 243 / 1024,
-  top: 100 / 575,
-  width: 542 / 1024,
-  height: 273 / 575,
+  left: 247 / 1024,
+  top: 132 / 575,
+  width: 530 / 1024,
+  height: 243 / 575,
 };
 
 /**

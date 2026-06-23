@@ -12,10 +12,9 @@ import {
 } from "./intro/objectCoverLayout";
 
 const SCENE = "/intro-scene.png";
-const HAND = "/intro-hand.png";
 
-const HAND_HOVER_Y = -22;
-const HAND_CLIP = "polygon(74% 58%, 100% 58%, 100% 100%, 76% 100%)";
+const HAND_PRESS_Y = 34;
+const HAND_CLIP = "polygon(74% 66%, 100% 66%, 100% 100%, 76% 100%)";
 const ZOOM_DURATION_S = 1.45;
 const ENTER_DELAY_MS = 900;
 
@@ -24,7 +23,7 @@ const ENTER_DELAY_MS = 900;
  */
 export default function IntroSequence({ onComplete, onEnter }) {
   const [isZooming, setIsZooming] = useState(false);
-  const [useHandPng, setUseHandPng] = useState(true);
+  const [isHandAnimating, setIsHandAnimating] = useState(false);
   const [layout, setLayout] = useState(null);
   const viewportRef = useRef(null);
   const enteringRef = useRef(false);
@@ -36,10 +35,13 @@ export default function IntroSequence({ onComplete, onEnter }) {
     if (enteringRef.current || isZooming || !handleEnter) return;
     enteringRef.current = true;
 
+    setIsHandAnimating(true);
+    await new Promise((resolve) => requestAnimationFrame(resolve));
     await handControls.start({
-      y: [HAND_HOVER_Y - 6, 34, HAND_HOVER_Y + 2],
+      y: [0, HAND_PRESS_Y, 0],
       transition: { duration: 0.58, ease: [0.33, 0, 0.2, 1], times: [0, 0.48, 1] },
     });
+    setIsHandAnimating(false);
 
     setIsZooming(true);
     window.setTimeout(() => handleEnter(), ENTER_DELAY_MS);
@@ -100,6 +102,10 @@ export default function IntroSequence({ onComplete, onEnter }) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [ejecutarEntrada]);
 
+  const zoomOrigin =
+    layout &&
+    `${((layout.monitor.left + layout.monitor.width / 2) / layout.scene.width) * 100}% ${((layout.monitor.top + layout.monitor.height / 2) / layout.scene.height) * 100}%`;
+
   return (
     <AnimatePresence>
       <motion.section
@@ -113,16 +119,17 @@ export default function IntroSequence({ onComplete, onEnter }) {
         <div ref={viewportRef} className="relative h-full w-full overflow-hidden">
           {layout && (
             <motion.div
-              className="absolute"
+              className="absolute overflow-hidden"
               style={{
                 left: layout.offsetX,
                 top: layout.offsetY,
                 width: layout.scene.width,
                 height: layout.scene.height,
+                transformOrigin: zoomOrigin || "50% 38%",
               }}
               animate={
                 isZooming
-                  ? { scale: 10, x: 0, y: -100, opacity: 0 }
+                  ? { scale: 10, x: 0, y: 0, opacity: 0 }
                   : { scale: 1, x: 0, y: 0, opacity: 1 }
               }
               transition={{ duration: ZOOM_DURATION_S, ease: [0.2, 0.82, 0.2, 1] }}
@@ -150,29 +157,19 @@ export default function IntroSequence({ onComplete, onEnter }) {
                 <CodeEditor />
               </div>
 
-              {useHandPng ? (
-                <motion.img
-                  src={HAND}
-                  alt=""
-                  animate={handControls}
-                  initial={{ y: HAND_HOVER_Y }}
-                  onError={() => setUseHandPng(false)}
-                  className="pointer-events-none absolute bottom-[1%] right-[12%] z-[6] h-auto w-[36%] drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)]"
-                  style={{ transformOrigin: "70% 85%" }}
-                />
-              ) : (
-                <motion.div
-                  animate={handControls}
-                  initial={{ y: HAND_HOVER_Y }}
-                  className="pointer-events-none absolute inset-0 z-[6] bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: `url(${SCENE})`,
-                    clipPath: HAND_CLIP,
-                    transformOrigin: "88% 90%",
-                  }}
-                  aria-hidden
-                />
-              )}
+              <motion.div
+                animate={handControls}
+                initial={{ y: 0 }}
+                className={`pointer-events-none absolute inset-0 z-[6] bg-cover bg-center bg-no-repeat ${
+                  isHandAnimating ? "opacity-100" : "opacity-0"
+                }`}
+                style={{
+                  backgroundImage: `url(${SCENE})`,
+                  clipPath: HAND_CLIP,
+                  transformOrigin: "88% 92%",
+                }}
+                aria-hidden
+              />
 
               <div className="absolute inset-x-0 bottom-[19%] z-10 flex justify-center px-4 sm:px-6">
                 <motion.button

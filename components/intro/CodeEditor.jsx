@@ -133,10 +133,10 @@ export default function CodeEditor() {
   return (
     <div className="flex h-full w-full flex-col overflow-hidden bg-[#0b1020] font-mono text-[6px] leading-none sm:text-[7px] md:text-[8px] lg:text-[9px]">
       <div className="flex h-[14%] min-h-[18px] shrink-0 items-center border-b border-black/40 bg-[#0c1120] px-2.5">
-        <span className="text-slate-500">IntroSequence.jsx</span>
+        <span className="truncate text-slate-500">IntroSequence.jsx</span>
       </div>
       <pre className="min-h-0 flex-1 overflow-hidden px-2 py-1.5 sm:px-2.5 sm:py-2" aria-hidden>
-        <code>
+        <code className="block w-full">
           {CODE_LINES.map((tokens, index) => (
             <CodeLine key={index} tokens={tokens} />
           ))}

@@ -1,18 +1,45 @@
 import Link from "next/link";
 import { logoFont } from "../../lib/fonts";
 import TerminalIcon from "./TerminalIcon";
+import { cn } from "./uiTokens";
 
-export default function SGLabsLogo() {
+/**
+ * @param {{
+ *   className?: string;
+ *   iconClassName?: string;
+ *   textClassName?: string;
+ *   asLink?: boolean;
+ * }} props
+ */
+export default function SGLabsLogo({
+  className,
+  iconClassName = "h-10 w-10 shrink-0 text-white",
+  textClassName = "text-2xl font-bold tracking-wide text-white",
+  asLink = true,
+}) {
+  const content = (
+    <>
+      <TerminalIcon className={iconClassName} />
+      <span className={cn(logoFont.className, textClassName)}>SG LABS</span>
+    </>
+  );
+
+  const rootClass = cn(
+    "group inline-flex items-center gap-3 transition duration-300 hover:brightness-110",
+    className,
+  );
+
+  if (asLink) {
+    return (
+      <Link href="/" aria-label="SG LABS — Inicio del portfolio" className={rootClass}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
-    <Link
-      href="/"
-      aria-label="SG LABS — Inicio del portfolio"
-      className="group inline-flex items-center gap-3 transition duration-300 hover:brightness-110"
-    >
-      <TerminalIcon className="h-10 w-10 shrink-0 text-white" />
-      <span className={`${logoFont.className} text-2xl font-bold tracking-wide text-white`}>
-        SG LABS
-      </span>
-    </Link>
+    <div className={rootClass} aria-label="SG LABS">
+      {content}
+    </div>
   );
 }

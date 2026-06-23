@@ -16,14 +16,11 @@ export const MONITOR_RECT = {
  * @param {number} imgH
  */
 export function computeCoverSize(viewportW, viewportH, imgW, imgH) {
-  const imageAspect = imgW / imgH;
-  const viewportAspect = viewportW / viewportH;
-
-  if (viewportAspect > imageAspect) {
-    return { width: viewportW, height: viewportW / imageAspect };
-  }
-
-  return { width: viewportH * imageAspect, height: viewportH };
+  const scale = Math.max(viewportW / imgW, viewportH / imgH);
+  return {
+    width: imgW * scale,
+    height: imgH * scale,
+  };
 }
 
 /**

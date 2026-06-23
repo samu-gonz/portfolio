@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import CodeEditor from "./intro/CodeEditor";
 import {
   computeCoverSize,
@@ -12,9 +12,7 @@ import {
 } from "./intro/objectCoverLayout";
 
 const SCENE = "/intro-scene.png";
-
-const HAND_PRESS_Y = 34;
-const HAND_CLIP = "polygon(74% 66%, 100% 66%, 100% 100%, 76% 100%)";
+const INTRO_BG = "#0b0f19";
 const ZOOM_DURATION_S = 1.45;
 const ENTER_DELAY_MS = 900;
 
@@ -23,29 +21,18 @@ const ENTER_DELAY_MS = 900;
  */
 export default function IntroSequence({ onComplete, onEnter }) {
   const [isZooming, setIsZooming] = useState(false);
-  const [isHandAnimating, setIsHandAnimating] = useState(false);
   const [layout, setLayout] = useState(null);
   const viewportRef = useRef(null);
   const enteringRef = useRef(false);
-  const handControls = useAnimation();
 
   const handleEnter = onEnter ?? onComplete;
 
-  const ejecutarEntrada = useCallback(async () => {
+  const ejecutarEntrada = useCallback(() => {
     if (enteringRef.current || isZooming || !handleEnter) return;
     enteringRef.current = true;
-
-    setIsHandAnimating(true);
-    await new Promise((resolve) => requestAnimationFrame(resolve));
-    await handControls.start({
-      y: [0, HAND_PRESS_Y, 0],
-      transition: { duration: 0.58, ease: [0.33, 0, 0.2, 1], times: [0, 0.48, 1] },
-    });
-    setIsHandAnimating(false);
-
     setIsZooming(true);
     window.setTimeout(() => handleEnter(), ENTER_DELAY_MS);
-  }, [handleEnter, handControls, isZooming]);
+  }, [handleEnter, isZooming]);
 
   const updateLayout = useCallback(() => {
     const viewport = viewportRef.current;
@@ -69,9 +56,17 @@ export default function IntroSequence({ onComplete, onEnter }) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = "";
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
     };
   }, []);
 
@@ -113,10 +108,11 @@ export default function IntroSequence({ onComplete, onEnter }) {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="fixed inset-0 z-50 flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#0b0f19] select-none"
+        className="fixed inset-0 z-50 h-dvh min-h-dvh w-screen overflow-hidden select-none"
+        style={{ backgroundColor: INTRO_BG }}
         aria-label="Inicializando portfolio"
       >
-        <div ref={viewportRef} className="relative h-full w-full overflow-hidden">
+        <div ref={viewportRef} className="absolute inset-0 size-full overflow-hidden">
           {layout && (
             <motion.div
               className="absolute overflow-hidden"
@@ -134,15 +130,17 @@ export default function IntroSequence({ onComplete, onEnter }) {
               }
               transition={{ duration: ZOOM_DURATION_S, ease: [0.2, 0.82, 0.2, 1] }}
             >
-              <Image
-                src={SCENE}
-                alt=""
-                width={SCENE_SIZE.width}
-                height={SCENE_SIZE.height}
-                priority
-                draggable={false}
-                className="block h-full w-full"
-              />
+              <div className="relative size-full">
+                <Image
+                  src={SCENE}
+                  alt=""
+                  fill
+                  priority
+                  draggable={false}
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+              </div>
 
               <div
                 className="absolute z-[2] overflow-hidden border border-black/30 bg-[#0b1020] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] [container-type:inline-size]"
@@ -156,20 +154,6 @@ export default function IntroSequence({ onComplete, onEnter }) {
               >
                 <CodeEditor />
               </div>
-
-              <motion.div
-                animate={handControls}
-                initial={{ y: 0 }}
-                className={`pointer-events-none absolute inset-0 z-[6] bg-cover bg-center bg-no-repeat ${
-                  isHandAnimating ? "opacity-100" : "opacity-0"
-                }`}
-                style={{
-                  backgroundImage: `url(${SCENE})`,
-                  clipPath: HAND_CLIP,
-                  transformOrigin: "88% 92%",
-                }}
-                aria-hidden
-              />
 
               <div className="absolute inset-x-0 bottom-[19%] z-10 flex justify-center px-4 sm:px-6">
                 <motion.button

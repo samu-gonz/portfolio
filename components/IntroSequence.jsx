@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import CodeEditor from "./intro/CodeEditor";
 import {
-  computeCoverSize,
+  computeSceneLayout,
   monitorRectToPixels,
   MONITOR_RECT,
   SCENE_SIZE,
@@ -39,7 +39,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
     if (!viewport) return;
 
     const { width: viewportW, height: viewportH } = viewport.getBoundingClientRect();
-    const scene = computeCoverSize(
+    const scene = computeSceneLayout(
       viewportW,
       viewportH,
       SCENE_SIZE.width,
@@ -50,8 +50,8 @@ export default function IntroSequence({ onComplete, onEnter }) {
     setLayout({
       scene,
       monitor,
-      offsetX: (viewportW - scene.width) / 2,
-      offsetY: (viewportH - scene.height) / 2,
+      offsetX: scene.offsetX,
+      offsetY: scene.offsetY,
     });
   }, []);
 
@@ -108,7 +108,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="fixed inset-0 z-50 h-dvh min-h-dvh w-screen overflow-hidden select-none"
+        className="fixed inset-0 z-50 h-[100dvh] min-h-[100dvh] w-full max-w-full overflow-hidden select-none supports-[height:100svh]:h-[100svh] supports-[height:100svh]:min-h-[100svh]"
         style={{ backgroundColor: INTRO_BG }}
         aria-label="Inicializando portfolio"
       >
@@ -143,7 +143,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
               </div>
 
               <div
-                className="absolute z-[2] overflow-hidden border border-black/30 bg-[#0b1020] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] [container-type:inline-size]"
+                className="@container absolute z-[2] overflow-hidden border border-black/30 bg-[#0b1020] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] [container-type:inline-size]"
                 style={{
                   left: layout.monitor.left,
                   top: layout.monitor.top,
@@ -159,24 +159,30 @@ export default function IntroSequence({ onComplete, onEnter }) {
                 <CodeEditor />
               </div>
 
-              <div className="absolute inset-x-0 bottom-[19%] z-10 flex justify-center px-4 sm:px-6">
-                <motion.button
-                  type="button"
-                  onClick={ejecutarEntrada}
-                  disabled={isZooming}
-                  whileTap={{ scale: 0.97 }}
-                  className="group flex w-full max-w-[min(100%,420px)] items-center justify-center gap-2 rounded-full border border-white/10 bg-[#121820]/90 px-6 py-3 text-xs font-semibold tracking-tight text-white shadow-[0_14px_40px_rgba(0,0,0,0.75)] backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/20 hover:bg-[#1a2230]/95 disabled:pointer-events-none disabled:opacity-60 sm:gap-2.5 sm:px-9 sm:py-4 sm:text-sm md:text-[15px]"
-                >
-                  Pulsar Enter y Entrar al Sistema
-                  <span
-                    aria-hidden
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  >
-                    →
-                  </span>
-                </motion.button>
-              </div>
             </motion.div>
+          )}
+
+          {layout && (
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 sm:pb-[max(1rem,env(safe-area-inset-bottom))]">
+              <motion.button
+                type="button"
+                onClick={ejecutarEntrada}
+                disabled={isZooming}
+                whileTap={{ scale: 0.97 }}
+                animate={{ opacity: isZooming ? 0 : 1 }}
+                transition={{ duration: isZooming ? ZOOM_DURATION_S * 0.35 : 0.2 }}
+                className="pointer-events-auto group flex w-full max-w-[min(100%,420px)] items-center justify-center gap-2 rounded-full border border-white/10 bg-[#121820]/90 px-5 py-2.5 text-[11px] font-semibold tracking-tight text-white shadow-[0_14px_40px_rgba(0,0,0,0.75)] backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-105 hover:border-white/20 hover:bg-[#1a2230]/95 disabled:pointer-events-none disabled:opacity-60 sm:gap-2.5 sm:px-9 sm:py-4 sm:text-sm md:text-[15px]"
+              >
+                <span className="sm:hidden">Entrar al Sistema</span>
+                <span className="hidden sm:inline">Pulsar Enter y Entrar al Sistema</span>
+                <span
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </motion.button>
+            </div>
           )}
         </div>
       </motion.section>

@@ -131,11 +131,11 @@ function CodeLine({ tokens }) {
 
 export default function CodeEditor() {
   return (
-    <div className="flex h-full w-full flex-col overflow-hidden bg-[#0b1020] font-mono text-[6px] leading-none sm:text-[7px] md:text-[8px] lg:text-[9px]">
-      <div className="flex h-[16%] min-h-[22px] shrink-0 items-center border-b border-[#1a1a1a] bg-[#181818] px-[0.65em]">
+    <div className="flex h-full w-full flex-col overflow-hidden bg-[#0b1020] font-mono text-[max(3.25px,2.55cqi)] leading-none">
+      <div className="flex h-[16%] min-h-[14px] shrink-0 items-center border-b border-[#1a1a1a] bg-[#181818] px-[0.65em]">
         <span className="truncate text-[0.95em] font-medium text-[#cccccc]">IntroSequence.jsx</span>
       </div>
-      <pre className="min-h-0 flex-1 overflow-hidden bg-[#0b1020] px-2 py-1.5 sm:px-2.5 sm:py-2" aria-hidden>
+      <pre className="min-h-0 flex-1 overflow-hidden bg-[#0b1020] px-[0.55em] py-[0.45em]" aria-hidden>
         <code className="block w-full">
           {CODE_LINES.map((tokens, index) => (
             <CodeLine key={index} tokens={tokens} />

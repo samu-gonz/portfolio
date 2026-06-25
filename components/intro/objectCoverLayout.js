@@ -10,6 +10,14 @@ export const MONITOR_RECT = {
   rotate: 0.35,
 };
 
+/** Focal point (monitor center) in normalized scene coordinates. */
+export const MONITOR_FOCAL = {
+  x: MONITOR_RECT.left + MONITOR_RECT.width / 2,
+  y: MONITOR_RECT.top + MONITOR_RECT.height / 2,
+};
+
+const CONTAIN_ASPECT_RATIO = 0.92;
+
 /**
  * @param {number} viewportW
  * @param {number} viewportH
@@ -21,6 +29,55 @@ export function computeCoverSize(viewportW, viewportH, imgW, imgH) {
   return {
     width: imgW * scale,
     height: imgH * scale,
+  };
+}
+
+/**
+ * Cover with focal point on wide viewports; contain on narrow/portrait so the
+ * monitor stays fully visible on phones and tablets.
+ *
+ * @param {number} viewportW
+ * @param {number} viewportH
+ * @param {number} imgW
+ * @param {number} imgH
+ * @param {{ focal?: { x: number; y: number } }} [options]
+ */
+export function computeSceneLayout(viewportW, viewportH, imgW, imgH, options = {}) {
+  const imageAspect = imgW / imgH;
+  const viewportAspect = viewportW / viewportH;
+  const useContain =
+    viewportW < 768 || viewportAspect < imageAspect * CONTAIN_ASPECT_RATIO;
+
+  if (useContain) {
+    const scale = Math.min(viewportW / imgW, viewportH / imgH);
+    const width = imgW * scale;
+    const height = imgH * scale;
+
+    return {
+      mode: "contain",
+      width,
+      height,
+      offsetX: (viewportW - width) / 2,
+      offsetY: (viewportH - height) / 2,
+    };
+  }
+
+  const scale = Math.max(viewportW / imgW, viewportH / imgH);
+  const width = imgW * scale;
+  const height = imgH * scale;
+  const focal = options.focal ?? MONITOR_FOCAL;
+
+  let offsetX = viewportW / 2 - focal.x * width;
+  let offsetY = viewportH / 2 - focal.y * height;
+  offsetX = Math.min(0, Math.max(viewportW - width, offsetX));
+  offsetY = Math.min(0, Math.max(viewportH - height, offsetY));
+
+  return {
+    mode: "cover",
+    width,
+    height,
+    offsetX,
+    offsetY,
   };
 }
 

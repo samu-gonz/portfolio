@@ -18,6 +18,16 @@ export const MONITOR_FOCAL = {
 
 const CONTAIN_ASPECT_RATIO = 0.92;
 
+/** Viewports below this width use the dedicated mobile intro layout. */
+export const MOBILE_INTRO_MAX_WIDTH = 768;
+
+/**
+ * @param {number} viewportW
+ */
+export function isMobileIntroViewport(viewportW) {
+  return viewportW < MOBILE_INTRO_MAX_WIDTH;
+}
+
 /**
  * @param {number} viewportW
  * @param {number} viewportH
@@ -45,8 +55,7 @@ export function computeCoverSize(viewportW, viewportH, imgW, imgH) {
 export function computeSceneLayout(viewportW, viewportH, imgW, imgH, options = {}) {
   const imageAspect = imgW / imgH;
   const viewportAspect = viewportW / viewportH;
-  const useContain =
-    viewportW < 768 || viewportAspect < imageAspect * CONTAIN_ASPECT_RATIO;
+  const useContain = viewportAspect < imageAspect * CONTAIN_ASPECT_RATIO;
 
   if (useContain) {
     const scale = Math.min(viewportW / imgW, viewportH / imgH);

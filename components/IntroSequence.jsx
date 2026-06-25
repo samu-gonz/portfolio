@@ -4,8 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import CodeEditor from "./intro/CodeEditor";
+import MobileIntroScene from "./intro/MobileIntroScene";
 import {
   computeSceneLayout,
+  isMobileIntroViewport,
   monitorRectToPixels,
   MONITOR_RECT,
   SCENE_SIZE,
@@ -39,6 +41,13 @@ export default function IntroSequence({ onComplete, onEnter }) {
     if (!viewport) return;
 
     const { width: viewportW, height: viewportH } = viewport.getBoundingClientRect();
+    const isMobile = isMobileIntroViewport(viewportW);
+
+    if (isMobile) {
+      setLayout({ isMobile: true });
+      return;
+    }
+
     const scene = computeSceneLayout(
       viewportW,
       viewportH,
@@ -48,6 +57,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
     const monitor = monitorRectToPixels(MONITOR_RECT, scene.width, scene.height);
 
     setLayout({
+      isMobile: false,
       scene,
       monitor,
       offsetX: scene.offsetX,
@@ -99,6 +109,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
 
   const zoomOrigin =
     layout &&
+    !layout.isMobile &&
     `${((layout.monitor.left + layout.monitor.width / 2) / layout.scene.width) * 100}% ${((layout.monitor.top + layout.monitor.height / 2) / layout.scene.height) * 100}%`;
 
   return (
@@ -113,7 +124,9 @@ export default function IntroSequence({ onComplete, onEnter }) {
         aria-label="Inicializando portfolio"
       >
         <div ref={viewportRef} className="absolute inset-0 size-full overflow-hidden">
-          {layout && (
+          {layout?.isMobile && <MobileIntroScene isZooming={isZooming} />}
+
+          {layout && !layout.isMobile && (
             <motion.div
               className="absolute overflow-hidden"
               style={{
@@ -171,10 +184,10 @@ export default function IntroSequence({ onComplete, onEnter }) {
                 whileTap={{ scale: 0.97 }}
                 animate={{ opacity: isZooming ? 0 : 1 }}
                 transition={{ duration: isZooming ? ZOOM_DURATION_S * 0.35 : 0.2 }}
-                className="pointer-events-auto group flex w-full max-w-[min(100%,420px)] items-center justify-center gap-2 rounded-full border border-white/10 bg-[#121820]/90 px-5 py-2.5 text-[11px] font-semibold tracking-tight text-white shadow-[0_14px_40px_rgba(0,0,0,0.75)] backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-105 hover:border-white/20 hover:bg-[#1a2230]/95 disabled:pointer-events-none disabled:opacity-60 sm:gap-2.5 sm:px-9 sm:py-4 sm:text-sm md:text-[15px]"
+                className="pointer-events-auto group flex w-full max-w-[min(100%,420px)] items-center justify-center gap-2 rounded-full border border-white/10 bg-[#121820]/90 px-5 py-3 text-xs font-semibold tracking-tight text-white shadow-[0_14px_40px_rgba(0,0,0,0.75)] backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-105 hover:border-white/20 hover:bg-[#1a2230]/95 disabled:pointer-events-none disabled:opacity-60 sm:gap-2.5 sm:px-9 sm:py-4 sm:text-sm md:text-[15px]"
               >
-                <span className="sm:hidden">Entrar al Sistema</span>
-                <span className="hidden sm:inline">Pulsar Enter y Entrar al Sistema</span>
+                <span className="max-[767px]:inline min-[768px]:hidden">Entrar al Sistema</span>
+                <span className="max-[767px]:hidden min-[768px]:inline">Pulsar Enter y Entrar al Sistema</span>
                 <span
                   aria-hidden
                   className="transition-transform duration-300 group-hover:translate-x-1"

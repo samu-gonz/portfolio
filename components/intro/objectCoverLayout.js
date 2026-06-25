@@ -26,14 +26,38 @@ export const MONITOR_FOCAL = {
 
 const CONTAIN_ASPECT_RATIO = 0.92;
 
-/** Viewports below this width use the dedicated mobile intro layout. */
-export const MOBILE_INTRO_MAX_WIDTH = 768;
+/** Minimum width for the desk photo intro (wide desktop screens only). */
+export const DESKTOP_INTRO_MIN_WIDTH = 1024;
+
+/**
+ * Desk scene only on wide viewports where cover layout works. Tablets (iPad) and
+ * portrait layouts use the compact intro instead.
+ *
+ * @param {number} viewportW
+ * @param {number} viewportH
+ * @param {number} [imgW]
+ * @param {number} [imgH]
+ */
+export function shouldUseDesktopScene(
+  viewportW,
+  viewportH,
+  imgW = SCENE_SIZE.width,
+  imgH = SCENE_SIZE.height,
+) {
+  if (viewportW < DESKTOP_INTRO_MIN_WIDTH) return false;
+
+  const viewportAspect = viewportW / viewportH;
+  const imageAspect = imgW / imgH;
+
+  return viewportAspect >= imageAspect * CONTAIN_ASPECT_RATIO;
+}
 
 /**
  * @param {number} viewportW
+ * @param {number} viewportH
  */
-export function isMobileIntroViewport(viewportW) {
-  return viewportW < MOBILE_INTRO_MAX_WIDTH;
+export function isMobileIntroViewport(viewportW, viewportH) {
+  return !shouldUseDesktopScene(viewportW, viewportH);
 }
 
 /**

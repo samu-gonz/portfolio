@@ -47,7 +47,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
     if (!viewport) return;
 
     const { width: viewportW, height: viewportH } = viewport.getBoundingClientRect();
-    const isMobile = isMobileIntroViewport(viewportW);
+    const isMobile = isMobileIntroViewport(viewportW, viewportH);
 
     if (isMobile) {
       setLayout({ isMobile: true });
@@ -178,10 +178,12 @@ export default function IntroSequence({ onComplete, onEnter }) {
                 <CodeEditor />
               </div>
 
-              <SceneMouseBrand
-                sceneWidth={layout.scene.width}
-                sceneHeight={layout.scene.height}
-              />
+              {layout.scene.mode === "cover" && (
+                <SceneMouseBrand
+                  sceneWidth={layout.scene.width}
+                  sceneHeight={layout.scene.height}
+                />
+              )}
 
             </motion.div>
           )}
@@ -197,8 +199,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
                 transition={{ duration: isZooming ? ZOOM_DURATION_S * 0.35 : 0.2 }}
                 className="pointer-events-auto group flex w-full max-w-[min(100%,420px)] items-center justify-center gap-2 rounded-full border border-white/10 bg-[#121820]/90 px-5 py-3 text-xs font-semibold tracking-tight text-white shadow-[0_14px_40px_rgba(0,0,0,0.75)] backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-105 hover:border-white/20 hover:bg-[#1a2230]/95 disabled:pointer-events-none disabled:opacity-60 sm:gap-2.5 sm:px-9 sm:py-4 sm:text-sm md:text-[15px]"
               >
-                <span className="max-[767px]:inline min-[768px]:hidden">Entrar al Sistema</span>
-                <span className="max-[767px]:hidden min-[768px]:inline">Pulsar Enter y Entrar al Sistema</span>
+                <span>{layout.isMobile ? "Entrar al Sistema" : "Pulsar Enter y Entrar al Sistema"}</span>
                 <span
                   aria-hidden
                   className="transition-transform duration-300 group-hover:translate-x-1"

@@ -10,6 +10,14 @@ export const MONITOR_RECT = {
   rotate: 0.35,
 };
 
+/** Mouse branding patch over the stock Gemini sparkle on intro-scene.png. */
+export const MOUSE_BRAND_RECT = {
+  left: 884 / 1024,
+  top: 428 / 575,
+  width: 34 / 1024,
+  height: 34 / 575,
+};
+
 /** Focal point (monitor center) in normalized scene coordinates. */
 export const MONITOR_FOCAL = {
   x: MONITOR_RECT.left + MONITOR_RECT.width / 2,

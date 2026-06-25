@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import CodeEditor from "./intro/CodeEditor";
 import MobileIntroScene from "./intro/MobileIntroScene";
+import SceneMouseBrand from "./intro/SceneMouseBrand";
 import {
   computeSceneLayout,
   isMobileIntroViewport,
@@ -176,6 +177,11 @@ export default function IntroSequence({ onComplete, onEnter }) {
               >
                 <CodeEditor />
               </div>
+
+              <SceneMouseBrand
+                sceneWidth={layout.scene.width}
+                sceneHeight={layout.scene.height}
+              />
 
             </motion.div>
           )}

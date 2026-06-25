@@ -5,40 +5,56 @@ import IntroSequence from "../components/IntroSequence";
 import PortfolioLayout from "../components/PortfolioLayout";
 
 const INTRO_COMPLETE_KEY = "portfolio-intro-complete";
+const INTRO_BG = "#0b0f19";
 
 function hasCompletedIntro() {
-  if (typeof window === "undefined") return false;
   return sessionStorage.getItem(INTRO_COMPLETE_KEY) === "true";
 }
 
 export default function Page() {
-  const [loading, setLoading] = useState(() => !hasCompletedIntro());
+  const [introReady, setIntroReady] = useState(false);
+  const [showIntro, setShowIntro] = useState(false);
 
   useEffect(() => {
-    if (loading) {
+    setShowIntro(!hasCompletedIntro());
+    setIntroReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!introReady) return undefined;
+
+    if (showIntro) {
       document.body.style.overflow = "hidden";
       return () => {
         document.body.style.overflow = "";
       };
     }
+
     document.body.style.overflow = "";
     return undefined;
-  }, [loading]);
+  }, [introReady, showIntro]);
 
   const handleIntroComplete = () => {
     sessionStorage.setItem(INTRO_COMPLETE_KEY, "true");
-    setLoading(false);
+    setShowIntro(false);
   };
 
   const handleRestartIntro = () => {
     sessionStorage.removeItem(INTRO_COMPLETE_KEY);
-    setLoading(true);
+    setShowIntro(true);
   };
 
   return (
     <>
       <PortfolioLayout onRestartIntro={handleRestartIntro} />
-      {loading && <IntroSequence onComplete={handleIntroComplete} />}
+      {!introReady && (
+        <div
+          className="fixed inset-0 z-50 h-[100dvh] w-full supports-[height:100svh]:h-[100svh]"
+          style={{ backgroundColor: INTRO_BG }}
+          aria-hidden
+        />
+      )}
+      {introReady && showIntro && <IntroSequence onComplete={handleIntroComplete} />}
     </>
   );
 }

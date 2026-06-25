@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import CodeEditor from "./intro/CodeEditor";
@@ -35,6 +35,11 @@ export default function IntroSequence({ onComplete, onEnter }) {
     setIsZooming(true);
     window.setTimeout(() => handleEnter(), ENTER_DELAY_MS);
   }, [handleEnter, isZooming]);
+
+  useEffect(() => {
+    enteringRef.current = false;
+    setIsZooming(false);
+  }, []);
 
   const updateLayout = useCallback(() => {
     const viewport = viewportRef.current;
@@ -80,7 +85,7 @@ export default function IntroSequence({ onComplete, onEnter }) {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     updateLayout();
 
     const viewport = viewportRef.current;

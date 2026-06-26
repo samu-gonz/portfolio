@@ -49,7 +49,7 @@ export default function ProjectCard({
         <ProjectCover image={image} title={title} coverFormat={coverFormat} />
       </figure>
 
-      <div className="flex min-w-0 flex-1 flex-col justify-center p-6 sm:p-8">
+      <div className="flex flex-col p-6 sm:p-8">
         <header>
           <h3 id={headingId} className="text-xl font-bold tracking-tight text-zinc-50">
             {title}

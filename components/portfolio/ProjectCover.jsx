@@ -34,7 +34,12 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
   };
 
   return (
-    <div className="overflow-hidden">
+    <div
+      className={cn(
+        "overflow-hidden leading-none",
+        isPortrait && "flex justify-center px-4 py-5 sm:px-6 sm:py-6",
+      )}
+    >
       <img
         src={image}
         alt={`Captura de ${title}`}
@@ -43,10 +48,10 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
         onLoad={handleLoad}
         onError={() => setFailed(true)}
         className={cn(
-          "block w-full transition duration-500 ease-out group-hover:scale-[1.03]",
+          "block transition duration-500 ease-out group-hover:scale-[1.02]",
           isPortrait
-            ? "h-auto max-h-[min(72vh,520px)] object-top"
-            : "h-auto max-h-[300px] object-top sm:max-h-[320px]",
+            ? "h-auto w-full max-w-[300px] max-h-[min(68vh,480px)] object-top"
+            : "h-auto w-full object-top",
         )}
       />
     </div>
@@ -68,7 +73,7 @@ function ProjectCoverPlaceholder({ title, isPortrait = false }) {
     <div
       className={cn(
         "relative flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#0b0f19] via-indigo-950/30 to-zinc-950",
-        isPortrait ? "min-h-[360px] max-w-[min(100%,340px)]" : "min-h-[220px] max-h-[300px]",
+        isPortrait ? "min-h-[320px] px-4 py-8" : "min-h-[200px] py-10",
       )}
     >
       <div
@@ -76,7 +81,7 @@ function ProjectCoverPlaceholder({ title, isPortrait = false }) {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(99,102,241,0.18),transparent_60%)]"
       />
 
-      <div className="relative z-[1] flex flex-col items-center gap-3 px-6 py-10">
+      <div className="relative z-[1] flex flex-col items-center gap-3">
         <TerminalIcon className="h-11 w-11 text-white/90" />
         <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-zinc-500">
           SG Labs Studio
@@ -92,14 +97,8 @@ function ProjectCoverPlaceholder({ title, isPortrait = false }) {
  */
 export function projectCoverFigureClass(coverFormat = "landscape") {
   if (coverFormat === "portrait") {
-    return UI_FIGURE_PORTRAIT;
+    return "bg-zinc-950/40";
   }
 
-  return UI_FIGURE_LANDSCAPE;
+  return "";
 }
-
-const UI_FIGURE_LANDSCAPE =
-  "w-full lg:w-[min(52%,560px)] lg:shrink-0";
-
-const UI_FIGURE_PORTRAIT =
-  "w-full max-w-[min(100%,340px)] mx-auto lg:mx-0 lg:w-[min(38%,300px)] lg:shrink-0";

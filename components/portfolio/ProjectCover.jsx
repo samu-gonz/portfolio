@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import TerminalIcon from "./TerminalIcon";
-import { UI, cn } from "./uiTokens";
+import { cn } from "./uiTokens";
 
 /**
  * @param {{
@@ -90,26 +90,4 @@ function ProjectCoverPlaceholder({ title, isPortrait = false }) {
       </div>
     </div>
   );
-}
-
-/**
- * @param {"portrait" | "landscape" | "auto"} coverFormat
- */
-export function projectCardClass(coverFormat = "landscape") {
-  if (coverFormat === "portrait") {
-    return `${UI.projectCard} ${UI.projectCardPortrait}`;
-  }
-
-  return `${UI.projectCard} ${UI.projectCardLandscape}`;
-}
-
-/**
- * @param {"portrait" | "landscape" | "auto"} coverFormat
- */
-export function projectCoverFigureClass(coverFormat = "landscape") {
-  if (coverFormat === "portrait") {
-    return UI.projectImagePortrait;
-  }
-
-  return UI.projectImageLandscape;
 }

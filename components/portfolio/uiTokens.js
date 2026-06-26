@@ -37,6 +37,26 @@ export const UI = {
 };
 
 /**
+ * @param {"portrait" | "landscape" | "auto"} coverFormat
+ */
+export function projectCardClass(coverFormat = "landscape") {
+  return cn(
+    UI.projectCard,
+    coverFormat === "portrait" ? UI.projectCardPortrait : UI.projectCardLandscape,
+  );
+}
+
+/**
+ * @param {"portrait" | "landscape" | "auto"} coverFormat
+ */
+export function projectCoverFigureClass(coverFormat = "landscape") {
+  return cn(
+    UI.projectImage,
+    coverFormat === "portrait" ? UI.projectImagePortrait : UI.projectImageLandscape,
+  );
+}
+
+/**
  * @param  {...(string | false | null | undefined)} classes
  * @returns {string}
  */

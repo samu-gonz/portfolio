@@ -2,8 +2,8 @@
 
 import { PROJECT_ACTIONS } from "../../data/portfolioProfile";
 import { useExternalNavigation } from "../../hooks/useExternalNavigation";
-import ProjectCover, { projectCardClass, projectCoverFigureClass } from "./ProjectCover";
-import { UI, cn } from "./uiTokens";
+import ProjectCover from "./ProjectCover";
+import { UI, cn, projectCardClass, projectCoverFigureClass } from "./uiTokens";
 
 const ACTION_STYLES = {
   secondary: UI.btnSecondary,
@@ -47,7 +47,7 @@ export default function ProjectCard({
 
   return (
     <article className={projectCardClass(coverFormat)} aria-labelledby={headingId}>
-      <figure className={cn(UI.projectImage, projectCoverFigureClass(coverFormat))}>
+      <figure className={projectCoverFigureClass(coverFormat)}>
         <ProjectCover image={image} title={title} coverFormat={coverFormat} />
       </figure>
 

@@ -1,9 +1,20 @@
 import "../styles/globals.css";
 
 export const metadata = {
-  title: "Portfolio Full-Stack",
+  title: "SG Labs Studio | Desarrollo Web Profesional",
   description:
-    "Desarrollo de soluciones web Full-Stack para agencias y negocios locales.",
+    "Portafolio de Samuel González. Diseño y creación de aplicaciones web modernas, rápidas y a medida en Málaga.",
+  icons: {
+    icon: "/icon.png",
+  },
+  openGraph: {
+    title: "SG Labs Studio | Desarrollo Web Profesional",
+    description: "Diseño y desarrollo de aplicaciones web a medida.",
+    url: "https://sglabsstudio.com",
+    siteName: "SG Labs Studio",
+    locale: "es_ES",
+    type: "website",
+  },
 };
 
 export const viewport = {

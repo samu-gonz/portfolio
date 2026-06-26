@@ -3,7 +3,6 @@
 import { PROFILE } from "../data/portfolioProfile";
 
 const LINKS = [
-  { href: PROFILE.links.linkedin, label: "LinkedIn" },
   { href: PROFILE.links.github, label: "GitHub" },
   { href: PROFILE.links.email, label: "Correo electrónico" },
 ];

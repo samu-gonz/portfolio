@@ -8,7 +8,6 @@ export const PROFILE = {
   cvUrl: "/cv",
   email: "samuelgonz2006@gmail.com",
   links: {
-    linkedin: "https://linkedin.com/in/",
     github: "https://github.com/samu-gonz",
     email: "mailto:samuelgonz2006@gmail.com",
   },
@@ -46,7 +45,6 @@ export const TECH_SECTIONS = [
 export const SIDEBAR_CONTACT = {
   cv: { href: PROFILE.cvUrl, label: "Ver CV / Imprimir PDF" },
   social: [
-    { id: "linkedin", href: PROFILE.links.linkedin, label: "LinkedIn" },
     { id: "github", href: PROFILE.links.github, label: "GitHub" },
   ],
   email: { label: "Correo electrónico" },

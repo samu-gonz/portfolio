@@ -54,30 +54,32 @@ export default function ProjectCard({
       <div
         className={cn(
           "flex flex-col p-6 sm:p-8",
-          isPortrait && "lg:min-w-0 lg:flex-1 lg:justify-between lg:py-8 lg:pl-8 lg:pr-10",
+          isPortrait && "lg:h-full lg:min-h-0 lg:justify-between lg:p-8 lg:pl-10 lg:pr-10",
         )}
       >
-        <header>
-          <h3 id={headingId} className="text-xl font-bold tracking-tight text-zinc-50">
-            {title}
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">{description}</p>
-          {businessHighlight && (
-            <p className="mt-2 text-sm leading-relaxed">
-              <strong className="font-semibold text-zinc-300">{businessHighlight}</strong>
-            </p>
-          )}
-        </header>
+        <div className={cn(isPortrait && "space-y-5")}>
+          <header>
+            <h3 id={headingId} className="text-xl font-bold tracking-tight text-zinc-50">
+              {title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400">{description}</p>
+            {businessHighlight && (
+              <p className="mt-2 text-sm leading-relaxed">
+                <strong className="font-semibold text-zinc-300">{businessHighlight}</strong>
+              </p>
+            )}
+          </header>
 
-        <ul className={cn("flex flex-wrap gap-1.5", isPortrait ? "mt-5" : "mt-4")} aria-label={`Tecnologías de ${title}`}>
-          {technologies.map((tech) => (
-            <li key={tech} className={UI.projectTag}>
-              {tech}
-            </li>
-          ))}
-        </ul>
+          <ul className="flex flex-wrap gap-1.5" aria-label={`Tecnologías de ${title}`}>
+            {technologies.map((tech) => (
+              <li key={tech} className={UI.projectTag}>
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <footer className={cn("flex flex-col gap-3 sm:flex-row", isPortrait ? "mt-auto pt-6" : "mt-6")}>
+        <footer className={cn("flex flex-col gap-3 sm:flex-row", isPortrait ? "pt-6 lg:pt-8" : "mt-6")}>
           {PROJECT_ACTIONS.map(({ id: actionId, label, hrefKey, style }) => {
             const href = projectLinks[hrefKey];
 

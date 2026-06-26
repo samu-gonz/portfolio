@@ -35,7 +35,7 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
 
   if (isPortrait) {
     return (
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 flex items-start justify-center overflow-hidden bg-[#ececec]">
         <img
           src={image}
           alt={`Captura de ${title}`}
@@ -43,7 +43,7 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
           decoding="async"
           onLoad={handleLoad}
           onError={() => setFailed(true)}
-          className="h-full w-full object-cover object-top transition duration-500 ease-out group-hover:scale-[1.03]"
+          className="h-full w-full object-contain object-top transition duration-500 ease-out group-hover:scale-[1.015]"
         />
       </div>
     );

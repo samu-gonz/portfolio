@@ -2,7 +2,7 @@
 
 import { PROJECT_ACTIONS } from "../../data/portfolioProfile";
 import { useExternalNavigation } from "../../hooks/useExternalNavigation";
-import ProjectCover, { projectCoverFigureClass } from "./ProjectCover";
+import ProjectCover, { projectCardClass, projectCoverFigureClass } from "./ProjectCover";
 import { UI, cn } from "./uiTokens";
 
 const ACTION_STYLES = {
@@ -43,13 +43,20 @@ export default function ProjectCard({
     navigateExternal(href);
   };
 
+  const isPortrait = coverFormat === "portrait";
+
   return (
-    <article className={UI.projectCard} aria-labelledby={headingId}>
+    <article className={projectCardClass(coverFormat)} aria-labelledby={headingId}>
       <figure className={cn(UI.projectImage, projectCoverFigureClass(coverFormat))}>
         <ProjectCover image={image} title={title} coverFormat={coverFormat} />
       </figure>
 
-      <div className="flex flex-col p-6 sm:p-8">
+      <div
+        className={cn(
+          "flex flex-col p-6 sm:p-8",
+          isPortrait && "lg:min-w-0 lg:flex-1 lg:justify-center",
+        )}
+      >
         <header>
           <h3 id={headingId} className="text-xl font-bold tracking-tight text-zinc-50">
             {title}

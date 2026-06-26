@@ -54,7 +54,7 @@ export default function ProjectCard({
       <div
         className={cn(
           "flex flex-col p-6 sm:p-8",
-          isPortrait && "lg:min-w-0 lg:flex-1 lg:justify-center",
+          isPortrait && "lg:min-w-0 lg:flex-1 lg:justify-between lg:py-8 lg:pl-8 lg:pr-10",
         )}
       >
         <header>
@@ -69,7 +69,7 @@ export default function ProjectCard({
           )}
         </header>
 
-        <ul className="mt-4 flex flex-wrap gap-1.5" aria-label={`Tecnologías de ${title}`}>
+        <ul className={cn("flex flex-wrap gap-1.5", isPortrait ? "mt-5" : "mt-4")} aria-label={`Tecnologías de ${title}`}>
           {technologies.map((tech) => (
             <li key={tech} className={UI.projectTag}>
               {tech}
@@ -77,7 +77,7 @@ export default function ProjectCard({
           ))}
         </ul>
 
-        <footer className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <footer className={cn("flex flex-col gap-3 sm:flex-row", isPortrait ? "mt-auto pt-6" : "mt-6")}>
           {PROJECT_ACTIONS.map(({ id: actionId, label, hrefKey, style }) => {
             const href = projectLinks[hrefKey];
 

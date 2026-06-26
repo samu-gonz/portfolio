@@ -33,14 +33,24 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
     }
   };
 
+  if (isPortrait) {
+    return (
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={image}
+          alt={`Captura de ${title}`}
+          loading="lazy"
+          decoding="async"
+          onLoad={handleLoad}
+          onError={() => setFailed(true)}
+          className="h-full w-full object-cover object-top transition duration-500 ease-out group-hover:scale-[1.03]"
+        />
+      </div>
+    );
+  }
+
   return (
-    <div
-      className={cn(
-        "overflow-hidden leading-none",
-        isPortrait &&
-          "flex h-full min-h-[380px] w-full items-start justify-center px-4 py-6 sm:min-h-[420px] sm:px-5 sm:py-7 lg:min-h-full lg:px-6 lg:py-10",
-      )}
-    >
+    <div className="overflow-hidden leading-none">
       <img
         src={image}
         alt={`Captura de ${title}`}
@@ -48,12 +58,7 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
         decoding="async"
         onLoad={handleLoad}
         onError={() => setFailed(true)}
-        className={cn(
-          "block transition duration-500 ease-out group-hover:scale-[1.02]",
-          isPortrait
-            ? "h-auto w-full max-h-[min(80vh,560px)] object-top sm:max-h-[600px] lg:h-full lg:max-h-full lg:w-auto lg:max-w-full lg:object-contain"
-            : "h-auto w-full object-top",
-        )}
+        className="block h-auto w-full object-top transition duration-500 ease-out group-hover:scale-[1.02]"
       />
     </div>
   );
@@ -74,7 +79,7 @@ function ProjectCoverPlaceholder({ title, isPortrait = false }) {
     <div
       className={cn(
         "relative flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#0b0f19] via-indigo-950/30 to-zinc-950",
-        isPortrait ? "min-h-[320px] px-4 py-8" : "min-h-[200px] py-10",
+        isPortrait ? "absolute inset-0 min-h-[380px]" : "min-h-[200px] py-10",
       )}
     >
       <div

@@ -133,7 +133,9 @@ export const PORTFOLIO_PROJECTS = [
     id: "ghostwrite-ai",
     title: "Ghostwrite AI",
     description:
-      "Aplicación web de asistencia de escritura inteligente mediante IA, diseñada con una interfaz fluida, reactiva y optimizada para la automatización de contenidos.",
+      "Aplicación web de asistencia de escritura inteligente mediante IA, orientada a profesionales que publican en LinkedIn y otras redes. Permite transformar ideas técnicas en posts listos para publicar, con control de tono, objetivo y canal desde una interfaz fluida, reactiva y optimizada para la automatización de contenidos.",
+    businessHighlight:
+      "Integra generación por estilo (profesional, inspirador o técnico), adaptación multi-red (LinkedIn, X, Instagram y más) e historial de borradores para crear contenido B2B con rapidez sin perder el tono personal.",
     technologies: ["React", "Vite", "Tailwind CSS", "AI Integration"],
     github: "https://github.com/samu-gonz/ghostwrite-ai",
     demo: "https://ghostwrite-ai-lime.vercel.app/",

@@ -37,7 +37,7 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
     <div
       className={cn(
         "overflow-hidden leading-none",
-        isPortrait && "flex justify-center px-4 py-5 sm:px-6 sm:py-6",
+        isPortrait && "flex min-h-[320px] justify-center px-4 py-6 sm:min-h-[360px] sm:px-5 sm:py-7 lg:min-h-full lg:px-6 lg:py-8",
       )}
     >
       <img
@@ -50,7 +50,7 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
         className={cn(
           "block transition duration-500 ease-out group-hover:scale-[1.02]",
           isPortrait
-            ? "h-auto w-full max-w-[300px] max-h-[min(68vh,480px)] object-top"
+            ? "h-auto w-full max-h-[min(78vh,560px)] object-top lg:max-h-none lg:min-h-[360px] lg:object-contain"
             : "h-auto w-full object-top",
         )}
       />

@@ -138,6 +138,7 @@ export const PORTFOLIO_PROJECTS = [
     github: "https://github.com/samu-gonz/ghostwrite-ai",
     demo: "https://ghostwrite-ai-lime.vercel.app/",
     image: "/projects/ghostwrite.png",
+    coverFormat: "portrait",
   },
   {
     id: "casa-cueva",
@@ -150,6 +151,7 @@ export const PORTFOLIO_PROJECTS = [
     github: "https://github.com/samu-gonz/casa-cueva-las-palomas",
     demo: "https://casa-cueva-las-palomas.vercel.app/",
     image: "/projects/casacueva.png",
+    coverFormat: "landscape",
   },
   {
     id: "guachinche-el-realejo",
@@ -162,6 +164,7 @@ export const PORTFOLIO_PROJECTS = [
     github: "https://github.com/samu-gonz/restaurantePrueba",
     demo: "https://restaurante-prueba-chi.vercel.app/",
     image: "/projects/restaurante.png",
+    coverFormat: "landscape",
   },
 ];
 

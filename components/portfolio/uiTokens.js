@@ -21,9 +21,9 @@ export const UI = {
     "group flex items-center justify-between gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/50 px-4 py-2.5 text-sm font-medium text-zinc-300 transition duration-300 hover:border-zinc-600 hover:bg-zinc-800/80 hover:text-zinc-50",
   main: "mx-auto w-full max-w-5xl flex-1 space-y-12 px-6 py-10 sm:space-y-16 sm:px-10 sm:py-12 lg:px-16 lg:py-20",
   projectCard:
-    "group grid grid-cols-1 items-stretch overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/20 transition duration-300 hover:border-zinc-700/80 hover:bg-zinc-900/40 lg:grid-cols-2",
+    "group grid grid-cols-1 items-stretch overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/20 shadow-[0_10px_36px_rgba(0,0,0,0.28)] transition duration-300 hover:border-zinc-700/70 hover:bg-zinc-900/45 hover:shadow-[0_22px_56px_rgba(0,0,0,0.48)] lg:grid-cols-2",
   projectImage:
-    "relative flex min-h-[220px] w-full items-center justify-center overflow-hidden border-b border-zinc-800/60 bg-zinc-950 sm:min-h-[260px] lg:min-h-full lg:border-b-0 lg:border-r",
+    "relative flex w-full items-stretch overflow-hidden border-b border-zinc-800/50 lg:min-h-full lg:border-b-0 lg:border-r lg:border-zinc-800/50",
   projectTag:
     "rounded-full border border-zinc-800 bg-zinc-950/40 px-2.5 py-0.5 text-xs font-medium text-zinc-400",
   btnSecondary:

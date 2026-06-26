@@ -2,6 +2,7 @@
 
 import { PROJECT_ACTIONS } from "../../data/portfolioProfile";
 import { useExternalNavigation } from "../../hooks/useExternalNavigation";
+import ProjectCover from "./ProjectCover";
 import { UI, cn } from "./uiTokens";
 
 const ACTION_STYLES = {
@@ -18,7 +19,8 @@ const ACTION_STYLES = {
  *   technologies: string[];
  *   github: string;
  *   demo: string;
- *   image: string;
+ *   image?: string | null;
+ *   coverFormat?: "portrait" | "landscape" | "auto";
  * }} props
  */
 export default function ProjectCard({
@@ -30,6 +32,7 @@ export default function ProjectCard({
   github,
   demo,
   image,
+  coverFormat = "landscape",
 }) {
   const { navigateExternal } = useExternalNavigation();
   const headingId = `project-${id}`;
@@ -43,13 +46,7 @@ export default function ProjectCard({
   return (
     <article className={UI.projectCard} aria-labelledby={headingId}>
       <figure className={UI.projectImage}>
-        <img
-          src={image}
-          alt={`Captura de ${title}`}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
-        />
+        <ProjectCover image={image} title={title} coverFormat={coverFormat} />
       </figure>
 
       <div className="flex flex-col justify-center p-6 sm:p-8">

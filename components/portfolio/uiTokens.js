@@ -23,11 +23,11 @@ export const UI = {
   projectCard:
     "group flex overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/20 shadow-[0_10px_36px_rgba(0,0,0,0.28)] transition duration-300 hover:border-zinc-700/70 hover:bg-zinc-900/45 hover:shadow-[0_22px_56px_rgba(0,0,0,0.48)]",
   projectCardLandscape: "flex-col",
-  projectCardPortrait: "flex-col lg:flex-row lg:items-stretch",
+  projectCardPortrait: "flex-col lg:min-h-[640px] lg:flex-row lg:items-stretch",
   projectImage: "relative m-0 shrink-0 overflow-hidden",
   projectImageLandscape: "w-full border-b border-zinc-800/50",
   projectImagePortrait:
-    "w-full max-w-[min(100%,400px)] mx-auto border-b border-zinc-800/50 bg-zinc-950/40 lg:mx-0 lg:w-[min(46%,420px)] lg:max-w-[420px] lg:self-stretch lg:border-b-0 lg:border-r lg:border-zinc-800/50",
+    "flex w-full max-w-[min(100%,420px)] mx-auto border-b border-zinc-800/50 lg:mx-0 lg:min-h-full lg:w-[min(48%,460px)] lg:max-w-[460px] lg:border-b-0 lg:border-r lg:border-zinc-800/50",
   projectTag:
     "rounded-full border border-zinc-800 bg-zinc-950/40 px-2.5 py-0.5 text-xs font-medium text-zinc-400",
   btnSecondary:

@@ -1,7 +1,6 @@
 "use client";
 
 import { PROJECT_ACTIONS } from "../../data/portfolioProfile";
-import { useExternalNavigation } from "../../hooks/useExternalNavigation";
 import ProjectCover from "./ProjectCover";
 import { UI, cn, projectCardClass, projectCoverFigureClass } from "./uiTokens";
 
@@ -34,14 +33,8 @@ export default function ProjectCard({
   image,
   coverFormat = "landscape",
 }) {
-  const { navigateExternal } = useExternalNavigation();
   const headingId = `project-${id}`;
   const projectLinks = { github, demo };
-
-  const handleActionClick = (href) => (event) => {
-    event.preventDefault();
-    navigateExternal(href);
-  };
 
   const isPortrait = coverFormat === "portrait";
 
@@ -89,7 +82,6 @@ export default function ProjectCard({
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={handleActionClick(href)}
                 className={cn(ACTION_STYLES[style])}
               >
                 {label}

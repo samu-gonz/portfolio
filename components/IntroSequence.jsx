@@ -2,9 +2,8 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import CodeEditor from "./intro/CodeEditor";
 import MobileIntroScene from "./intro/MobileIntroScene";
+import MonitorLandingContent from "./intro/MonitorLandingContent";
 import SceneMouseBrand from "./intro/SceneMouseBrand";
 import {
   computeSceneLayout,
@@ -16,40 +15,52 @@ import {
 
 const SCENE = "/intro-scene.png";
 const INTRO_BG = "#0b0f19";
-const ZOOM_DURATION_S = 1.45;
-const ENTER_DELAY_MS = 900;
 
 /**
- * @param {{ onComplete?: () => void; onEnter?: () => void }} props
+ * Optional desk-monitor hero overlay (legacy / optional entry).
+ *
+ * @param {{
+ *   onComplete?: () => void;
+ *   onEnter?: () => void;
+ *   onPrimaryCta?: () => void;
+ *   onSecondaryCta?: () => void;
+ * }} props
  */
-export default function IntroSequence({ onComplete, onEnter }) {
-  const [isZooming, setIsZooming] = useState(false);
+export default function IntroSequence({
+  onComplete,
+  onEnter,
+  onPrimaryCta,
+  onSecondaryCta,
+}) {
   const [layout, setLayout] = useState(null);
   const viewportRef = useRef(null);
-  const enteringRef = useRef(false);
+  const enteredRef = useRef(false);
 
   const handleEnter = onEnter ?? onComplete;
 
-  const ejecutarEntrada = useCallback(() => {
-    if (enteringRef.current || isZooming || !handleEnter) return;
-    enteringRef.current = true;
-    setIsZooming(true);
-    window.setTimeout(() => handleEnter(), ENTER_DELAY_MS);
-  }, [handleEnter, isZooming]);
+  const entrar = useCallback(() => {
+    if (enteredRef.current || !handleEnter) return;
+    enteredRef.current = true;
+    handleEnter();
+  }, [handleEnter]);
 
-  useEffect(() => {
-    enteringRef.current = false;
-    setIsZooming(false);
-  }, []);
+  const handlePrimary = useCallback(() => {
+    onPrimaryCta?.();
+    entrar();
+  }, [onPrimaryCta, entrar]);
+
+  const handleSecondary = useCallback(() => {
+    onSecondaryCta?.();
+    entrar();
+  }, [onSecondaryCta, entrar]);
 
   const updateLayout = useCallback(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
 
     const { width: viewportW, height: viewportH } = viewport.getBoundingClientRect();
-    const isMobile = isMobileIntroViewport(viewportW, viewportH);
 
-    if (isMobile) {
+    if (isMobileIntroViewport(viewportW, viewportH)) {
       setLayout({ isMobile: true });
       return;
     }
@@ -102,115 +113,68 @@ export default function IntroSequence({ onComplete, onEnter }) {
     };
   }, [updateLayout]);
 
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.key !== "Enter" || event.repeat) return;
-      event.preventDefault();
-      ejecutarEntrada();
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [ejecutarEntrada]);
-
-  const zoomOrigin =
-    layout &&
-    !layout.isMobile &&
-    `${((layout.monitor.left + layout.monitor.width / 2) / layout.scene.width) * 100}% ${((layout.monitor.top + layout.monitor.height / 2) / layout.scene.height) * 100}%`;
-
   return (
-    <AnimatePresence>
-      <motion.section
-        key="intro"
-        initial={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="fixed inset-0 z-50 h-[100dvh] min-h-[100dvh] w-full max-w-full overflow-hidden select-none supports-[height:100svh]:h-[100svh] supports-[height:100svh]:min-h-[100svh]"
-        style={{ backgroundColor: INTRO_BG }}
-        aria-label="Inicializando portfolio"
-      >
-        <div ref={viewportRef} className="absolute inset-0 size-full overflow-hidden">
-          {layout?.isMobile && <MobileIntroScene isZooming={isZooming} />}
+    <section
+      className="fixed inset-0 z-50 h-[100dvh] min-h-[100dvh] w-full max-w-full overflow-hidden select-none supports-[height:100svh]:h-[100svh] supports-[height:100svh]:min-h-[100svh]"
+      style={{ backgroundColor: INTRO_BG }}
+      aria-label="SG Labs Studio — Estudio de desarrollo web en Canarias"
+    >
+      <div ref={viewportRef} className="absolute inset-0 size-full overflow-hidden">
+        {layout?.isMobile && (
+          <MobileIntroScene onPrimaryCta={handlePrimary} onSecondaryCta={handleSecondary} />
+        )}
 
-          {layout && !layout.isMobile && (
-            <motion.div
-              className="absolute overflow-hidden"
-              style={{
-                left: layout.offsetX,
-                top: layout.offsetY,
-                width: layout.scene.width,
-                height: layout.scene.height,
-                transformOrigin: zoomOrigin || "50% 38%",
-              }}
-              animate={
-                isZooming
-                  ? { scale: 10, x: 0, y: 0, opacity: 0 }
-                  : { scale: 1, x: 0, y: 0, opacity: 1 }
-              }
-              transition={{ duration: ZOOM_DURATION_S, ease: [0.2, 0.82, 0.2, 1] }}
-            >
-              <div className="relative size-full">
-                <Image
-                  src={SCENE}
-                  alt=""
-                  fill
-                  priority
-                  draggable={false}
-                  sizes="100vw"
-                  className="object-cover object-center"
-                />
-              </div>
-
-              <div
-                className="@container absolute z-[2] overflow-hidden border border-black/30 bg-[#0b1020] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] [container-type:inline-size]"
-                style={{
-                  left: layout.monitor.left,
-                  top: layout.monitor.top,
-                  width: layout.monitor.width,
-                  height: layout.monitor.height,
-                  borderRadius: Math.max(6, layout.monitor.width * 0.022),
-                  transform: layout.monitor.rotate
-                    ? `rotate(${layout.monitor.rotate}deg)`
-                    : undefined,
-                  transformOrigin: "center center",
-                }}
-              >
-                <CodeEditor />
-              </div>
-
-              {layout.scene.mode === "cover" && (
-                <SceneMouseBrand
-                  sceneWidth={layout.scene.width}
-                  sceneHeight={layout.scene.height}
-                />
-              )}
-
-            </motion.div>
-          )}
-
-          {layout && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 sm:pb-[max(1rem,env(safe-area-inset-bottom))]">
-              <motion.button
-                type="button"
-                onClick={ejecutarEntrada}
-                disabled={isZooming}
-                whileTap={{ scale: 0.97 }}
-                animate={{ opacity: isZooming ? 0 : 1 }}
-                transition={{ duration: isZooming ? ZOOM_DURATION_S * 0.35 : 0.2 }}
-                className="pointer-events-auto group flex w-full max-w-[min(100%,420px)] items-center justify-center gap-2 rounded-full border border-white/10 bg-[#121820]/90 px-5 py-3 text-xs font-semibold tracking-tight text-white shadow-[0_14px_40px_rgba(0,0,0,0.75)] backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-105 hover:border-white/20 hover:bg-[#1a2230]/95 disabled:pointer-events-none disabled:opacity-60 sm:gap-2.5 sm:px-9 sm:py-4 sm:text-sm md:text-[15px]"
-              >
-                <span>{layout.isMobile ? "Entrar al Sistema" : "Pulsar Enter y Entrar al Sistema"}</span>
-                <span
-                  aria-hidden
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </motion.button>
+        {layout && !layout.isMobile && (
+          <div
+            className="absolute overflow-hidden"
+            style={{
+              left: layout.offsetX,
+              top: layout.offsetY,
+              width: layout.scene.width,
+              height: layout.scene.height,
+            }}
+          >
+            <div className="relative size-full">
+              <Image
+                src={SCENE}
+                alt=""
+                fill
+                priority
+                draggable={false}
+                sizes="100vw"
+                className="object-cover object-center"
+              />
             </div>
-          )}
-        </div>
-      </motion.section>
-    </AnimatePresence>
+
+            <div
+              className="absolute z-[2] overflow-hidden border border-black/30 bg-[#0c111c] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] [container-type:size]"
+              style={{
+                left: layout.monitor.left,
+                top: layout.monitor.top,
+                width: layout.monitor.width,
+                height: layout.monitor.height,
+                borderRadius: Math.max(6, layout.monitor.width * 0.022),
+                transform: layout.monitor.rotate
+                  ? `rotate(${layout.monitor.rotate}deg)`
+                  : undefined,
+                transformOrigin: "center center",
+              }}
+            >
+              <MonitorLandingContent
+                onPrimaryCta={handlePrimary}
+                onSecondaryCta={handleSecondary}
+              />
+            </div>
+
+            {layout.scene.mode === "cover" && (
+              <SceneMouseBrand
+                sceneWidth={layout.scene.width}
+                sceneHeight={layout.scene.height}
+              />
+            )}
+          </div>
+        )}
+      </div>
+    </section>
   );
 }

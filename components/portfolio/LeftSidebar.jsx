@@ -4,7 +4,10 @@ import SGLabsLogo from "./SGLabsLogo";
 import TechStackGroup from "./TechStackGroup";
 import { UI } from "./uiTokens";
 
-export default function LeftSidebar() {
+/**
+ * @param {{ onRequestContact?: () => void }} props
+ */
+export default function LeftSidebar({ onRequestContact }) {
   return (
     <aside className={UI.sidebar}>
       <div className="space-y-6 sm:space-y-8">
@@ -21,7 +24,7 @@ export default function LeftSidebar() {
         ))}
       </div>
 
-      <ContactSection />
+      <ContactSection onRequestContact={onRequestContact} />
     </aside>
   );
 }

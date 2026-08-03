@@ -1,7 +1,7 @@
 /** Source dimensions of intro-scene.png */
 export const SCENE_SIZE = { width: 1024, height: 575 };
 
-/** Monitor LCD area aligned to intro-scene.png bezel (CodeEditor overlay). */
+/** Monitor LCD area aligned to intro-scene.png bezel (landing content overlay). */
 export const MONITOR_RECT = {
   left: 254 / 1024,
   top: 110 / 575,

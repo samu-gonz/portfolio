@@ -31,7 +31,7 @@ export default function SGLabsLogo({
 
   if (asLink) {
     return (
-      <Link href="/" aria-label="SG LABS — Inicio del portfolio" className={rootClass}>
+      <Link href="/" aria-label="SG LABS — Estudio de desarrollo web" className={rootClass}>
         {content}
       </Link>
     );

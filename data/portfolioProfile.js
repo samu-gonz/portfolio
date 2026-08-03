@@ -1,9 +1,9 @@
 export const PROFILE = {
-  name: "Samuel G. R.",
-  fullName: "Samuel González Rodríguez",
-  role: "Full-Stack Developer",
-  availability: "Disponible para incorporación inmediata",
-  location: "Tenerife, España",
+  name: "SG Labs Studio",
+  fullName: "SG Labs Studio",
+  role: "Estudio de Desarrollo & Diseño Web",
+  availability: "Disponibles para nuevos proyectos",
+  location: "Canarias, España",
   phone: "+34 634473640",
   cvUrl: "/cv",
   email: "samuelgonz2006@gmail.com",
@@ -14,7 +14,7 @@ export const PROFILE = {
 };
 
 export const PROFILE_BIO =
-  "Desarrollador Full-Stack enfocado en el diseño, construcción y despliegue de aplicaciones web modernas, eficientes y escalables. Especializado en arquitecturas robustas en el backend y en la creación de interfaces de usuario reactivas, intuitivas y optimizadas a nivel de rendimiento. Con capacidad para gestionar proyectos desde la base de datos hasta producción, priorizando la limpieza del código, la experiencia de usuario (UX) y la resolución ágil de problemas técnicos.";
+  "En SG Labs Studio diseñamos y desarrollamos sitios web de alto rendimiento para PYMEs y empresas. Combinamos diseño premium, arquitectura orientada a conversión y código a medida para transformar visitas en clientes — con velocidad, SEO nativo y una experiencia impecable en móvil.";
 
 export const TECH_STACK = {
   frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
@@ -24,7 +24,7 @@ export const TECH_STACK = {
 export const SIDEBAR_BRAND = {
   title: "Desarrollo de Alto Rendimiento",
   subtitle:
-    "Estructuras optimizadas, carga ultrarrápida y código limpio para garantizar la mejor experiencia de usuario y posicionamiento.",
+    "Sitios optimizados, carga ultrarrápida y código limpio para mejorar la experiencia de tus clientes y tu posicionamiento.",
 };
 
 export const TECH_SECTIONS = [
@@ -43,7 +43,7 @@ export const TECH_SECTIONS = [
 ];
 
 export const SIDEBAR_CONTACT = {
-  cv: { href: PROFILE.cvUrl, label: "Ver CV / Imprimir PDF" },
+  cv: { href: PROFILE.cvUrl, label: "Descargar dossier / CV" },
   social: [
     { id: "github", href: PROFILE.links.github, label: "GitHub" },
   ],
@@ -52,9 +52,9 @@ export const SIDEBAR_CONTACT = {
 
 export const PAGE_SECTIONS = {
   profile: {
-    id: "perfil",
-    eyebrow: "Perfil Profesional",
-    title: PROFILE.fullName,
+    id: "inicio",
+    eyebrow: "Estudio digital",
+    title: "SG Labs Studio",
   },
   services: {
     id: "servicios",
@@ -63,12 +63,12 @@ export const PAGE_SECTIONS = {
   },
   projects: {
     id: "proyectos",
-    eyebrow: "Portfolio",
+    eyebrow: "Casos de estudio",
     title: "Proyectos Destacados",
   },
   guarantees: {
     id: "garantias",
-    eyebrow: "Cómo trabajo",
+    eyebrow: "Cómo trabajamos",
     title: "Garantías y Metodología",
   },
 };
@@ -105,7 +105,7 @@ export const GUARANTEES = [
     id: "ongoing-support",
     title: "Soporte & Mantenimiento Continuo",
     description:
-      "Al finalizar el desarrollo, ofrezco un servicio mensual de mantenimiento técnico para que no tengas que preocuparte por nada. Incluye la optimización constante del sitio, actualizaciones de seguridad, monitorización del servidor y soporte directo para cambios de contenido o nuevas funciones. Tu web siempre online, rápida y protegida.",
+      "Al finalizar el desarrollo, ofrecemos un servicio mensual de mantenimiento técnico para que no tengas que preocuparte por nada. Incluye la optimización constante del sitio, actualizaciones de seguridad, monitorización del servidor y soporte directo para cambios de contenido o nuevas funciones. Tu web siempre online, rápida y protegida.",
   },
   {
     id: "performance-seo",
@@ -123,7 +123,7 @@ export const PROJECT_ACTIONS = [
 export const PORTFOLIO_UI = {
   contactDirect: "Contacto Directo",
   contactNav: "Enlaces de contacto",
-  restartIntro: "Reiniciar intro",
+  restartIntro: "Volver a la portada",
 };
 
 export const PORTFOLIO_PROJECTS = [

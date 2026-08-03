@@ -1,15 +1,16 @@
 import "../styles/globals.css";
 
 export const metadata = {
-  title: "SG Labs Studio | Desarrollo Web Profesional",
+  title: "SG Labs Studio | Desarrollo & Diseño Web en Canarias",
   description:
-    "Portafolio de Samuel González. Diseño y creación de aplicaciones web modernas, rápidas y a medida en Málaga.",
+    "Estudio digital B2B. Diseñamos páginas web ultra rápidas que convierten visitas en clientes para PYMEs y empresas en Canarias.",
   icons: {
     icon: "/icon.png",
   },
   openGraph: {
-    title: "SG Labs Studio | Desarrollo Web Profesional",
-    description: "Diseño y desarrollo de aplicaciones web a medida.",
+    title: "SG Labs Studio | Desarrollo & Diseño Web en Canarias",
+    description:
+      "Sitios web de alto rendimiento, diseño premium y enfocados 100% en ventas.",
     url: "https://sglabsstudio.com",
     siteName: "SG Labs Studio",
     locale: "es_ES",

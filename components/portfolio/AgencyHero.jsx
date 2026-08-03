@@ -3,7 +3,7 @@
 import { logoFont } from "../../lib/fonts";
 import TerminalIcon from "./TerminalIcon";
 
-const TRUST_ITEMS = ["Negocios locales · Canarias", "Sin compromiso", "Respuesta rápida"];
+const TRUST_ITEMS = ["PYMEs y empresas", "Sin compromiso", "Trabajo remoto"];
 
 /**
  * @param {{
@@ -36,7 +36,7 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
         </div>
 
         <span className="inline-flex items-center rounded-full border border-zinc-700/80 bg-zinc-950/50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-400 sm:text-xs">
-          Estudio de Desarrollo &amp; Diseño Web · Canarias
+          Estudio de Desarrollo &amp; Diseño Web
         </span>
 
         <h1
@@ -47,8 +47,9 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
         </h1>
 
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg">
-          Si tienes un negocio local y quieres más llamadas, reservas o citas, te hacemos una web
-          clara, profesional y pensada para que tus clientes te elijan.
+          Si tienes un negocio y quieres más llamadas, reservas o citas, te hacemos una web clara,
+          profesional y pensada para que tus clientes te elijan — trabajamos en remoto con empresas
+          de cualquier lugar.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">

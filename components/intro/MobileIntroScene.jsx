@@ -30,7 +30,7 @@ export default function MobileIntroScene({ onPrimaryCta, onSecondaryCta }) {
           <TerminalIcon className="h-9 w-9 text-white/95 sm:h-10 sm:w-10" />
           <span className="text-sm font-bold tracking-[0.28em] text-white">SG LABS</span>
           <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
-            Estudio digital · Canarias
+            Estudio digital · Desarrollo web
           </span>
         </div>
 

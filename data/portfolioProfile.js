@@ -30,7 +30,7 @@ export const TECH_STACK = {
 export const SIDEBAR_BRAND = {
   title: "Webs que traen clientes",
   subtitle:
-    "Ayudamos a negocios locales en Canarias a verse profesionales online y convertir visitas en llamadas y reservas.",
+    "Ayudamos a PYMEs y empresas a verse profesionales online y convertir visitas en llamadas, reservas y ventas.",
 };
 
 export const TECH_SECTIONS = [
@@ -133,7 +133,7 @@ export const PORTFOLIO_PROJECTS = [
   {
     id: "casa-cueva",
     title: "Casa Cueva las Palomas",
-    sector: "Turismo rural · Canarias",
+    sector: "Turismo rural",
     description:
       "Web de alojamiento pensada para captar reservas directas, con atención automática al visitante.",
     businessHighlight: "Menos tiempo respondiendo lo mismo y más reservas sin intermediarios.",
@@ -147,7 +147,7 @@ export const PORTFOLIO_PROJECTS = [
   {
     id: "guachinche-el-realejo",
     title: "Guachinche El Realejo",
-    sector: "Restauración · Canarias",
+    sector: "Restauración",
     description:
       "Web con menú digital y reservas automatizadas para que el local no pierda mesas ni llamadas.",
     businessHighlight: "Centraliza reservas y reduce la carga en barra y cocina.",

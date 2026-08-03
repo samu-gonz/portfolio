@@ -117,7 +117,7 @@ export default function IntroSequence({
     <section
       className="fixed inset-0 z-50 h-[100dvh] min-h-[100dvh] w-full max-w-full overflow-hidden select-none supports-[height:100svh]:h-[100svh] supports-[height:100svh]:min-h-[100svh]"
       style={{ backgroundColor: INTRO_BG }}
-      aria-label="SG Labs Studio — Estudio de desarrollo web en Canarias"
+      aria-label="SG Labs Studio — Estudio de desarrollo web"
     >
       <div ref={viewportRef} className="absolute inset-0 size-full overflow-hidden">
         {layout?.isMobile && (

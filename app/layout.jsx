@@ -1,14 +1,14 @@
 import "../styles/globals.css";
 
 export const metadata = {
-  title: "SG Labs Studio | Desarrollo & Diseño Web en Canarias",
+  title: "SG Labs Studio | Desarrollo & Diseño Web",
   description:
-    "Estudio digital B2B. Diseñamos páginas web ultra rápidas que convierten visitas en clientes para PYMEs y empresas en Canarias.",
+    "Estudio digital B2B. Diseñamos páginas web ultra rápidas que convierten visitas en clientes para PYMEs y empresas.",
   icons: {
     icon: "/icon.png",
   },
   openGraph: {
-    title: "SG Labs Studio | Desarrollo & Diseño Web en Canarias",
+    title: "SG Labs Studio | Desarrollo & Diseño Web",
     description:
       "Sitios web de alto rendimiento, diseño premium y enfocados 100% en ventas.",
     url: "https://sglabsstudio.com",

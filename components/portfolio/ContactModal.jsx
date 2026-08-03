@@ -48,7 +48,8 @@ export default function ContactModal({ open, onClose }) {
         `Email: ${email}`,
         `Negocio: ${business || "—"}`,
         "",
-        message || "Me gustaría solicitar un análisis gratuito de mi presencia digital.",
+        message ||
+          "Me gustaría solicitar un análisis gratuito y conocer la oferta para primeros clientes.",
       ].join("\n"),
     );
 

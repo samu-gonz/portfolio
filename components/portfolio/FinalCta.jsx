@@ -30,8 +30,8 @@ export default function FinalCta({ onRequestContact }) {
           ¿Quieres ver qué mejorarías en tu web actual?
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
-          Análisis gratuito y sin compromiso. Te decimos qué está frenando a tus clientes y cómo
-          solucionarlo.
+          Análisis gratuito y sin compromiso. Ideal si quieres ser de los primeros proyectos y
+          empezar con condiciones favorables.
         </p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

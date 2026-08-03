@@ -5,11 +5,13 @@ import AgencyHero from "./AgencyHero";
 import AgencyPillars from "./AgencyPillars";
 import ContactModal from "./ContactModal";
 import FinalCta from "./FinalCta";
+import FirstClientsOffer from "./FirstClientsOffer";
 import GuaranteesSection from "./GuaranteesSection";
 import LeftSidebar from "./LeftSidebar";
 import MobileStickyCta from "./MobileStickyCta";
 import ProjectGrid from "./ProjectGrid";
 import ServicesSection from "./ServicesSection";
+import WorkProcessSection from "./WorkProcessSection";
 import { PAGE_SECTIONS } from "../../data/portfolioProfile";
 import { UI } from "./uiTokens";
 
@@ -30,7 +32,9 @@ export default function PortfolioLayout() {
         <AgencyHero onPrimaryCta={openContact} onSecondaryCta={scrollToProjects} />
         <AgencyPillars />
         <ServicesSection />
+        <WorkProcessSection />
         <ProjectGrid />
+        <FirstClientsOffer onRequestContact={openContact} />
         <GuaranteesSection />
         <FinalCta onRequestContact={openContact} />
       </main>

@@ -72,8 +72,8 @@ export const PAGE_SECTIONS = {
   },
   guarantees: {
     id: "garantias",
-    eyebrow: "Tranquilidad",
-    title: "Así trabajamos contigo",
+    eyebrow: "Compromiso",
+    title: "Qué puedes esperar de nosotros",
   },
 };
 
@@ -101,21 +101,21 @@ export const SERVICES = [
 export const GUARANTEES = [
   {
     id: "remote-phases",
-    title: "Proceso claro y sin sorpresas",
+    title: "Trato directo",
     description:
-      "Te mostramos avances reales en cada fase. Sabes qué se está haciendo, cuándo y cómo quedará antes de publicar.",
+      "Hablas con quien diseña y desarrolla tu web. Comunicación ágil por WhatsApp o videollamada.",
   },
   {
     id: "ongoing-support",
-    title: "Soporte cuando lo necesites",
+    title: "Soporte después del lanzamiento",
     description:
-      "Después del lanzamiento puedes contar con mantenimiento: seguridad, velocidad, cambios de contenido y soporte directo.",
+      "No desaparecemos al publicar: puedes contar con mantenimiento, cambios y ayuda cuando lo necesites.",
   },
   {
     id: "performance-seo",
-    title: "Rápida y fácil de encontrar",
+    title: "Pensado para resultados",
     description:
-      "Optimizamos carga y estructura para que Google te encuentre mejor y tus clientes no abandonen la página.",
+      "Priorizamos velocidad, claridad en móvil y que el visitante sepa cómo contactarte o reservar.",
   },
 ];
 

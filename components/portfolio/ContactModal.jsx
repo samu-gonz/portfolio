@@ -131,20 +131,30 @@ export default function ContactModal({ open, onClose }) {
             />
           </label>
 
-          <div className="flex flex-col-reverse gap-2 pt-1 sm:flex-row sm:justify-end">
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-full border border-zinc-700 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100"
+          <div className="flex flex-col-reverse gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
+            <a
+              href={PROFILE.links.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-zinc-700 px-5 py-2.5 text-center text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100"
             >
-              Cancelar
-            </button>
-            <button
-              type="submit"
-              className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-bold text-[#041018] shadow-[0_10px_28px_rgba(34,211,238,0.25)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
-            >
-              Enviar solicitud
-            </button>
+              Preferimos WhatsApp
+            </a>
+            <div className="flex flex-col-reverse gap-2 sm:flex-row">
+              <button
+                type="button"
+                onClick={onClose}
+                className="rounded-full border border-zinc-700 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100"
+              >
+                Cancelar
+              </button>
+              <button
+                type="submit"
+                className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-bold text-[#041018] shadow-[0_10px_28px_rgba(34,211,238,0.25)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
+              >
+                Enviar solicitud
+              </button>
+            </div>
           </div>
         </form>
       </div>

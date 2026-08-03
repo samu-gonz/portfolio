@@ -13,9 +13,11 @@ const ACTION_STYLES = {
  * @param {{
  *   id: string;
  *   title: string;
+ *   sector?: string;
  *   description: string;
  *   businessHighlight?: string;
- *   technologies: string[];
+ *   tags?: string[];
+ *   technologies?: string[];
  *   github: string;
  *   demo: string;
  *   image?: string | null;
@@ -25,9 +27,11 @@ const ACTION_STYLES = {
 export default function ProjectCard({
   id,
   title,
+  sector,
   description,
   businessHighlight,
-  technologies,
+  tags,
+  technologies = [],
   github,
   demo,
   image,
@@ -35,7 +39,7 @@ export default function ProjectCard({
 }) {
   const headingId = `project-${id}`;
   const projectLinks = { github, demo };
-
+  const displayTags = tags?.length ? tags : technologies;
   const isPortrait = coverFormat === "portrait";
 
   return (
@@ -52,29 +56,37 @@ export default function ProjectCard({
       >
         <div className={cn(isPortrait && "space-y-5")}>
           <header>
+            {sector && (
+              <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.16em] text-cyan-400/90">
+                {sector}
+              </p>
+            )}
             <h3 id={headingId} className="text-xl font-bold tracking-tight text-zinc-50">
               {title}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-zinc-400">{description}</p>
             {businessHighlight && (
-              <p className="mt-2 text-sm leading-relaxed">
-                <strong className="font-semibold text-zinc-300">{businessHighlight}</strong>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-zinc-200">
+                {businessHighlight}
               </p>
             )}
           </header>
 
-          <ul className="flex flex-wrap gap-1.5" aria-label={`Tecnologías de ${title}`}>
-            {technologies.map((tech) => (
-              <li key={tech} className={UI.projectTag}>
-                {tech}
-              </li>
-            ))}
-          </ul>
+          {displayTags.length > 0 && (
+            <ul className="mt-4 flex flex-wrap gap-1.5" aria-label={`Etiquetas de ${title}`}>
+              {displayTags.map((tag) => (
+                <li key={tag} className={UI.projectTag}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <footer className={cn("flex flex-col gap-3 sm:flex-row", isPortrait ? "pt-6 lg:pt-8" : "mt-6")}>
           {PROJECT_ACTIONS.map(({ id: actionId, label, hrefKey, style }) => {
             const href = projectLinks[hrefKey];
+            if (!href) return null;
 
             return (
               <a
@@ -82,7 +94,7 @@ export default function ProjectCard({
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(ACTION_STYLES[style])}
+                className={cn(ACTION_STYLES[style], "sm:max-w-[220px]")}
               >
                 {label}
               </a>

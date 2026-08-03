@@ -1,7 +1,6 @@
-import { SIDEBAR_BRAND, TECH_SECTIONS } from "../../data/portfolioProfile";
+import { SIDEBAR_BRAND } from "../../data/portfolioProfile";
 import ContactSection from "./ContactSection";
 import SGLabsLogo from "./SGLabsLogo";
-import TechStackGroup from "./TechStackGroup";
 import { UI } from "./uiTokens";
 
 /**
@@ -9,7 +8,7 @@ import { UI } from "./uiTokens";
  */
 export default function LeftSidebar({ onRequestContact }) {
   return (
-    <aside className={UI.sidebar}>
+    <aside className={`${UI.sidebar} order-2 lg:order-1`}>
       <div className="space-y-6 sm:space-y-8">
         <header className="border-b border-zinc-800/40 pb-6 sm:pb-8">
           <SGLabsLogo />
@@ -18,10 +17,6 @@ export default function LeftSidebar({ onRequestContact }) {
             <p className={UI.sidebarBrandSubtitle}>{SIDEBAR_BRAND.subtitle}</p>
           </div>
         </header>
-
-        {TECH_SECTIONS.map((section) => (
-          <TechStackGroup key={section.id} section={section} />
-        ))}
       </div>
 
       <ContactSection onRequestContact={onRequestContact} />

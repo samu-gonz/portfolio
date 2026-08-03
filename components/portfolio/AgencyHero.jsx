@@ -1,5 +1,8 @@
 "use client";
 
+import { logoFont } from "../../lib/fonts";
+import TerminalIcon from "./TerminalIcon";
+
 /**
  * @param {{
  *   onPrimaryCta?: () => void;
@@ -23,8 +26,15 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
       />
 
       <div className="relative z-[1] px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16">
+        <div className="mb-5 flex items-center gap-2.5 lg:hidden">
+          <TerminalIcon className="h-7 w-7 text-white" />
+          <span className={`${logoFont.className} text-lg font-bold tracking-wide text-white`}>
+            SG LABS
+          </span>
+        </div>
+
         <span className="inline-flex items-center rounded-full border border-zinc-700/80 bg-zinc-950/50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-400 sm:text-xs">
-          Estudio de Desarrollo &amp; Diseño Web
+          Estudio de Desarrollo &amp; Diseño Web · Canarias
         </span>
 
         <h1
@@ -35,8 +45,8 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
         </h1>
 
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg">
-          Ayudamos a PYMEs y empresas a transformar su presencia digital con sitios web de alto
-          rendimiento, diseño premium y enfocados 100% en ventas.
+          Si tienes un negocio local y quieres más llamadas, reservas o citas, te hacemos una web
+          clara, profesional y pensada para vender — no para impresionar a programadores.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
@@ -53,7 +63,7 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
             onClick={onSecondaryCta}
             className="inline-flex items-center justify-center rounded-full border border-zinc-600/80 bg-transparent px-6 py-3.5 text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-400 hover:bg-zinc-900/60 hover:text-white"
           >
-            Ver Proyectos
+            Ver ejemplos reales
           </button>
         </div>
       </div>

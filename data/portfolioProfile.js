@@ -4,17 +4,23 @@ export const PROFILE = {
   role: "Estudio de Desarrollo & Diseño Web",
   availability: "Disponibles para nuevos proyectos",
   location: "Canarias, España",
-  phone: "+34 634473640",
+  phone: "+34 634 473 640",
+  phoneE164: "34634473640",
   cvUrl: "/cv",
   email: "samuelgonz2006@gmail.com",
   links: {
     github: "https://github.com/samu-gonz",
     email: "mailto:samuelgonz2006@gmail.com",
+    whatsapp:
+      "https://wa.me/34634473640?text=" +
+      encodeURIComponent(
+        "Hola, me gustaría solicitar un análisis gratuito de la web de mi negocio.",
+      ),
   },
 };
 
 export const PROFILE_BIO =
-  "En SG Labs Studio diseñamos y desarrollamos sitios web de alto rendimiento para PYMEs y empresas. Combinamos diseño premium, arquitectura orientada a conversión y código a medida para transformar visitas en clientes — con velocidad, SEO nativo y una experiencia impecable en móvil.";
+  "En SG Labs Studio diseñamos webs para negocios que quieren más llamadas, reservas y clientes. Diseño claro, carga rápida y enfocadas en resultados — no en tecnicismos.";
 
 export const TECH_STACK = {
   frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
@@ -22,9 +28,9 @@ export const TECH_STACK = {
 };
 
 export const SIDEBAR_BRAND = {
-  title: "Desarrollo de Alto Rendimiento",
+  title: "Webs que traen clientes",
   subtitle:
-    "Sitios optimizados, carga ultrarrápida y código limpio para mejorar la experiencia de tus clientes y tu posicionamiento.",
+    "Ayudamos a negocios locales en Canarias a verse profesionales online y convertir visitas en llamadas y reservas.",
 };
 
 export const TECH_SECTIONS = [
@@ -43,11 +49,9 @@ export const TECH_SECTIONS = [
 ];
 
 export const SIDEBAR_CONTACT = {
-  cv: { href: PROFILE.cvUrl, label: "Descargar dossier / CV" },
-  social: [
-    { id: "github", href: PROFILE.links.github, label: "GitHub" },
-  ],
+  whatsapp: { href: PROFILE.links.whatsapp, label: "WhatsApp" },
   email: { label: "Correo electrónico" },
+  phone: { href: `tel:+${PROFILE.phoneE164}`, label: PROFILE.phone },
 };
 
 export const PAGE_SECTIONS = {
@@ -58,70 +62,69 @@ export const PAGE_SECTIONS = {
   },
   services: {
     id: "servicios",
-    eyebrow: "Soluciones B2B",
-    title: "Servicios",
+    eyebrow: "Qué hacemos",
+    title: "Cómo te ayudamos",
   },
   projects: {
     id: "proyectos",
-    eyebrow: "Casos de estudio",
-    title: "Proyectos Destacados",
+    eyebrow: "Trabajos reales",
+    title: "Proyectos para negocios como el tuyo",
   },
   guarantees: {
     id: "garantias",
-    eyebrow: "Cómo trabajamos",
-    title: "Garantías y Metodología",
+    eyebrow: "Tranquilidad",
+    title: "Así trabajamos contigo",
   },
 };
 
 export const SERVICES = [
   {
     id: "custom-web",
-    title: "Desarrollo Web a Medida",
+    title: "Web profesional a medida",
     description:
-      "Creación de aplicaciones y webs corporativas ultra rápidas con React y Next.js. Código limpio sin plantillas lentas, optimizado para conversión.",
+      "Una web limpia, rápida y adaptada a tu negocio. Pensada para que el cliente te encuentre, confíe y te contacte.",
   },
   {
     id: "ui-ux-mobile",
-    title: "Optimización UI/UX & Mobile-First",
+    title: "Diseño que funciona en el móvil",
     description:
-      "Interfaces modernas, limpias e intuitivas diseñadas específicamente para garantizar una experiencia impecable en teléfonos móviles y tablets.",
+      "La mayoría de tus clientes te buscan desde el teléfono. Diseñamos para que en móvil se vea clara, rápida y fácil de usar.",
   },
   {
     id: "dynamic-systems",
-    title: "Sistemas Dinámicos e Integraciones",
+    title: "Reservas, menús y automatización",
     description:
-      "Desarrollo de lógica backend y bases de datos a medida (motores de reserva en tiempo real, automatizaciones y asistentes de IA integrados).",
+      "Sistemas de reservas, menús digitales, avisos por email y asistentes que responden por ti — menos trabajo manual, más clientes atendidos.",
   },
 ];
 
 export const GUARANTEES = [
   {
     id: "remote-phases",
-    title: "Gestión 100% Remota por Fases",
+    title: "Proceso claro y sin sorpresas",
     description:
-      "Comunicación ágil por videollamada y despliegues semanales en entornos de prueba (Vercel) para un seguimiento transparente del avance.",
+      "Te mostramos avances reales en cada fase. Sabes qué se está haciendo, cuándo y cómo quedará antes de publicar.",
   },
   {
     id: "ongoing-support",
-    title: "Soporte & Mantenimiento Continuo",
+    title: "Soporte cuando lo necesites",
     description:
-      "Al finalizar el desarrollo, ofrecemos un servicio mensual de mantenimiento técnico para que no tengas que preocuparte por nada. Incluye la optimización constante del sitio, actualizaciones de seguridad, monitorización del servidor y soporte directo para cambios de contenido o nuevas funciones. Tu web siempre online, rápida y protegida.",
+      "Después del lanzamiento puedes contar con mantenimiento: seguridad, velocidad, cambios de contenido y soporte directo.",
   },
   {
     id: "performance-seo",
-    title: "Rendimiento y SEO Nativo",
+    title: "Rápida y fácil de encontrar",
     description:
-      "Estructura de código orientada desde el primer día a la velocidad de carga y al posicionamiento en buscadores para maximizar el retorno de inversión.",
+      "Optimizamos carga y estructura para que Google te encuentre mejor y tus clientes no abandonen la página.",
   },
 ];
 
 export const PROJECT_ACTIONS = [
-  { id: "code", label: "Ver Código", hrefKey: "github", style: "secondary" },
-  { id: "demo", label: "Ver Demo", hrefKey: "demo", style: "primary" },
+  { id: "demo", label: "Ver web", hrefKey: "demo", style: "primary" },
 ];
 
 export const PORTFOLIO_UI = {
-  contactDirect: "Contacto Directo",
+  contactDirect: "Hablemos",
   contactNav: "Enlaces de contacto",
   restartIntro: "Volver a la portada",
 };
@@ -130,10 +133,11 @@ export const PORTFOLIO_PROJECTS = [
   {
     id: "ghostwrite-ai",
     title: "Ghostwrite AI",
+    sector: "Herramienta para profesionales",
     description:
-      "Aplicación web de asistencia de escritura inteligente mediante IA, orientada a profesionales que publican en LinkedIn y otras redes. Permite transformar ideas técnicas en posts listos para publicar, con control de tono, objetivo y canal desde una interfaz fluida, reactiva y optimizada para la automatización de contenidos.",
-    businessHighlight:
-      "Integra generación por estilo (profesional, inspirador o técnico), adaptación multi-red (LinkedIn, X, Instagram y más) e historial de borradores para crear contenido B2B con rapidez sin perder el tono personal.",
+      "App que convierte ideas en publicaciones listas para redes, ahorrando horas de escritura cada semana.",
+    businessHighlight: "Ideal si quieres publicar más sin dedicar todo el día a redactar.",
+    tags: ["Automatización", "Contenido", "IA"],
     technologies: ["React", "Vite", "Tailwind CSS", "AI Integration"],
     github: "https://github.com/samu-gonz/ghostwrite-ai",
     demo: "https://ghostwrite-ai-lime.vercel.app/",
@@ -143,10 +147,11 @@ export const PORTFOLIO_PROJECTS = [
   {
     id: "casa-cueva",
     title: "Casa Cueva las Palomas",
+    sector: "Turismo rural · Canarias",
     description:
-      "Plataforma web profesional para alojamiento rural turístico con interfaz responsive avanzada, optimización de recursos y un chatbot conversacional con IA integrada para la atención al cliente.",
-    businessHighlight:
-      "Optimizada con un chatbot inteligente que automatiza la atención al usuario, reduciendo los tiempos de respuesta y fomentando la reserva directa.",
+      "Web de alojamiento pensada para captar reservas directas, con atención automática al visitante.",
+    businessHighlight: "Menos tiempo respondiendo lo mismo y más reservas sin intermediarios.",
+    tags: ["Turismo", "Reservas", "Chat automático"],
     technologies: ["React", "Vite", "Tailwind CSS", "AI Integration", "Frontend"],
     github: "https://github.com/samu-gonz/casa-cueva-las-palomas",
     demo: "https://casa-cueva-las-palomas.vercel.app/",
@@ -156,10 +161,11 @@ export const PORTFOLIO_PROJECTS = [
   {
     id: "guachinche-el-realejo",
     title: "Guachinche El Realejo",
+    sector: "Restauración · Canarias",
     description:
-      "Aplicación Full-Stack para gestión de restaurante. Cuenta con un menú digital dinámico, motor de reservas automatizado con notificaciones por email y un asistente virtual con IA integrada para gestionar comandas y consultas.",
-    businessHighlight:
-      "Diseñada para centralizar y automatizar los flujos de reserva en tiempo real, aliviando la carga administrativa del negocio.",
+      "Web con menú digital y reservas automatizadas para que el local no pierda mesas ni llamadas.",
+    businessHighlight: "Centraliza reservas y reduce la carga en barra y cocina.",
+    tags: ["Restaurante", "Menú digital", "Reservas"],
     technologies: ["Node.js", "Express", "React", "Nodemailer", "AI Integration", "Full-Stack"],
     github: "https://github.com/samu-gonz/restaurantePrueba",
     demo: "https://restaurante-prueba-chi.vercel.app/",

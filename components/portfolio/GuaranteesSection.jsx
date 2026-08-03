@@ -1,5 +1,4 @@
 import { GUARANTEES, PAGE_SECTIONS } from "../../data/portfolioProfile";
-import ContentCard from "./ContentCard";
 import SectionHeader from "./SectionHeader";
 
 export default function GuaranteesSection() {
@@ -15,9 +14,17 @@ export default function GuaranteesSection() {
         titleId={sectionTitleId}
       />
 
-      <div className="flex flex-col gap-5 sm:gap-6">
+      <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
         {GUARANTEES.map((guarantee) => (
-          <ContentCard key={guarantee.id} {...guarantee} />
+          <article
+            key={guarantee.id}
+            className="rounded-2xl border border-zinc-800/70 bg-zinc-900/25 p-5 sm:p-6"
+          >
+            <h3 className="text-base font-semibold tracking-tight text-zinc-50 sm:text-lg">
+              {guarantee.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">{guarantee.description}</p>
+          </article>
         ))}
       </div>
     </section>

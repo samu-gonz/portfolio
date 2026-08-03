@@ -1,5 +1,4 @@
 import { PAGE_SECTIONS, SERVICES } from "../../data/portfolioProfile";
-import ContentCard from "./ContentCard";
 import SectionHeader from "./SectionHeader";
 
 export default function ServicesSection() {
@@ -15,9 +14,20 @@ export default function ServicesSection() {
         titleId={sectionTitleId}
       />
 
-      <div className="flex flex-col gap-5 sm:gap-6">
-        {SERVICES.map((service) => (
-          <ContentCard key={service.id} {...service} />
+      <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
+        {SERVICES.map((service, index) => (
+          <article
+            key={service.id}
+            className="rounded-2xl border border-zinc-800/70 bg-zinc-900/25 p-5 transition duration-300 hover:border-zinc-700 hover:bg-zinc-900/45 sm:p-6"
+          >
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-400/90">
+              0{index + 1}
+            </span>
+            <h3 className="mt-3 text-base font-semibold tracking-tight text-zinc-50 sm:text-lg">
+              {service.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">{service.description}</p>
+          </article>
         ))}
       </div>
     </section>

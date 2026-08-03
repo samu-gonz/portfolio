@@ -4,7 +4,7 @@
 export const UI = {
   layout: "flex min-h-screen flex-col bg-zinc-950 text-zinc-50 antialiased lg:flex-row",
   sidebar:
-    "flex w-full flex-col justify-between border-b border-zinc-800/50 bg-zinc-900 p-6 pb-8 lg:sticky lg:top-0 lg:h-screen lg:min-h-0 lg:w-80 lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-8 lg:pt-8 lg:pb-12",
+    "flex w-full flex-col justify-between border-t border-zinc-800/50 bg-zinc-900 p-6 pb-8 lg:sticky lg:top-0 lg:h-screen lg:min-h-0 lg:w-80 lg:overflow-y-auto lg:border-t-0 lg:border-b-0 lg:border-r lg:px-8 lg:pt-8 lg:pb-12",
   sectionEyebrow: "text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:text-sm",
   sidebarBrandTitle: "text-sm font-semibold tracking-tight text-zinc-100 sm:text-base",
   sidebarBrandSubtitle: "mt-2 text-xs leading-relaxed text-zinc-400 sm:text-sm",

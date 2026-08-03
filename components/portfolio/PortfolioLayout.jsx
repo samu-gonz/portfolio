@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import AgencyHero from "./AgencyHero";
 import AgencyPillars from "./AgencyPillars";
 import ContactModal from "./ContactModal";
+import FinalCta from "./FinalCta";
 import GuaranteesSection from "./GuaranteesSection";
 import LeftSidebar from "./LeftSidebar";
 import ProjectGrid from "./ProjectGrid";
@@ -26,12 +27,13 @@ export default function PortfolioLayout() {
     <div className={UI.layout}>
       <LeftSidebar onRequestContact={openContact} />
 
-      <main className={UI.main}>
+      <main className={`${UI.main} order-1 lg:order-2`}>
         <AgencyHero onPrimaryCta={openContact} onSecondaryCta={scrollToProjects} />
         <AgencyPillars />
         <ServicesSection />
         <ProjectGrid />
         <GuaranteesSection />
+        <FinalCta onRequestContact={openContact} />
       </main>
 
       <ContactModal open={contactOpen} onClose={closeContact} />

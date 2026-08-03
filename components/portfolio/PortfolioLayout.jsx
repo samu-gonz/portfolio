@@ -7,6 +7,7 @@ import ContactModal from "./ContactModal";
 import FinalCta from "./FinalCta";
 import GuaranteesSection from "./GuaranteesSection";
 import LeftSidebar from "./LeftSidebar";
+import MobileStickyCta from "./MobileStickyCta";
 import ProjectGrid from "./ProjectGrid";
 import ServicesSection from "./ServicesSection";
 import { PAGE_SECTIONS } from "../../data/portfolioProfile";
@@ -25,9 +26,7 @@ export default function PortfolioLayout() {
 
   return (
     <div className={UI.layout}>
-      <LeftSidebar onRequestContact={openContact} />
-
-      <main className={`${UI.main} order-1 lg:order-2`}>
+      <main className={`${UI.main} order-1 pb-24 lg:order-2 lg:pb-20`}>
         <AgencyHero onPrimaryCta={openContact} onSecondaryCta={scrollToProjects} />
         <AgencyPillars />
         <ServicesSection />
@@ -36,6 +35,9 @@ export default function PortfolioLayout() {
         <FinalCta onRequestContact={openContact} />
       </main>
 
+      <LeftSidebar onRequestContact={openContact} />
+
+      {!contactOpen && <MobileStickyCta onRequestContact={openContact} />}
       <ContactModal open={contactOpen} onClose={closeContact} />
     </div>
   );

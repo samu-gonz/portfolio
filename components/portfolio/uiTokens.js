@@ -14,12 +14,12 @@ export const UI = {
   techBadge:
     "shrink-0 cursor-default rounded-lg border border-zinc-800/80 bg-zinc-950/70 px-3 py-1.5 text-xs font-medium text-zinc-100 transition duration-300 hover:border-zinc-600 hover:bg-zinc-900/80",
   contactPanel:
-    "mt-8 rounded-2xl border border-zinc-700/50 bg-zinc-950/40 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-5 lg:mt-0 lg:pb-6",
+    "rounded-2xl border border-zinc-700/50 bg-zinc-950/40 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-5 lg:pb-6",
   contactCvPrimary:
     "flex w-full items-center justify-center rounded-xl border border-zinc-500/40 bg-zinc-900/90 px-4 py-3.5 text-sm font-semibold text-zinc-50 shadow-sm transition duration-300 hover:border-zinc-400/60 hover:bg-zinc-800",
   contactLink:
     "group flex items-center justify-between gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/50 px-4 py-2.5 text-sm font-medium text-zinc-300 transition duration-300 hover:border-zinc-600 hover:bg-zinc-800/80 hover:text-zinc-50",
-  main: "mx-auto w-full max-w-5xl flex-1 space-y-12 px-6 py-10 sm:space-y-16 sm:px-10 sm:py-12 lg:px-16 lg:py-20",
+  main: "mx-auto w-full max-w-5xl flex-1 space-y-10 px-6 py-8 sm:space-y-14 sm:px-10 sm:py-12 lg:px-16 lg:py-20",
   projectCard:
     "group flex overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/20 shadow-[0_10px_36px_rgba(0,0,0,0.28)] transition duration-300 hover:border-zinc-700/70 hover:bg-zinc-900/45 hover:shadow-[0_22px_56px_rgba(0,0,0,0.48)]",
   projectCardLandscape: "flex-col",

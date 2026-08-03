@@ -27,7 +27,7 @@ export default function ContactSection({ onRequestContact }) {
           <button
             type="button"
             onClick={onRequestContact}
-            className="flex w-full items-center justify-center rounded-xl bg-cyan-400 px-4 py-3.5 text-sm font-bold text-[#041018] transition duration-300 hover:bg-cyan-300"
+            className="hidden w-full items-center justify-center rounded-xl bg-cyan-400 px-4 py-3.5 text-sm font-bold text-[#041018] transition duration-300 hover:bg-cyan-300 lg:flex"
           >
             Solicitar Análisis Gratuito
           </button>

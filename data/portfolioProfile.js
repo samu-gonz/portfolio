@@ -131,20 +131,6 @@ export const PORTFOLIO_UI = {
 
 export const PORTFOLIO_PROJECTS = [
   {
-    id: "ghostwrite-ai",
-    title: "Ghostwrite AI",
-    sector: "Herramienta para profesionales",
-    description:
-      "App que convierte ideas en publicaciones listas para redes, ahorrando horas de escritura cada semana.",
-    businessHighlight: "Ideal si quieres publicar más sin dedicar todo el día a redactar.",
-    tags: ["Automatización", "Contenido", "IA"],
-    technologies: ["React", "Vite", "Tailwind CSS", "AI Integration"],
-    github: "https://github.com/samu-gonz/ghostwrite-ai",
-    demo: "https://ghostwrite-ai-lime.vercel.app/",
-    image: "/projects/ghostwrite.png",
-    coverFormat: "portrait",
-  },
-  {
     id: "casa-cueva",
     title: "Casa Cueva las Palomas",
     sector: "Turismo rural · Canarias",
@@ -171,6 +157,20 @@ export const PORTFOLIO_PROJECTS = [
     demo: "https://restaurante-prueba-chi.vercel.app/",
     image: "/projects/restaurante.png",
     coverFormat: "landscape",
+  },
+  {
+    id: "ghostwrite-ai",
+    title: "Ghostwrite AI",
+    sector: "Herramienta para profesionales",
+    description:
+      "App que convierte ideas en publicaciones listas para redes, ahorrando horas de escritura cada semana.",
+    businessHighlight: "Ideal si quieres publicar más sin dedicar todo el día a redactar.",
+    tags: ["Automatización", "Contenido", "IA"],
+    technologies: ["React", "Vite", "Tailwind CSS", "AI Integration"],
+    github: "https://github.com/samu-gonz/ghostwrite-ai",
+    demo: "https://ghostwrite-ai-lime.vercel.app/",
+    image: "/projects/ghostwrite.png",
+    coverFormat: "portrait",
   },
 ];
 

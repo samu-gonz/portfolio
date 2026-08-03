@@ -3,6 +3,8 @@
 import { logoFont } from "../../lib/fonts";
 import TerminalIcon from "./TerminalIcon";
 
+const TRUST_ITEMS = ["Negocios locales · Canarias", "Sin compromiso", "Respuesta rápida"];
+
 /**
  * @param {{
  *   onPrimaryCta?: () => void;
@@ -46,7 +48,7 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
 
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg">
           Si tienes un negocio local y quieres más llamadas, reservas o citas, te hacemos una web
-          clara, profesional y pensada para vender — no para impresionar a programadores.
+          clara, profesional y pensada para que tus clientes te elijan.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
@@ -66,6 +68,17 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
             Ver ejemplos reales
           </button>
         </div>
+
+        <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 sm:mt-8">
+          {TRUST_ITEMS.map((item) => (
+            <li key={item} className="text-xs text-zinc-500 sm:text-sm">
+              <span className="mr-2 text-cyan-400/80" aria-hidden>
+                ✓
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

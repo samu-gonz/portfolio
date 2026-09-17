@@ -7,7 +7,7 @@ export default function ProjectGrid() {
   const sectionTitleId = `${projects.id}-title`;
 
   return (
-    <section id={projects.id} aria-labelledby={sectionTitleId} className="space-y-6 sm:space-y-8">
+    <section id={projects.id} aria-labelledby={sectionTitleId} className="space-y-6 sm:space-y-8 xl:space-y-10">
       <SectionHeader
         eyebrow={projects.eyebrow}
         title={projects.title}
@@ -15,7 +15,7 @@ export default function ProjectGrid() {
         titleId={sectionTitleId}
       />
 
-      <div className="flex flex-col gap-5 sm:gap-6">
+      <div className="flex flex-col gap-5 sm:gap-6 xl:gap-8">
         {PORTFOLIO_PROJECTS.map((project) => (
           <ProjectCard key={project.id} {...project} />
         ))}

@@ -38,6 +38,13 @@ export const SIDEBAR_BRAND = {
   title: "Webs que traen clientes",
   subtitle:
     "Ayudamos a PYMEs y empresas a verse profesionales online y convertir visitas en llamadas, reservas y ventas.",
+  extra:
+    "Diseño claro, carga rápida y un camino obvio para que te llamen o reserven. Hablas con quien diseña y desarrolla — sin tecnicismos ni agencias intermedias.",
+  points: [
+    "Trabajo remoto con empresas de cualquier lugar",
+    "Análisis gratuito de tu web actual",
+    "Disponibles para nuevos proyectos",
+  ],
 };
 
 export const TECH_SECTIONS = [

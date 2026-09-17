@@ -7,7 +7,10 @@ export default function SectionHeader({ eyebrow, title, titleAs: TitleTag = "h2"
   return (
     <header>
       <p className={UI.sectionEyebrow}>{eyebrow}</p>
-      <TitleTag id={titleId} className="mt-2 text-2xl font-bold tracking-tight text-zinc-50 sm:mt-3">
+      <TitleTag
+        id={titleId}
+        className="mt-2 text-2xl font-bold tracking-tight text-zinc-50 sm:mt-3 xl:text-[1.75rem] 3xl:text-[2rem]"
+      >
         {title}
       </TitleTag>
     </header>

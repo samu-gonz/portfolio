@@ -25,6 +25,30 @@ const PROCESS_STEPS = [
   },
 ];
 
+const FREE_ANALYSIS = {
+  eyebrow: "Contacto",
+  title: "Solicitar análisis gratuito",
+  description:
+    "Revisamos tu web actual (o si todavía no tienes) y te devolvemos una auditoría clara: qué está frenando llamadas, reservas o ventas, qué mejoraríamos y un presupuesto sin compromiso.",
+  benefits: [
+    {
+      id: "response-time",
+      title: "Respuesta en 24-48h",
+      detail: "Te escribimos con hallazgos concretos, no con una plantilla genérica.",
+    },
+    {
+      id: "no-commitment",
+      title: "Sin compromiso",
+      detail: "Si no encaja, no pasa nada. No hay letra pequeña ni permanencia.",
+    },
+    {
+      id: "personalized",
+      title: "Análisis personalizado",
+      detail: "Miramos tu negocio, tu cliente y cómo captas hoy: no es un informe automático.",
+    },
+  ],
+};
+
 const FIRST_CLIENTS_OFFER = {
   eyebrow: "Primeros clientes",
   title: "Condiciones especiales mientras crecemos juntos",
@@ -38,4 +62,4 @@ const FIRST_CLIENTS_OFFER = {
   ],
 };
 
-export { PROCESS_STEPS, FIRST_CLIENTS_OFFER };
+export { PROCESS_STEPS, FIRST_CLIENTS_OFFER, FREE_ANALYSIS };

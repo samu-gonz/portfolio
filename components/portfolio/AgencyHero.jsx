@@ -1,6 +1,7 @@
 "use client";
 
 import { logoFont } from "../../lib/fonts";
+import HeroSiteMockup from "./HeroSiteMockup";
 import TerminalIcon from "./TerminalIcon";
 
 const TRUST_ITEMS = ["PYMEs y empresas", "Sin compromiso", "Trabajo remoto"];
@@ -80,6 +81,8 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
             </li>
           ))}
         </ul>
+
+        <HeroSiteMockup />
       </div>
     </section>
   );

@@ -22,6 +22,13 @@ export const PROFILE = {
 export const PROFILE_BIO =
   "En SG Labs Studio diseñamos webs para negocios que quieren más llamadas, reservas y clientes. Diseño claro, carga rápida y enfocadas en resultados — no en tecnicismos.";
 
+/** Mockup of this studio site (hero). Client covers live under /projects/*.png */
+export const STUDIO_SITE_MOCKUP = {
+  src: "/hero/sglabsstudio.png",
+  urlLabel: "sglabsstudio.com",
+  alt: "Captura de la web de SG Labs Studio",
+};
+
 export const TECH_STACK = {
   frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   backend: ["Java", "Node.js", "Express", "SQL", "MySQL"],

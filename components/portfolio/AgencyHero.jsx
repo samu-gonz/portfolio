@@ -28,59 +28,61 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
         }}
       />
 
-      <div className="relative z-[1] px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16 2xl:px-16 2xl:py-20 3xl:px-20 3xl:py-24">
-        <div className="mb-5 flex items-center gap-2.5 lg:hidden">
-          <TerminalIcon className="h-7 w-7 text-white" />
-          <span className={`${logoFont.className} text-lg font-bold tracking-wide text-white`}>
-            SG LABS
+      <div className="relative z-[1] grid items-center gap-8 px-6 py-10 sm:px-10 sm:py-14 lg:gap-10 lg:px-10 lg:py-14 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] xl:gap-12 xl:px-12 xl:py-16 3xl:gap-16 3xl:px-14 3xl:py-20">
+        <div className="min-w-0">
+          <div className="mb-5 flex items-center gap-2.5 lg:hidden">
+            <TerminalIcon className="h-7 w-7 text-white" />
+            <span className={`${logoFont.className} text-lg font-bold tracking-wide text-white`}>
+              SG LABS
+            </span>
+          </div>
+
+          <span className="inline-flex items-center rounded-full border border-zinc-700/80 bg-zinc-950/50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-400 sm:text-xs">
+            Estudio de Desarrollo &amp; Diseño Web
           </span>
-        </div>
 
-        <span className="inline-flex items-center rounded-full border border-zinc-700/80 bg-zinc-950/50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-400 sm:text-xs">
-          Estudio de Desarrollo &amp; Diseño Web
-        </span>
-
-        <h1
-          id="agency-hero-title"
-          className="mt-5 max-w-3xl text-3xl font-extrabold tracking-tight text-zinc-50 sm:mt-6 sm:text-4xl sm:leading-[1.12] lg:text-[clamp(2.75rem,1.9rem+1.1vw,3.25rem)] 3xl:max-w-4xl"
-        >
-          Diseñamos páginas web ultra rápidas que convierten visitas en clientes.
-        </h1>
-
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg xl:max-w-3xl 3xl:text-xl">
-          Si tienes un negocio y quieres más llamadas, reservas o citas, te hacemos una web clara,
-          profesional y pensada para que tus clientes te elijan — trabajamos en remoto con empresas
-          de cualquier lugar.
-        </p>
-
-        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center 3xl:mt-12">
-          <button
-            type="button"
-            onClick={onPrimaryCta}
-            className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-[#041018] shadow-[0_12px_32px_rgba(34,211,238,0.28)] transition duration-200 hover:-translate-y-1 hover:bg-cyan-300 hover:shadow-[0_18px_40px_rgba(34,211,238,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+          <h1
+            id="agency-hero-title"
+            className="mt-5 max-w-3xl text-3xl font-extrabold tracking-tight text-zinc-50 sm:mt-6 sm:text-4xl sm:leading-[1.12] lg:text-[clamp(2.75rem,1.9rem+1.1vw,3.25rem)]"
           >
-            Solicitar Análisis Gratuito
-          </button>
+            Diseñamos páginas web ultra rápidas que convierten visitas en clientes.
+          </h1>
 
-          <button
-            type="button"
-            onClick={onSecondaryCta}
-            className="inline-flex items-center justify-center rounded-full border border-zinc-600/80 bg-transparent px-6 py-3.5 text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-400 hover:bg-zinc-900/60 hover:text-white"
-          >
-            Ver ejemplos reales
-          </button>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg 3xl:text-xl">
+            Si tienes un negocio y quieres más llamadas, reservas o citas, te hacemos una web clara,
+            profesional y pensada para que tus clientes te elijan — trabajamos en remoto con empresas
+            de cualquier lugar.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
+            <button
+              type="button"
+              onClick={onPrimaryCta}
+              className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-[#041018] shadow-[0_12px_32px_rgba(34,211,238,0.28)] transition duration-200 hover:-translate-y-1 hover:bg-cyan-300 hover:shadow-[0_18px_40px_rgba(34,211,238,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+            >
+              Solicitar Análisis Gratuito
+            </button>
+
+            <button
+              type="button"
+              onClick={onSecondaryCta}
+              className="inline-flex items-center justify-center rounded-full border border-zinc-600/80 bg-transparent px-6 py-3.5 text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-400 hover:bg-zinc-900/60 hover:text-white"
+            >
+              Ver ejemplos reales
+            </button>
+          </div>
+
+          <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 sm:mt-8">
+            {TRUST_ITEMS.map((item) => (
+              <li key={item} className="text-xs text-zinc-500 sm:text-sm">
+                <span className="mr-2 text-cyan-400/80" aria-hidden>
+                  ✓
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 sm:mt-8">
-          {TRUST_ITEMS.map((item) => (
-            <li key={item} className="text-xs text-zinc-500 sm:text-sm">
-              <span className="mr-2 text-cyan-400/80" aria-hidden>
-                ✓
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
 
         <HeroSiteMockup />
       </div>

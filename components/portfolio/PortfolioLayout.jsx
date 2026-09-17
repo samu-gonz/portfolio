@@ -27,7 +27,7 @@ export default function PortfolioLayout() {
 
   return (
     <div className={UI.layout}>
-      <main className={`${UI.main} order-1 pb-24 lg:order-2 lg:pb-20 2xl:pb-24 3xl:pb-28`}>
+      <main className={`${UI.main} order-1 pb-24 lg:order-2 lg:pb-16 xl:pb-20 3xl:pb-24`}>
         <AgencyHero onPrimaryCta={scrollToAnalysis} onSecondaryCta={scrollToProjects} />
         <AgencyPillars />
         <ServicesSection />

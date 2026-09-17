@@ -3,7 +3,7 @@
 /** @type {UiTokens} */
 export const UI = {
   layout:
-    "mx-auto flex min-h-screen w-full max-w-[100rem] flex-col bg-zinc-950 text-zinc-50 antialiased lg:flex-row",
+    "mx-auto flex min-h-screen w-full max-w-[120rem] flex-col bg-zinc-950 text-zinc-50 antialiased lg:flex-row",
   sidebar:
     "flex w-full flex-col justify-between border-t border-zinc-800/50 bg-zinc-900 p-6 pb-8 lg:sticky lg:top-0 lg:h-screen lg:min-h-0 lg:w-80 lg:shrink-0 lg:overflow-y-auto lg:border-t-0 lg:border-b-0 lg:border-r lg:px-8 lg:pt-8 lg:pb-12 3xl:w-96 3xl:px-10 3xl:pt-10 3xl:pb-14",
   sectionEyebrow: "text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:text-sm",
@@ -20,7 +20,7 @@ export const UI = {
     "flex w-full items-center justify-center rounded-xl border border-zinc-500/40 bg-zinc-900/90 px-4 py-3.5 text-sm font-semibold text-zinc-50 shadow-sm transition duration-300 hover:border-zinc-400/60 hover:bg-zinc-800",
   contactLink:
     "group flex items-center justify-between gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/50 px-4 py-2.5 text-sm font-medium text-zinc-300 transition duration-300 hover:border-zinc-600 hover:bg-zinc-800/80 hover:text-zinc-50",
-  main: "mx-auto w-full min-w-0 flex-1 space-y-10 px-6 py-8 sm:space-y-14 sm:px-10 sm:py-12 lg:mx-0 lg:px-16 lg:py-20 xl:space-y-16 xl:px-20 2xl:space-y-20 2xl:py-24 3xl:space-y-24 3xl:px-24 3xl:py-28",
+  main: "w-full min-w-0 flex-1 space-y-10 px-6 py-8 sm:space-y-14 sm:px-10 sm:py-12 lg:px-10 lg:py-16 xl:space-y-16 xl:px-12 xl:py-20 2xl:space-y-20 2xl:px-14 2xl:py-20 3xl:space-y-24 3xl:px-16 3xl:py-24",
   projectCard:
     "group flex overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/20 shadow-[0_10px_36px_rgba(0,0,0,0.28)] transition duration-300 hover:border-zinc-700/70 hover:bg-zinc-900/45 hover:shadow-[0_22px_56px_rgba(0,0,0,0.48)]",
   projectCardLandscape: "flex-col",

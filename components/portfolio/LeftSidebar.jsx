@@ -9,8 +9,8 @@ import { UI } from "./uiTokens";
 export default function LeftSidebar({ onRequestContact }) {
   return (
     <aside className={`${UI.sidebar} order-2 lg:order-1`}>
-      <div className="hidden space-y-6 sm:space-y-8 lg:block">
-        <header className="border-b border-zinc-800/40 pb-6 sm:pb-8">
+      <div className="hidden space-y-6 sm:space-y-8 lg:block 3xl:space-y-10">
+        <header className="border-b border-zinc-800/40 pb-6 sm:pb-8 3xl:pb-10">
           <SGLabsLogo />
           <div className="mt-6 sm:mt-7">
             <h2 className={UI.sidebarBrandTitle}>{SIDEBAR_BRAND.title}</h2>

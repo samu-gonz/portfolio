@@ -39,6 +39,8 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
         <img
           src={image}
           alt={`Captura de ${title}`}
+          width={567}
+          height={735}
           loading="lazy"
           decoding="async"
           onLoad={handleLoad}
@@ -54,6 +56,8 @@ export default function ProjectCover({ image, title, coverFormat = "landscape" }
       <img
         src={image}
         alt={`Captura de ${title}`}
+        width={1024}
+        height={447}
         loading="lazy"
         decoding="async"
         onLoad={handleLoad}

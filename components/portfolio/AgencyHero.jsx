@@ -28,7 +28,7 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
         }}
       />
 
-      <div className="relative z-[1] px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16">
+      <div className="relative z-[1] px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16 2xl:px-16 2xl:py-20 3xl:px-20 3xl:py-24">
         <div className="mb-5 flex items-center gap-2.5 lg:hidden">
           <TerminalIcon className="h-7 w-7 text-white" />
           <span className={`${logoFont.className} text-lg font-bold tracking-wide text-white`}>
@@ -42,18 +42,18 @@ export default function AgencyHero({ onPrimaryCta, onSecondaryCta }) {
 
         <h1
           id="agency-hero-title"
-          className="mt-5 max-w-3xl text-3xl font-extrabold tracking-tight text-zinc-50 sm:mt-6 sm:text-4xl sm:leading-[1.12] lg:text-[2.75rem]"
+          className="mt-5 max-w-3xl text-3xl font-extrabold tracking-tight text-zinc-50 sm:mt-6 sm:text-4xl sm:leading-[1.12] lg:text-[clamp(2.75rem,1.9rem+1.1vw,3.25rem)] 3xl:max-w-4xl"
         >
           Diseñamos páginas web ultra rápidas que convierten visitas en clientes.
         </h1>
 
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg xl:max-w-3xl 3xl:text-xl">
           Si tienes un negocio y quieres más llamadas, reservas o citas, te hacemos una web clara,
           profesional y pensada para que tus clientes te elijan — trabajamos en remoto con empresas
           de cualquier lugar.
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center 3xl:mt-12">
           <button
             type="button"
             onClick={onPrimaryCta}

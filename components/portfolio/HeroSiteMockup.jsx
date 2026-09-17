@@ -11,7 +11,7 @@ export default function HeroSiteMockup() {
   const [failed, setFailed] = useState(false);
 
   return (
-    <figure className="mb-16 mt-8 sm:mt-10 lg:mb-0" aria-label={STUDIO_SITE_MOCKUP.alt}>
+    <figure className="mb-16 mt-8 sm:mt-10 lg:mb-0 3xl:mt-12" aria-label={STUDIO_SITE_MOCKUP.alt}>
       <div className="overflow-hidden rounded-2xl border border-zinc-700/70 bg-zinc-950 shadow-[0_18px_50px_rgba(0,0,0,0.45)]">
         <div className="flex items-center gap-3 border-b border-zinc-800/80 bg-zinc-900/90 px-3 py-2.5">
           <div className="flex shrink-0 gap-1.5" aria-hidden>
@@ -24,13 +24,15 @@ export default function HeroSiteMockup() {
           </p>
         </div>
 
-        <div className="relative h-[180px] overflow-hidden bg-[#0b0f19] sm:h-auto sm:aspect-[16/10]">
+        <div className="relative h-[180px] overflow-hidden bg-[#0b0f19] sm:h-auto sm:aspect-[16/10] xl:max-h-[520px] 3xl:max-h-[560px]">
           {failed ? (
             <HeroSiteMockupFallback />
           ) : (
             <img
               src={STUDIO_SITE_MOCKUP.src}
               alt={STUDIO_SITE_MOCKUP.alt}
+              width={1440}
+              height={900}
               onError={() => setFailed(true)}
               className="h-full w-full object-cover object-top"
             />

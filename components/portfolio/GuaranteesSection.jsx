@@ -6,7 +6,7 @@ export default function GuaranteesSection() {
   const sectionTitleId = `${guarantees.id}-title`;
 
   return (
-    <section id={guarantees.id} aria-labelledby={sectionTitleId} className="space-y-6 sm:space-y-8">
+    <section id={guarantees.id} aria-labelledby={sectionTitleId} className="space-y-6 sm:space-y-8 xl:space-y-10">
       <SectionHeader
         eyebrow={guarantees.eyebrow}
         title={guarantees.title}
@@ -14,13 +14,13 @@ export default function GuaranteesSection() {
         titleId={sectionTitleId}
       />
 
-      <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
+      <div className="grid gap-4 sm:grid-cols-3 sm:gap-5 xl:gap-6">
         {GUARANTEES.map((guarantee) => (
           <article
             key={guarantee.id}
-            className="rounded-2xl border border-zinc-800/70 bg-zinc-900/25 p-5 sm:p-6"
+            className="rounded-2xl border border-zinc-800/70 bg-zinc-900/25 p-5 sm:p-6 xl:p-7 2xl:p-8"
           >
-            <h3 className="text-base font-semibold tracking-tight text-zinc-50 sm:text-lg">
+            <h3 className="text-base font-semibold tracking-tight text-zinc-50 sm:text-lg 3xl:text-xl">
               {guarantee.title}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">{guarantee.description}</p>

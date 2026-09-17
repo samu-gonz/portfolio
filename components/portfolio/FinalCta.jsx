@@ -67,18 +67,18 @@ export default function FinalCta() {
         }}
       />
 
-      <div className="relative z-[1] grid gap-8 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-10">
+      <div className="relative z-[1] grid gap-8 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-10 xl:gap-12 2xl:px-12 2xl:py-14 3xl:gap-16 3xl:px-16 3xl:py-16">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400/90">
             Solicita análisis gratuito
           </p>
           <h2
             id="final-cta-title"
-            className="mt-3 text-2xl font-bold tracking-tight text-zinc-50 sm:text-3xl"
+            className="mt-3 text-2xl font-bold tracking-tight text-zinc-50 sm:text-3xl 3xl:text-[2.125rem]"
           >
             {FREE_ANALYSIS.title}
           </h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base 3xl:max-w-2xl 3xl:text-lg">
             {FREE_ANALYSIS.description}
           </p>
 
@@ -102,7 +102,7 @@ export default function FinalCta() {
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-950/50 p-5 sm:p-6">
+        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-950/50 p-5 sm:p-6 xl:p-7 2xl:p-8">
           <FreeAnalysisForm />
         </div>
       </div>

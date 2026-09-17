@@ -50,8 +50,8 @@ export default function ProjectCard({
 
       <div
         className={cn(
-          "flex flex-col p-6 sm:p-8",
-          isPortrait && "lg:h-full lg:min-h-0 lg:justify-between lg:p-8 lg:pl-10 lg:pr-10",
+          "flex flex-col p-6 sm:p-8 3xl:p-10",
+          isPortrait && "lg:h-full lg:min-h-0 lg:justify-between lg:p-8 lg:pl-10 lg:pr-10 3xl:p-10 3xl:pl-12 3xl:pr-12",
         )}
       >
         <div className={cn(isPortrait && "space-y-5")}>
@@ -61,7 +61,7 @@ export default function ProjectCard({
                 {sector}
               </p>
             )}
-            <h3 id={headingId} className="text-xl font-bold tracking-tight text-zinc-50">
+            <h3 id={headingId} className="text-xl font-bold tracking-tight text-zinc-50 3xl:text-2xl">
               {title}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-zinc-400">{description}</p>

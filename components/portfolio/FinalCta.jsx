@@ -1,11 +1,57 @@
 "use client";
 
-import { PROFILE } from "../../data/portfolioProfile";
+import { FREE_ANALYSIS } from "../../data/agencyProcess";
+import FreeAnalysisForm from "./FreeAnalysisForm";
 
 /**
- * @param {{ onRequestContact?: () => void }} props
+ * @param {{ id?: string }} props
  */
-export default function FinalCta({ onRequestContact }) {
+function BenefitIcon({ id }) {
+  const common = {
+    className: "h-4 w-4",
+    viewBox: "0 0 24 24",
+    fill: "none",
+  };
+
+  if (id === "response-time") {
+    return (
+      <svg {...common}>
+        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
+        <path
+          d="M12 8v4.2l2.4 1.6"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  if (id === "no-commitment") {
+    return (
+      <svg {...common}>
+        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
+        <path
+          d="M8.5 12.2 11 14.7 15.6 9.6"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...common}>
+      <rect x="5" y="4.5" width="14" height="15" rx="2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M8.5 9h7M8.5 12.5h7M8.5 16h4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export default function FinalCta() {
   return (
     <section
       id="empezar"
@@ -21,35 +67,43 @@ export default function FinalCta({ onRequestContact }) {
         }}
       />
 
-      <div className="relative z-[1] px-6 py-10 text-center sm:px-10 sm:py-12">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">Siguiente paso</p>
-        <h2
-          id="final-cta-title"
-          className="mt-3 text-2xl font-bold tracking-tight text-zinc-50 sm:text-3xl"
-        >
-          ¿Quieres ver qué mejorarías en tu web actual?
-        </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
-          Análisis gratuito y sin compromiso. Ideal si quieres ser de los primeros proyectos y
-          empezar con condiciones favorables.
-        </p>
+      <div className="relative z-[1] grid gap-8 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-10">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-400/90">
+            Solicita análisis gratuito
+          </p>
+          <h2
+            id="final-cta-title"
+            className="mt-3 text-2xl font-bold tracking-tight text-zinc-50 sm:text-3xl"
+          >
+            {FREE_ANALYSIS.title}
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+            {FREE_ANALYSIS.description}
+          </p>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <button
-            type="button"
-            onClick={onRequestContact}
-            className="inline-flex w-full items-center justify-center rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-[#041018] transition hover:-translate-y-0.5 hover:bg-cyan-300 sm:w-auto"
-          >
-            Solicitar Análisis Gratuito
-          </button>
-          <a
-            href={PROFILE.links.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center rounded-full border border-zinc-600 px-6 py-3.5 text-sm font-semibold text-zinc-200 transition hover:border-zinc-400 hover:text-white sm:w-auto"
-          >
-            Escribir por WhatsApp
-          </a>
+          <ul className="mt-6 space-y-3">
+            {FREE_ANALYSIS.benefits.map((benefit) => (
+              <li key={benefit.id} className="flex gap-3">
+                <span
+                  className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-950/70 text-cyan-400"
+                  aria-hidden
+                >
+                  <BenefitIcon id={benefit.id} />
+                </span>
+                <span>
+                  <span className="block text-sm font-medium text-zinc-100">{benefit.title}</span>
+                  <span className="mt-0.5 block text-sm leading-relaxed text-zinc-400">
+                    {benefit.detail}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-950/50 p-5 sm:p-6">
+          <FreeAnalysisForm />
         </div>
       </div>
     </section>

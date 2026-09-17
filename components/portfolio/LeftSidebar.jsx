@@ -15,6 +15,17 @@ export default function LeftSidebar({ onRequestContact }) {
           <div className="mt-6 sm:mt-7">
             <h2 className={UI.sidebarBrandTitle}>{SIDEBAR_BRAND.title}</h2>
             <p className={UI.sidebarBrandSubtitle}>{SIDEBAR_BRAND.subtitle}</p>
+            <p className={`${UI.sidebarBrandSubtitle} mt-3`}>{SIDEBAR_BRAND.extra}</p>
+            <ul className="mt-4 space-y-2">
+              {SIDEBAR_BRAND.points.map((point) => (
+                <li key={point} className="flex gap-2 text-xs leading-relaxed text-zinc-400 sm:text-sm">
+                  <span className="mt-0.5 shrink-0 text-cyan-400/80" aria-hidden>
+                    ✓
+                  </span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </header>
       </div>

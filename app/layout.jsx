@@ -4,14 +4,36 @@ export const metadata = {
   metadataBase: new URL("https://sglabsstudio.com"),
   title: "SG Labs Studio | Desarrollo & Diseño Web",
   description:
-    "Estudio digital B2B. Diseñamos páginas web ultra rápidas que convierten visitas en clientes para PYMEs y empresas.",
+    "Diseñamos páginas web rápidas y orientadas a resultados para conseguir más llamadas, reservas y clientes.",
+  keywords: [
+    "diseño web",
+    "desarrollo web",
+    "páginas web para empresas",
+    "web para PYMEs",
+    "reservas online",
+    "SG Labs Studio",
+  ],
+  alternates: {
+    canonical: "https://sglabsstudio.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: "/icon.png",
   },
   openGraph: {
     title: "SG Labs Studio | Desarrollo & Diseño Web",
     description:
-      "Sitios web de alto rendimiento, diseño premium y enfocados 100% en ventas.",
+      "Sitios web rápidos, diseño premium y una experiencia pensada para convertir visitas en clientes.",
     url: "https://sglabsstudio.com",
     siteName: "SG Labs Studio",
     locale: "es_ES",
@@ -30,7 +52,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "SG Labs Studio | Desarrollo & Diseño Web",
     description:
-      "Sitios web de alto rendimiento, diseño premium y enfocados 100% en ventas.",
+      "Sitios web rápidos, diseño premium y una experiencia pensada para convertir visitas en clientes.",
     images: ["/og.png"],
   },
 };
@@ -42,9 +64,40 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "SG Labs Studio",
+    url: "https://sglabsstudio.com",
+    logo: "https://sglabsstudio.com/icon.png",
+    image: "https://sglabsstudio.com/og.png",
+    description:
+      "Estudio de desarrollo y diseño web para PYMEs y empresas, especializado en webs rápidas y orientadas a conversión.",
+    areaServed: "Worldwide",
+    serviceType: [
+      "Diseño web",
+      "Desarrollo web",
+      "Reservas online",
+      "Automatización para negocios",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+34634473640",
+      contactType: "customer service",
+      email: "samuelgonz2006@gmail.com",
+      availableLanguage: ["Spanish"],
+    },
+  };
+
   return (
     <html lang="es">
-      <body className="bg-zinc-950 antialiased">{children}</body>
+      <body className="bg-zinc-950 antialiased">
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </body>
     </html>
   );
 }

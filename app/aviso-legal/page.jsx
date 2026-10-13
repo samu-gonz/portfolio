@@ -1,4 +1,5 @@
 import LegalDocument from "../../components/portfolio/LegalDocument";
+import { PROFILE } from "../../data/portfolioProfile";
 
 export const metadata = {
   title: "Aviso legal | SG Labs Studio",
@@ -11,7 +12,7 @@ export default function AvisoLegalPage() {
       <p>
         Este sitio web, sglabsstudio.com, pertenece a SG Labs Studio, estudio de desarrollo y diseño web.
         El contacto es{" "}
-        <a className="text-violet-200 underline-offset-2 hover:underline" href="mailto:samuelg@sglabsstudio.com">
+        <a className="text-violet-200 underline-offset-2 hover:underline" href={PROFILE.links.email} target="_blank" rel="noopener noreferrer">
           samuelg@sglabsstudio.com
         </a>
         . El trabajo se realiza en remoto.

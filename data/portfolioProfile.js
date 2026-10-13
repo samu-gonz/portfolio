@@ -1,3 +1,22 @@
+const STUDIO_EMAIL = "samuelg@sglabsstudio.com";
+
+/**
+ * Abre la redacción en Gmail en lugar del cliente de correo del sistema.
+ * @param {{ to?: string; subject?: string; body?: string }} [options]
+ */
+export function gmailComposeUrl({ to = STUDIO_EMAIL, subject = "", body = "" } = {}) {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to,
+  });
+
+  if (subject) params.set("su", subject);
+  if (body) params.set("body", body);
+
+  return `https://mail.google.com/mail/?${params.toString()}`;
+}
+
 export const PROFILE = {
   name: "SG Labs Studio",
   fullName: "SG Labs Studio",
@@ -5,10 +24,10 @@ export const PROFILE = {
   availability: "Plazas limitadas este trimestre",
   location: "Canarias, España",
   cvUrl: "/cv",
-  email: "samuelg@sglabsstudio.com",
+  email: STUDIO_EMAIL,
   links: {
     github: "https://github.com/samu-gonz",
-    email: "mailto:samuelg@sglabsstudio.com",
+    email: gmailComposeUrl(),
   },
 };
 

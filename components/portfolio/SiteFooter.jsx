@@ -17,6 +17,8 @@ export default function SiteFooter() {
           </p>
           <a
             href={PROFILE.links.email}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 inline-flex text-sm font-medium text-violet-200 underline-offset-4 transition hover:text-white hover:underline"
           >
             {PROFILE.email}

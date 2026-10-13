@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PROFILE } from "../../data/portfolioProfile";
+import { PROFILE, gmailComposeUrl } from "../../data/portfolioProfile";
 import { UI } from "./uiTokens";
 
 const FIELD_CLASS =
@@ -25,19 +25,20 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const subject = encodeURIComponent("Solicitud de análisis gratuito — SG Labs Studio");
-    const body = encodeURIComponent(
-      [
+    const url = gmailComposeUrl({
+      subject: "Solicitud de análisis gratuito — SG Labs Studio",
+      body: [
         `Nombre: ${name}`,
         `Correo: ${email}`,
         `Negocio / sector: ${business}`,
         "",
         message || "Me gustaría solicitar un análisis gratuito de mi captación online.",
       ].join("\n"),
-    );
+    });
 
     setOpened(true);
-    window.location.href = `${PROFILE.links.email}?subject=${subject}&body=${body}`;
+    const popup = window.open(url, "_blank", "noopener,noreferrer");
+    if (!popup) window.location.assign(url);
     onSubmitted?.();
   };
 
@@ -97,7 +98,7 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
 
       {opened && (
         <p role="status" className="rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-3.5 py-3 text-sm leading-relaxed text-emerald-100">
-          Se abrió tu correo con la solicitud preparada. Si no aparece, escríbenos a {PROFILE.email}.
+          Se abrió Gmail con la solicitud preparada. Si no aparece, escríbenos a {PROFILE.email}.
         </p>
       )}
 
@@ -117,7 +118,7 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
           </button>
         </div>
         <p className="text-center text-xs leading-relaxed text-zinc-500">
-          Al enviar se abre tu correo con el mensaje listo.{" "}
+          Al enviar se abre Gmail con el mensaje listo.{" "}
           <Link href="/privacidad" className="text-zinc-400 underline-offset-2 hover:text-white hover:underline">
             Política de privacidad
           </Link>

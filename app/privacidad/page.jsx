@@ -1,4 +1,5 @@
 import LegalDocument from "../../components/portfolio/LegalDocument";
+import { PROFILE } from "../../data/portfolioProfile";
 
 export const metadata = {
   title: "Política de privacidad | SG Labs Studio",
@@ -12,7 +13,7 @@ export default function PrivacidadPage() {
       <p>
         Esta política explica qué datos puedes facilitarnos desde sglabsstudio.com y para qué los usamos.
         El responsable es SG Labs Studio. El canal de contacto es{" "}
-        <a className="text-violet-200 underline-offset-2 hover:underline" href="mailto:samuelg@sglabsstudio.com">
+        <a className="text-violet-200 underline-offset-2 hover:underline" href={PROFILE.links.email} target="_blank" rel="noopener noreferrer">
           samuelg@sglabsstudio.com
         </a>
         .
@@ -26,9 +27,9 @@ export default function PrivacidadPage() {
 
       <h2>Cómo se envían</h2>
       <p>
-        El formulario no guarda los datos en un servidor de esta web. Al enviarlo se abre tu programa de
-        correo con el mensaje preparado y dirigido a samuelg@sglabsstudio.com. El envío lo realizas tú desde
-        tu propio correo.
+        El formulario no guarda los datos en un servidor de esta web. Al enviarlo se abre Gmail con el
+        mensaje preparado y dirigido a samuelg@sglabsstudio.com. El envío lo realizas tú desde tu cuenta
+        de Google.
       </p>
 
       <h2>Para qué los usamos</h2>

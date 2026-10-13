@@ -27,6 +27,8 @@ export default function FinalCta() {
             </p>
             <a
               href={PROFILE.links.email}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-1 inline-flex text-base font-semibold text-violet-200 underline-offset-4 transition hover:text-white hover:underline"
             >
               {PROFILE.email}

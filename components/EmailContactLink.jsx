@@ -29,7 +29,8 @@ async function copyEmailToClipboard() {
 }
 
 function openMailClient() {
-  window.location.href = MAILTO;
+  const popup = window.open(MAILTO, "_blank", "noopener,noreferrer");
+  if (!popup) window.location.assign(MAILTO);
 }
 
 const FEEDBACK_MESSAGES = {

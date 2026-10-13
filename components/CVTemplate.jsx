@@ -5,8 +5,7 @@ import { PROFILE } from "../data/portfolioProfile";
 
 const CONTACT = {
   location: PROFILE.location,
-  phone: PROFILE.phone,
-  email: PROFILE.links.email.replace("mailto:", ""),
+  email: PROFILE.email,
   github: "github.com/samu-gonz",
 };
 
@@ -43,7 +42,6 @@ export default function CVTemplate() {
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-400 print:text-zinc-500">
             <span>{CONTACT.location}</span>
             <span>{CONTACT.email}</span>
-            <span>{CONTACT.phone}</span>
             <span>{CONTACT.github}</span>
           </div>
         </header>

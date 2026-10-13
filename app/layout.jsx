@@ -1,10 +1,11 @@
+import { bodyFont } from "../lib/fonts";
 import "../styles/globals.css";
 
 export const metadata = {
   metadataBase: new URL("https://sglabsstudio.com"),
   title: "SG Labs Studio | Desarrollo & Diseño Web",
   description:
-    "Diseñamos páginas web rápidas y orientadas a resultados para conseguir más llamadas, reservas y clientes.",
+    "Diseño y desarrollo web a medida para PYMEs y empresas. Aumenta tus llamadas, reservas y ventas con una presencia digital profesional.",
   keywords: [
     "diseño web",
     "desarrollo web",
@@ -82,16 +83,15 @@ export default function RootLayout({ children }) {
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+34634473640",
       contactType: "customer service",
-      email: "samuelgonz2006@gmail.com",
+      email: "samuelg@sglabsstudio.com",
       availableLanguage: ["Spanish"],
     },
   };
 
   return (
-    <html lang="es">
-      <body className="bg-zinc-950 antialiased">
+    <html lang="es" className={bodyFont.variable}>
+      <body className={`${bodyFont.className} bg-[#05070f] antialiased`}>
         {children}
         <script
           type="application/ld+json"

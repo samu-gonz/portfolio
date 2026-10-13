@@ -57,7 +57,7 @@ export default function ProjectCard({
         <div className={cn(isPortrait && "space-y-5")}>
           <header>
             {sector && (
-              <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.16em] text-cyan-400/90">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-300/90">
                 {sector}
               </p>
             )}

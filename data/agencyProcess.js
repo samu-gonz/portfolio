@@ -1,65 +1,43 @@
 const PROCESS_STEPS = [
   {
     id: "analysis",
-    title: "Análisis gratis",
-    description:
-      "Revisamos tu web actual (o si no tienes) y te decimos qué está frenando llamadas, reservas o ventas.",
+    title: "Análisis Gratis",
+    description: "Auditoría de tu situación actual sin compromiso.",
   },
   {
     id: "proposal",
-    title: "Propuesta clara",
-    description:
-      "Te enviamos alcance, plazos y precio sin letra pequeña. Si no encaja, no pasa nada.",
+    title: "Propuesta Clara",
+    description: "Alcance, plazos y precio cerrado sin letra pequeña.",
   },
   {
     id: "build",
-    title: "Diseño y desarrollo",
-    description:
-      "Vas viendo avances reales. Puedes pedir cambios antes de publicar.",
+    title: "Diseño y Desarrollo",
+    description: "Avances reales en tiempo real con rondas de revisión.",
   },
   {
     id: "launch",
-    title: "Lanzamiento y soporte",
-    description:
-      "Publicamos la web, te enseñamos a usarla y quedamos disponibles si necesitas ajustes.",
+    title: "Lanzamiento y Soporte",
+    description: "Publicación, formación de uso y acompañamiento continuo.",
   },
 ];
 
 const FREE_ANALYSIS = {
   eyebrow: "Contacto",
-  title: "Solicitar análisis gratuito",
+  title: "Solicita tu Análisis Gratuito",
   description:
-    "Revisamos tu web actual (o si todavía no tienes) y te devolvemos una auditoría clara: qué está frenando llamadas, reservas o ventas, qué mejoraríamos y un presupuesto sin compromiso.",
-  benefits: [
-    {
-      id: "response-time",
-      title: "Respuesta en 24-48h",
-      detail: "Te escribimos con hallazgos concretos, no con una plantilla genérica.",
-    },
-    {
-      id: "no-commitment",
-      title: "Sin compromiso",
-      detail: "Si no encaja, no pasa nada. No hay letra pequeña ni permanencia.",
-    },
-    {
-      id: "personalized",
-      title: "Análisis personalizado",
-      detail: "Miramos tu negocio, tu cliente y cómo captas hoy: no es un informe automático.",
-    },
-  ],
+    "Te escribimos en 24-48h con hallazgos concretos sobre cómo mejorar tu captación online. Sin compromiso ni letra pequeña.",
 };
 
-const FIRST_CLIENTS_OFFER = {
-  eyebrow: "Primeros clientes",
-  title: "Condiciones especiales mientras crecemos juntos",
+const LIMITED_AVAILABILITY = {
+  eyebrow: "Disponibilidad",
+  title: "Plazas limitadas este trimestre",
   description:
-    "Estamos ampliando cartera con negocios reales. Si encajas como proyecto piloto, tendrás prioridad, trato directo y condiciones más favorables a cambio de feedback y, si estás contento, una reseña honesta.",
+    "Trabajamos con un número reducido de proyectos de forma simultánea para garantizar atención directa, entregas ágiles y seguimiento cercano con quien diseña y desarrolla tu web.",
   perks: [
-    "Análisis gratuito de tu situación actual",
-    "Comunicación directa por WhatsApp",
-    "Precio adaptado a primeros proyectos",
-    "Entrega con seguimiento cercano",
+    "Análisis gratuito inicial",
+    "Trato directo sin intermediarios",
+    "Entrega con soporte continuo",
   ],
 };
 
-export { PROCESS_STEPS, FIRST_CLIENTS_OFFER, FREE_ANALYSIS };
+export { PROCESS_STEPS, LIMITED_AVAILABILITY, FREE_ANALYSIS };

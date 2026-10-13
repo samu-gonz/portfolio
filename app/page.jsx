@@ -1,5 +1,3 @@
-"use client";
-
 import PortfolioLayout from "../components/PortfolioLayout";
 
 export default function Page() {

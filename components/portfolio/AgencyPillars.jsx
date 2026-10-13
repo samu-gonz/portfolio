@@ -1,38 +1,48 @@
 const PILLARS = [
   {
     id: "speed-seo",
-    title: "Velocidad & Google",
-    description: "Tu web carga rápido y se encuentra más fácil en buscadores.",
+    index: "01",
+    title: "Velocidad & SEO Google",
+    description: "Web optimizada para cargar al instante y posicionar mejor.",
+    accent: "from-violet-400 to-indigo-300",
   },
   {
     id: "sales-focus",
-    title: "Enfoque en ventas",
-    description: "Diseño pensado para que pidan presupuesto, reserven o llamen.",
+    index: "02",
+    title: "Enfoque en Ventas (CRO)",
+    description: "Estructura pensada para captar presupuestos, citas o reservas.",
+    accent: "from-sky-300 to-cyan-200",
   },
   {
     id: "custom-dev",
-    title: "Hecho a tu medida",
-    description: "Sin plantillas genéricas que limitan tu negocio.",
+    index: "03",
+    title: "100% A medida",
+    description: "Diseños únicos sin plantillas rígidas ni limitaciones.",
+    accent: "from-emerald-300 to-teal-200",
   },
 ];
 
 export default function AgencyPillars() {
   return (
-    <section id="pilares" aria-label="Por qué elegirnos" className="grid gap-4 sm:grid-cols-3 sm:gap-5 xl:gap-6">
-      {PILLARS.map((pillar, index) => (
-        <article
-          key={pillar.id}
-          className="rounded-2xl border border-zinc-800/70 bg-zinc-900/30 p-5 transition duration-300 hover:border-zinc-700 hover:bg-zinc-900/50 sm:p-6 xl:p-7 2xl:p-8"
-        >
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-400/90">
-            0{index + 1}
-          </span>
-          <h2 className="mt-3 text-base font-semibold tracking-tight text-zinc-50 sm:text-lg 3xl:text-xl">
-            {pillar.title}
-          </h2>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-400">{pillar.description}</p>
-        </article>
-      ))}
+    <section id="pilares" aria-labelledby="pilares-title" className="space-y-6 sm:space-y-8">
+      <header>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-300/80">Beneficios</p>
+        <h2 id="pilares-title" className="mt-3 max-w-2xl text-balance text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          Tres pilares para convertir visitas en clientes
+        </h2>
+      </header>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        {PILLARS.map((pillar) => (
+          <article key={pillar.id} className="glass-card rounded-3xl p-5 sm:p-6">
+            <span className={`bg-gradient-to-r ${pillar.accent} bg-clip-text text-sm font-bold tracking-[0.18em] text-transparent`}>
+              {pillar.index}
+            </span>
+            <h3 className="mt-4 text-lg font-semibold tracking-tight text-white">{pillar.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">{pillar.description}</p>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }

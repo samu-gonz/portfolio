@@ -2,25 +2,18 @@ export const PROFILE = {
   name: "SG Labs Studio",
   fullName: "SG Labs Studio",
   role: "Estudio de Desarrollo & Diseño Web",
-  availability: "Disponibles para nuevos proyectos",
+  availability: "Plazas limitadas este trimestre",
   location: "Canarias, España",
-  phone: "+34 634 473 640",
-  phoneE164: "34634473640",
   cvUrl: "/cv",
-  email: "samuelgonz2006@gmail.com",
+  email: "samuelg@sglabsstudio.com",
   links: {
     github: "https://github.com/samu-gonz",
-    email: "mailto:samuelgonz2006@gmail.com",
-    whatsapp:
-      "https://wa.me/34634473640?text=" +
-      encodeURIComponent(
-        "Hola, me gustaría solicitar un análisis gratuito de la web de mi negocio.",
-      ),
+    email: "mailto:samuelg@sglabsstudio.com",
   },
 };
 
 export const PROFILE_BIO =
-  "En SG Labs Studio diseñamos webs para negocios que quieren más llamadas, reservas y clientes. Diseño claro, carga rápida y enfocadas en resultados — no en tecnicismos.";
+  "Diseño y desarrollo web a medida para PYMEs y empresas. Páginas ultra rápidas, pensadas para convertir visitas en llamadas, reservas y ventas.";
 
 /** Mockup of this studio site (hero). Client covers live under /projects/*.png */
 export const STUDIO_SITE_MOCKUP = {
@@ -63,9 +56,7 @@ export const TECH_SECTIONS = [
 ];
 
 export const SIDEBAR_CONTACT = {
-  whatsapp: { href: PROFILE.links.whatsapp, label: "WhatsApp" },
-  email: { label: "Correo electrónico" },
-  phone: { href: `tel:+${PROFILE.phoneE164}`, label: PROFILE.phone },
+  email: { href: PROFILE.links.email, label: PROFILE.email },
 };
 
 export const PAGE_SECTIONS = {
@@ -76,13 +67,13 @@ export const PAGE_SECTIONS = {
   },
   services: {
     id: "servicios",
-    eyebrow: "Qué hacemos",
-    title: "Cómo te ayudamos",
+    eyebrow: "Servicios",
+    title: "Servicios principales",
   },
   projects: {
     id: "proyectos",
-    eyebrow: "Trabajos reales",
-    title: "Proyectos para negocios como el tuyo",
+    eyebrow: "Portafolio",
+    title: "Casos de éxito",
   },
   guarantees: {
     id: "garantias",
@@ -94,21 +85,21 @@ export const PAGE_SECTIONS = {
 export const SERVICES = [
   {
     id: "custom-web",
-    title: "Web profesional a medida",
+    title: "Web Profesional a Medida",
     description:
-      "Una web limpia, rápida y adaptada a tu negocio. Pensada para que el cliente te encuentre, confíe y te contacte.",
+      "Una presencia clara y rápida, diseñada alrededor de tu oferta para que el visitante entienda, confíe y te contacte.",
   },
   {
     id: "ui-ux-mobile",
-    title: "Diseño que funciona en el móvil",
+    title: "Optimización y Diseño Mobile-First",
     description:
-      "La mayoría de tus clientes te buscan desde el teléfono. Diseñamos para que en móvil se vea clara, rápida y fácil de usar.",
+      "Pensada primero para el móvil: lectura cómoda, carga inmediata y un camino obvio para llamar, reservar o pedir presupuesto.",
   },
   {
     id: "dynamic-systems",
-    title: "Reservas, menús y automatización",
+    title: "Integración de Reservas, Menús Digitales y Automatizaciones",
     description:
-      "Sistemas de reservas, menús digitales, avisos por email y asistentes que responden por ti — menos trabajo manual, más clientes atendidos.",
+      "Reservas, menús digitales y avisos automáticos integrados para captar más oportunidades con menos trabajo manual.",
   },
 ];
 
@@ -117,7 +108,7 @@ export const GUARANTEES = [
     id: "remote-phases",
     title: "Trato directo",
     description:
-      "Hablas con quien diseña y desarrolla tu web. Comunicación ágil por WhatsApp o videollamada.",
+      "Hablas con quien diseña y desarrolla tu web. Comunicación directa, sin intermediarios.",
   },
   {
     id: "ongoing-support",
@@ -147,10 +138,8 @@ export const PORTFOLIO_PROJECTS = [
   {
     id: "casa-cueva",
     title: "Casa Cueva las Palomas",
-    sector: "Turismo rural",
-    description:
-      "Web de alojamiento pensada para captar reservas directas, con atención automática al visitante.",
-    businessHighlight: "Menos tiempo respondiendo lo mismo y más reservas sin intermediarios.",
+    sector: "Turismo Rural",
+    description: "Web enfocada en captar reservas directas y reducir comisiones.",
     tags: ["Turismo", "Reservas", "Chat automático"],
     technologies: ["React", "Vite", "Tailwind CSS", "AI Integration", "Frontend"],
     github: "https://github.com/samu-gonz/casa-cueva-las-palomas",
@@ -162,9 +151,7 @@ export const PORTFOLIO_PROJECTS = [
     id: "guachinche-el-realejo",
     title: "Guachinche El Realejo",
     sector: "Restauración",
-    description:
-      "Web con menú digital y reservas automatizadas para que el local no pierda mesas ni llamadas.",
-    businessHighlight: "Centraliza reservas y reduce la carga en barra y cocina.",
+    description: "Menú digital e integración de sistema de reservas.",
     tags: ["Restaurante", "Menú digital", "Reservas"],
     technologies: ["Node.js", "Express", "React", "Nodemailer", "AI Integration", "Full-Stack"],
     github: "https://github.com/samu-gonz/restaurantePrueba",
@@ -175,10 +162,8 @@ export const PORTFOLIO_PROJECTS = [
   {
     id: "ghostwrite-ai",
     title: "Ghostwrite AI",
-    sector: "Herramienta para profesionales",
-    description:
-      "App que convierte ideas en publicaciones listas para redes, ahorrando horas de escritura cada semana.",
-    businessHighlight: "Ideal si quieres publicar más sin dedicar todo el día a redactar.",
+    sector: "Herramienta B2B",
+    description: "Landing page moderna enfocada en conversión e integración de IA.",
     tags: ["Automatización", "Contenido", "IA"],
     technologies: ["React", "Vite", "Tailwind CSS", "AI Integration"],
     github: "https://github.com/samu-gonz/ghostwrite-ai",

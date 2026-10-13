@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PROFILE } from "../../data/portfolioProfile";
+import { UI } from "./uiTokens";
+
+const FIELD_CLASS =
+  "w-full rounded-xl border border-white/10 bg-[#070b14] px-3.5 py-3 text-base text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/30";
 
 /**
  * @param {{
@@ -15,6 +20,7 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
   const [email, setEmail] = useState("");
   const [business, setBusiness] = useState("");
   const [message, setMessage] = useState("");
+  const [opened, setOpened] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,14 +29,14 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
     const body = encodeURIComponent(
       [
         `Nombre: ${name}`,
-        `Email: ${email}`,
-        `Negocio: ${business || "—"}`,
+        `Correo: ${email}`,
+        `Negocio / sector: ${business}`,
         "",
-        message ||
-          "Me gustaría solicitar un análisis gratuito y conocer la oferta para primeros clientes.",
+        message || "Me gustaría solicitar un análisis gratuito de mi captación online.",
       ].join("\n"),
     );
 
+    setOpened(true);
     window.location.href = `${PROFILE.links.email}?subject=${subject}&body=${body}`;
     onSubmitted?.();
   };
@@ -38,50 +44,62 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
   return (
     <form onSubmit={handleSubmit} className="space-y-3.5">
       <label className="block">
-        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Nombre</span>
+        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Nombre completo</span>
         <input
           required
+          name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-xl border border-zinc-800 bg-zinc-900/80 px-3.5 py-2.5 text-sm text-zinc-100 outline-none transition focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30"
-          placeholder="Tu nombre"
+          className={FIELD_CLASS}
+          placeholder="Tu nombre y apellidos"
           autoComplete="name"
         />
       </label>
 
       <label className="block">
-        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Email</span>
+        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Correo electrónico</span>
         <input
           required
           type="email"
+          name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-xl border border-zinc-800 bg-zinc-900/80 px-3.5 py-2.5 text-sm text-zinc-100 outline-none transition focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30"
+          className={FIELD_CLASS}
           placeholder="tu@empresa.com"
           autoComplete="email"
         />
       </label>
 
       <label className="block">
-        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Negocio / sector</span>
+        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Nombre del negocio / sector</span>
         <input
+          required
+          name="business"
           value={business}
           onChange={(e) => setBusiness(e.target.value)}
-          className="w-full rounded-xl border border-zinc-800 bg-zinc-900/80 px-3.5 py-2.5 text-sm text-zinc-100 outline-none transition focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30"
-          placeholder="Ej. restaurante, clínica, alojamiento…"
+          className={FIELD_CLASS}
+          placeholder="Ej. turismo rural, restauración, clínica…"
+          autoComplete="organization"
         />
       </label>
 
       <label className="block">
-        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Mensaje</span>
+        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Mensaje / Web actual (opcional)</span>
         <textarea
-          rows={3}
+          name="message"
+          rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-900/80 px-3.5 py-2.5 text-sm text-zinc-100 outline-none transition focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30"
-          placeholder="¿Qué quieres mejorar en tu web o captura de clientes?"
+          className={`${FIELD_CLASS} resize-y`}
+          placeholder="Tu web actual o qué te gustaría mejorar"
         />
       </label>
+
+      {opened && (
+        <p role="status" className="rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-3.5 py-3 text-sm leading-relaxed text-emerald-100">
+          Se abrió tu correo con la solicitud preparada. Si no aparece, escríbenos a {PROFILE.email}.
+        </p>
+      )}
 
       <div className="flex flex-col gap-2 pt-1">
         <div className="flex flex-col-reverse gap-2 sm:flex-row">
@@ -89,26 +107,22 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
             <button
               type="button"
               onClick={onCancel}
-              className="rounded-full border border-zinc-700 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100 sm:flex-1"
+              className={`${UI.ctaSecondary} sm:flex-1`}
             >
               Cancelar
             </button>
           )}
-          <button
-            type="submit"
-            className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-bold text-[#041018] shadow-[0_10px_28px_rgba(34,211,238,0.25)] transition hover:-translate-y-0.5 hover:bg-cyan-300 sm:flex-1"
-          >
-            Enviar solicitud
+          <button type="submit" className={`${UI.ctaPrimary} w-full sm:flex-1`}>
+            Solicitar Análisis Gratuito
           </button>
         </div>
-        <a
-          href={PROFILE.links.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-zinc-700 px-5 py-2.5 text-center text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100"
-        >
-          Preferimos WhatsApp
-        </a>
+        <p className="text-center text-xs leading-relaxed text-zinc-500">
+          Al enviar se abre tu correo con el mensaje listo.{" "}
+          <Link href="/privacidad" className="text-zinc-400 underline-offset-2 hover:text-white hover:underline">
+            Política de privacidad
+          </Link>
+          .
+        </p>
       </div>
     </form>
   );

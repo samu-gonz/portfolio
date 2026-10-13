@@ -17,6 +17,14 @@ export function gmailComposeUrl({ to = STUDIO_EMAIL, subject = "", body = "" } =
   return `https://mail.google.com/mail/?${params.toString()}`;
 }
 
+export const LEGAL_IDENTITY = {
+  holder: "Samuel González Rodríguez",
+  tradeName: "SG Labs Studio",
+  website: "https://sglabsstudio.com",
+  taxId: "",
+  address: "",
+};
+
 export const PROFILE = {
   name: "SG Labs Studio",
   fullName: "SG Labs Studio",

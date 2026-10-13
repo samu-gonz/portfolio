@@ -29,6 +29,9 @@ export default function SiteFooter() {
           <Link href="/privacidad" className="text-zinc-300 transition hover:text-white">
             Política de privacidad
           </Link>
+          <Link href="/cookies" className="text-zinc-300 transition hover:text-white">
+            Política de cookies
+          </Link>
           <Link href="/aviso-legal" className="text-zinc-300 transition hover:text-white">
             Aviso legal
           </Link>

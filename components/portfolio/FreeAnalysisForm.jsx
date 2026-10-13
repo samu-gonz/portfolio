@@ -118,7 +118,8 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
           </button>
         </div>
         <p className="text-center text-xs leading-relaxed text-zinc-500">
-          Al enviar se abre Gmail con el mensaje listo.{" "}
+          Al enviar se abre Gmail para responder a tu solicitud. No usamos estos datos para
+          publicidad no solicitada.{" "}
           <Link href="/privacidad" className="text-zinc-400 underline-offset-2 hover:text-white hover:underline">
             Política de privacidad
           </Link>

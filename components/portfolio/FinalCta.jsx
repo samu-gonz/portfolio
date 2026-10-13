@@ -21,19 +21,29 @@ export default function FinalCta() {
             {FREE_ANALYSIS.description}
           </p>
 
-          <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
-              Correo de soporte
-            </p>
+          <ul className="mt-6 space-y-2.5">
+            {FREE_ANALYSIS.includes.map((item) => (
+              <li key={item} className="flex gap-3 text-sm leading-relaxed text-zinc-200">
+                <span className="mt-0.5 shrink-0 text-emerald-300" aria-hidden>
+                  ✓
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-6 text-sm text-zinc-500">
+            También puedes escribir a{" "}
             <a
               href={PROFILE.links.email}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-flex text-base font-semibold text-violet-200 underline-offset-4 transition hover:text-white hover:underline"
+              className="font-medium text-violet-200 underline-offset-4 hover:text-white hover:underline"
             >
               {PROFILE.email}
             </a>
-          </div>
+            .
+          </p>
         </div>
 
         <FreeAnalysisForm />

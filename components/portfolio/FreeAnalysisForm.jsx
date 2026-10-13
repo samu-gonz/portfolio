@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ANALYSIS_CTA } from "../../data/agencyProcess";
 import { PROFILE, gmailComposeUrl } from "../../data/portfolioProfile";
 import { UI } from "./uiTokens";
 
@@ -45,14 +46,14 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
   return (
     <form onSubmit={handleSubmit} className="space-y-3.5">
       <label className="block">
-        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Nombre completo</span>
+        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Nombre</span>
         <input
           required
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className={FIELD_CLASS}
-          placeholder="Tu nombre y apellidos"
+          placeholder="Cómo te llamas"
           autoComplete="name"
         />
       </label>
@@ -72,27 +73,27 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
       </label>
 
       <label className="block">
-        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Nombre del negocio / sector</span>
+        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Tu negocio</span>
         <input
           required
           name="business"
           value={business}
           onChange={(e) => setBusiness(e.target.value)}
           className={FIELD_CLASS}
-          placeholder="Ej. turismo rural, restauración, clínica…"
+          placeholder="Ej. casa rural, restaurante, clínica…"
           autoComplete="organization"
         />
       </label>
 
       <label className="block">
-        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Mensaje / Web actual (opcional)</span>
+        <span className="mb-1.5 block text-xs font-medium text-zinc-400">Web actual, si tienes (opcional)</span>
         <textarea
           name="message"
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${FIELD_CLASS} resize-y`}
-          placeholder="Tu web actual o qué te gustaría mejorar"
+          placeholder="Pega el enlace o cuéntame qué te gustaría mejorar"
         />
       </label>
 
@@ -114,12 +115,12 @@ export default function FreeAnalysisForm({ onSubmitted, showCancel = false, onCa
             </button>
           )}
           <button type="submit" className={`${UI.ctaPrimary} w-full sm:flex-1`}>
-            Solicitar Análisis Gratuito
+            {ANALYSIS_CTA}
           </button>
         </div>
         <p className="text-center text-xs leading-relaxed text-zinc-500">
-          Al enviar se abre Gmail para responder a tu solicitud. No usamos estos datos para
-          publicidad no solicitada.{" "}
+          Tarda un minuto. Se abre Gmail con el mensaje listo y lo envías tú. Sin llamada y sin
+          publicidad.{" "}
           <Link href="/privacidad" className="text-zinc-400 underline-offset-2 hover:text-white hover:underline">
             Política de privacidad
           </Link>

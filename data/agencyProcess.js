@@ -1,8 +1,10 @@
+const ANALYSIS_CTA = "Pedir mi análisis gratis";
+
 const PROCESS_STEPS = [
   {
     id: "analysis",
-    title: "Análisis Gratis",
-    description: "Auditoría de tu situación actual sin compromiso.",
+    title: "Análisis gratis",
+    description: "Miro tu web y te digo qué cambiar primero. Sin compromiso y sin llamada.",
   },
   {
     id: "proposal",
@@ -22,22 +24,27 @@ const PROCESS_STEPS = [
 ];
 
 const FREE_ANALYSIS = {
-  eyebrow: "Contacto",
-  title: "Solicita tu Análisis Gratuito",
+  eyebrow: "Análisis gratuito",
+  title: "Te digo qué está frenando a tu web",
   description:
-    "Te escribimos en 24-48h con hallazgos concretos sobre cómo mejorar tu captación online. Sin compromiso ni letra pequeña.",
+    "En 24-48 h te escribo por correo con tres cosas concretas: qué entiende un cliente al entrar, dónde se pierden llamadas o reservas y el primer cambio que más impacto tendría. Es gratis. Si no encaja, no hay propuesta ni seguimiento.",
+  includes: [
+    "Qué ve un cliente en los primeros segundos",
+    "Dónde se escapan las llamadas o las reservas",
+    "Por dónde empezar, en lenguaje claro",
+  ],
 };
 
 const LIMITED_AVAILABILITY = {
   eyebrow: "Disponibilidad",
-  title: "Plazas limitadas este trimestre",
+  title: "Pocos proyectos a la vez, para atenderte de verdad",
   description:
-    "Trabajamos con un número reducido de proyectos de forma simultánea para garantizar atención directa, entregas ágiles y seguimiento cercano con quien diseña y desarrolla tu web.",
+    "No paso tu negocio por un comercial. Trabajo pocos encargos a la vez para responderte yo y entregar sin colas.",
   perks: [
-    "Análisis gratuito inicial",
-    "Trato directo sin intermediarios",
-    "Entrega con soporte continuo",
+    "El análisis es gratis y sin compromiso",
+    "Hablas con quien diseña y programa",
+    "Precio cerrado por escrito antes de empezar",
   ],
 };
 
-export { PROCESS_STEPS, LIMITED_AVAILABILITY, FREE_ANALYSIS };
+export { ANALYSIS_CTA, PROCESS_STEPS, LIMITED_AVAILABILITY, FREE_ANALYSIS };

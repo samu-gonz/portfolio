@@ -29,9 +29,9 @@ export default function CookiesPage() {
         No hay Google Analytics, píxeles publicitarios ni herramientas de medición de terceros.
       </p>
       <p>
-        El único almacenamiento es técnico y sirve para recordar que has cerrado el aviso de cookies.
-        No identifica tu nombre ni tu correo. Al estar limitado a una preferencia que tú pides al pulsar
-        «Entendido», no requiere un consentimiento adicional.
+        El único almacenamiento es técnico y sirve para recordar si pulsaste «Aceptar» o «Rechazar» en
+        el aviso. No identifica tu nombre ni tu correo. Las dos opciones hacen lo mismo: esta web no
+        activa cookies de análisis ni de publicidad en ningún caso.
       </p>
 
       <div className="overflow-x-auto rounded-2xl border border-white/10">
@@ -48,7 +48,7 @@ export default function CookiesPage() {
             <tr className="border-t border-white/10 align-top">
               <td className="px-4 py-3">sglabs-cookie-info</td>
               <td className="px-4 py-3">Almacenamiento local técnico</td>
-              <td className="px-4 py-3">Recordar que cerraste el aviso de cookies</td>
+              <td className="px-4 py-3">Recordar si aceptaste o rechazaste el aviso</td>
               <td className="px-4 py-3">6 meses</td>
             </tr>
           </tbody>

@@ -5,7 +5,7 @@ export const metadata = {
   metadataBase: new URL("https://sglabsstudio.com"),
   title: "SG Labs Studio | Desarrollo & Diseño Web",
   description:
-    "Diseño y desarrollo web a medida para PYMEs y empresas. Aumenta tus llamadas, reservas y ventas con una presencia digital profesional.",
+    "Análisis gratis de tu web para negocios locales y PYMEs. Te digo qué está fallando y qué cambiar primero, sin compromiso.",
   keywords: [
     "diseño web",
     "desarrollo web",
@@ -34,7 +34,7 @@ export const metadata = {
   openGraph: {
     title: "SG Labs Studio | Desarrollo & Diseño Web",
     description:
-      "Sitios web rápidos, diseño premium y una experiencia pensada para convertir visitas en clientes.",
+      "Análisis gratis de tu web: qué está fallando y qué cambiar primero. Trato directo, sin compromiso.",
     url: "https://sglabsstudio.com",
     siteName: "SG Labs Studio",
     locale: "es_ES",
@@ -53,7 +53,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "SG Labs Studio | Desarrollo & Diseño Web",
     description:
-      "Sitios web rápidos, diseño premium y una experiencia pensada para convertir visitas en clientes.",
+      "Análisis gratis de tu web: qué está fallando y qué cambiar primero. Trato directo, sin compromiso.",
     images: ["/og.png"],
   },
 };

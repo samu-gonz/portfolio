@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ANALYSIS_CTA } from "../../data/agencyProcess";
 import { logoFont } from "../../lib/fonts";
 import TerminalIcon from "./TerminalIcon";
 import { UI } from "./uiTokens";
@@ -10,8 +11,8 @@ import { UI } from "./uiTokens";
 const NAV = [
   { id: "pilares", label: "Beneficios" },
   { id: "servicios", label: "Servicios" },
-  { id: "proceso", label: "Proceso" },
   { id: "proyectos", label: "Proyectos" },
+  { id: "estudio", label: "Estudio" },
 ];
 
 export default function SiteHeader() {
@@ -56,7 +57,7 @@ export default function SiteHeader() {
         <div className="flex items-center gap-2">
           <div className="hidden lg:block">
             <a href={hrefFor("empezar")} className={UI.ctaPrimary}>
-              Solicitar Análisis Gratuito
+              {ANALYSIS_CTA}
             </a>
           </div>
           <button
@@ -98,7 +99,7 @@ export default function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className={`${UI.ctaPrimary} w-full`}
               >
-                Solicitar Análisis Gratuito
+                {ANALYSIS_CTA}
               </a>
             </li>
           </ul>

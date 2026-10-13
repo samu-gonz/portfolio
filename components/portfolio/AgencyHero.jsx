@@ -1,7 +1,8 @@
+import { ANALYSIS_CTA } from "../../data/agencyProcess";
 import HeroSiteMockup from "./HeroSiteMockup";
 import { UI } from "./uiTokens";
 
-const TRUST_ITEMS = ["PYMEs y empresas", "Sin compromiso", "Trabajo remoto global"];
+const TRUST_ITEMS = ["Sin compromiso", "Respuesta en 24-48 h", "Sin llamada ni intermediarios"];
 
 export default function AgencyHero() {
   return (
@@ -15,30 +16,30 @@ export default function AgencyHero() {
         <div className="min-w-0 animate-fade-in-up">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-300">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse-soft" aria-hidden />
-            Estudio de Desarrollo &amp; Diseño Web
+            Para negocios locales y PYMEs
           </span>
 
           <h1
             id="agency-hero-title"
             className="mt-5 max-w-3xl text-balance text-[1.85rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-5xl xl:text-[3.35rem]"
           >
-            Diseñamos páginas web ultra rápidas que{" "}
+            Tu web puede traerte más clientes.{" "}
             <span className="bg-gradient-to-r from-violet-300 via-sky-300 to-emerald-300 bg-clip-text text-transparent">
-              convierten visitas en clientes.
+              Te digo cómo, gratis.
             </span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg">
-            Diseño y desarrollo web a medida para PYMEs y empresas. Aumenta tus llamadas, reservas y
-            ventas con una presencia digital profesional.
+            Si tienes un negocio y la web no te trae llamadas ni reservas, te preparo un análisis gratis:
+            qué está fallando y qué cambiar primero. Sin compromiso y sin pasar por una agencia.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a href="#empezar" className={`${UI.ctaPrimary} w-full sm:w-auto`}>
-              Solicitar Análisis Gratuito
+              {ANALYSIS_CTA}
             </a>
             <a href="#proyectos" className={`${UI.ctaSecondary} w-full sm:w-auto`}>
-              Ver Proyectos
+              Ver proyectos reales
             </a>
           </div>
 

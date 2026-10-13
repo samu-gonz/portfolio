@@ -1,4 +1,4 @@
-import { LIMITED_AVAILABILITY } from "../../data/agencyProcess";
+import { ANALYSIS_CTA, LIMITED_AVAILABILITY } from "../../data/agencyProcess";
 import { UI } from "./uiTokens";
 
 export default function FirstClientsOffer() {
@@ -15,7 +15,7 @@ export default function FirstClientsOffer() {
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">{description}</p>
             <a href="#empezar" className={`${UI.ctaPrimary} mt-7 w-full sm:w-auto`}>
-              Solicitar Análisis Gratuito
+              {ANALYSIS_CTA}
             </a>
           </div>
 

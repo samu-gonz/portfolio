@@ -1,10 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ANALYSIS_CTA } from "../../data/agencyProcess";
+import { COOKIE_CHOICE_EVENT, hasCookieDecision } from "./cookieChoice";
 import { UI } from "./uiTokens";
 
 export default function MobileStickyCta() {
   const [hide, setHide] = useState(true);
+  const [cookieOpen, setCookieOpen] = useState(true);
+
+  useEffect(() => {
+    const sync = () => setCookieOpen(!hasCookieDecision());
+    sync();
+    window.addEventListener(COOKIE_CHOICE_EVENT, sync);
+    return () => window.removeEventListener(COOKIE_CHOICE_EVENT, sync);
+  }, []);
 
   useEffect(() => {
     const hero = document.getElementById("inicio");
@@ -38,11 +48,11 @@ export default function MobileStickyCta() {
   return (
     <div
       className={`fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#05070f]/90 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md transition-transform duration-300 lg:hidden ${
-        hide ? "pointer-events-none translate-y-full" : "translate-y-0"
+        hide || cookieOpen ? "pointer-events-none translate-y-full" : "translate-y-0"
       }`}
     >
       <a href="#empezar" className={`${UI.ctaPrimary} w-full`}>
-        Solicitar Análisis Gratuito
+        {ANALYSIS_CTA}
       </a>
     </div>
   );

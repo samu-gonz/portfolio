@@ -42,6 +42,22 @@ export default function FinalCta() {
             >
               {PROFILE.email}
             </a>
+            , llamar al{" "}
+            <a
+              href={PROFILE.links.phone}
+              className="font-medium text-violet-200 underline-offset-4 hover:text-white hover:underline"
+            >
+              {PROFILE.phone}
+            </a>{" "}
+            o{" "}
+            <a
+              href={PROFILE.links.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-emerald-300 underline-offset-4 hover:text-white hover:underline"
+            >
+              escribir por WhatsApp
+            </a>
             .
           </p>
         </div>

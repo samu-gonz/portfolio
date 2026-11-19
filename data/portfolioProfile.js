@@ -1,4 +1,7 @@
 const STUDIO_EMAIL = "samuelg@sglabsstudio.com";
+const STUDIO_PHONE = "+34 634 473 640";
+const STUDIO_PHONE_E164 = "+34634473640";
+const WHATSAPP_MESSAGE = "Hola Samuel, quiero información sobre una web para mi negocio.";
 
 /**
  * Abre la redacción en Gmail en lugar del cliente de correo del sistema.
@@ -33,9 +36,13 @@ export const PROFILE = {
   location: "Canarias, España",
   cvUrl: "/cv",
   email: STUDIO_EMAIL,
+  phone: STUDIO_PHONE,
+  phoneE164: STUDIO_PHONE_E164,
   links: {
     github: "https://github.com/samu-gonz",
     email: gmailComposeUrl(),
+    phone: `tel:${STUDIO_PHONE_E164}`,
+    whatsapp: `https://wa.me/${STUDIO_PHONE_E164.replace("+", "")}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
   },
 };
 
@@ -84,6 +91,8 @@ export const TECH_SECTIONS = [
 
 export const SIDEBAR_CONTACT = {
   email: { href: PROFILE.links.email, label: PROFILE.email },
+  phone: { href: PROFILE.links.phone, label: PROFILE.phone },
+  whatsapp: { href: PROFILE.links.whatsapp, label: "Escríbenos por WhatsApp" },
 };
 
 export const PAGE_SECTIONS = {

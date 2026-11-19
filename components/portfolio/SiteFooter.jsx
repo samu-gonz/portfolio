@@ -23,6 +23,22 @@ export default function SiteFooter() {
           >
             {PROFILE.email}
           </a>
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+            <a
+              href={PROFILE.links.phone}
+              className="text-violet-200 underline-offset-4 transition hover:text-white hover:underline"
+            >
+              {PROFILE.phone}
+            </a>
+            <a
+              href={PROFILE.links.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-300 underline-offset-4 transition hover:text-white hover:underline"
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
 
         <nav aria-label="Información legal" className="flex flex-col gap-3 text-sm">

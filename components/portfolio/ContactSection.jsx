@@ -8,7 +8,7 @@ import { UI } from "./uiTokens";
  * @param {{ onRequestContact?: () => void }} props
  */
 export default function ContactSection({ onRequestContact }) {
-  const { email } = SIDEBAR_CONTACT;
+  const { email, phone, whatsapp } = SIDEBAR_CONTACT;
 
   return (
     <section id="contacto" aria-label={PORTFOLIO_UI.contactDirect} className={UI.contactPanel}>
@@ -31,6 +31,19 @@ export default function ContactSection({ onRequestContact }) {
         <EmailContactLink className={UI.contactLink}>
           <span>{email.label}</span>
         </EmailContactLink>
+
+        <a
+          href={whatsapp.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={UI.contactLink}
+        >
+          <span>{whatsapp.label}</span>
+        </a>
+
+        <a href={phone.href} className={UI.contactLink}>
+          <span>{phone.label}</span>
+        </a>
       </div>
     </section>
   );

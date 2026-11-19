@@ -81,10 +81,12 @@ export default function RootLayout({ children }) {
       "Reservas online",
       "Automatización para negocios",
     ],
+    telephone: "+34634473640",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
       email: "samuelg@sglabsstudio.com",
+      telephone: "+34634473640",
       availableLanguage: ["Spanish"],
     },
   };
